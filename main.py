@@ -11,6 +11,9 @@ from models.lenet import LeNet
 from models.alexnet import AlexNet
 import models.vgg as vgg
 import models.resnet as resnet
+import os
+import sys
+import getopt
 
 
 # use gpu
@@ -22,8 +25,8 @@ transform = transforms.Compose(
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 batch_size = 100
-trainset_path = '/home/djy/dataset/ndata100/train'
-testset_path = '/home/djy/dataset/ndata100/test'
+trainset_path = '/home/djy/dataset/dataset'
+testset_path = '/home/djy/dataset/dataset'
 
 # 训练图片
 # trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
@@ -58,8 +61,9 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 
 # 4. train
-epochs = 64
-max_accuracy, max_epoch = 0, 0
+epochs = 0
+max_accuracy, max_accuracy_epoch = 0, 0
+min_loss, min_loss_epoch = float('inf'), 0
 
 for epoch in range(epochs):  # loop over the dataset multiple times
 
@@ -111,12 +115,23 @@ for epoch in range(epochs):  # loop over the dataset multiple times
 
     print('Accuracy: %d %%' % (100 * correct / total))
     if ((100 * correct / total) > max_accuracy):
-        max_accuracy, max_epoch = (100 * correct / total), epoch
+        max_accuracy, max_accuracy_epoch = (100 * correct / total), epoch
+    if running_loss < min_loss:
+        min_loss, min_loss_epoch = min_loss, epoch
     for classname, correct_cnt in correct_pred.items():
         accuracy = 100 * float(correct_cnt) / total_pred[classname]
         print('Accurary for class {:5s} is: {:.1f} %'.format(
             classname, accuracy), end='\n')
 
-print('Finished Training, Max Accuracy %d %%' % (max_accuracy))
-SAVE_PATH = 'LeNet.pth'
+print('Finished training!!!', end='\n\n')
+print('Min loss = %.3f in epoch %d, max Accuracy = %.2f%% in epoch %d' %
+      (min_loss, min_loss_epoch, max_accuracy, max_accuracy_epoch), end='\n\n')
+print(net, end='\n\n')
+print(
+    f'batch_size = {batch_size}\nepochs = {epochs}\nloss_function = {criterion}\noptimizer = {optimizer}')
+
+# save model
+opts, _ = getopt.getopt(sys.argv[1:], "-d:")
+opt_dict = {k: v for [k, v] in opts}
+SAVE_PATH = os.path.join(opt_dict['-d'], 'model.pth')
 torch.save(net.state_dict(), SAVE_PATH)

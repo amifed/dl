@@ -1,0 +1,40 @@
+Train Model: LeNet, Using device cuda:0
+
+========== Train Epoch 1 ==========
+Loss: 1.642	Accuracy: 57 %
+Accurary for class bzx   is: 63.5 %
+Accurary for class cwx   is: 24.0 %
+Accurary for class hdx   is: 29.4 %
+Accurary for class mtx   is: 50.1 %
+Accurary for class nqx   is: 46.1 %
+Accurary for class nzx   is: 67.6 %
+Accurary for class qtx   is: 75.2 %
+Accurary for class sjx   is: 83.0 %
+Accurary for class zxx   is: 81.6 %
+
+========== Train Epoch 2 ==========
+Loss: 2.191	Accuracy: 29 %
+Accurary for class bzx   is: 49.9 %
+Accurary for class cwx   is: 32.2 %
+Accurary for class hdx   is: 17.6 %
+Accurary for class mtx   is: 6.4 %
+Accurary for class nqx   is: 27.3 %
+Accurary for class nzx   is: 6.8 %
+Accurary for class qtx   is: 32.4 %
+Accurary for class sjx   is: 66.3 %
+Accurary for class zxx   is: 33.3 %
+
+========== Train Epoch 3 ==========
+Loss: 1.682	Accuracy: 50 %
+Accurary for class bzx   is: 70.6 %
+Accurary for class cwx   is: 27.3 %
+Accurary for class hdx   is: 16.2 %
+Accurary for class mtx   is: 48.6 %
+Accurary for class nqx   is: 26.2 %
+Accurary for class nzx   is: 76.4 %
+Accurary for class qtx   is: 68.9 %
+Accurary for class sjx   is: 71.8 %
+Accurary for class zxx   is: 54.3 %
+
+========== Train Epoch 4 ==========
+Loss: 1.329	

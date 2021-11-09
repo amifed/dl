@@ -1,0 +1,1285 @@
+Train Model: LeNet, Using device cuda:0
+
+========== Train Epoch 1 ==========
+Loss: 1.912	Accuracy: 39 %
+Accurary for class bzx   is: 62.4 %
+Accurary for class cwx   is: 30.4 %
+Accurary for class hdx   is: 10.2 %
+Accurary for class mtx   is: 44.7 %
+Accurary for class nqx   is: 35.4 %
+Accurary for class nzx   is: 42.3 %
+Accurary for class qtx   is: 38.4 %
+Accurary for class sjx   is: 52.5 %
+Accurary for class zxx   is: 45.8 %
+
+========== Train Epoch 2 ==========
+Loss: 2.388	Accuracy: 10 %
+Accurary for class bzx   is: 20.4 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 0.0 %
+Accurary for class nzx   is: 87.6 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 1.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 3 ==========
+Loss: 2.193	Accuracy: 14 %
+Accurary for class bzx   is: 81.7 %
+Accurary for class cwx   is: 9.6 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 0.0 %
+Accurary for class nzx   is: 24.7 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 22.9 %
+
+========== Train Epoch 4 ==========
+Loss: 2.125	Accuracy: 19 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 5.1 %
+Accurary for class mtx   is: 81.6 %
+Accurary for class nqx   is: 0.0 %
+Accurary for class nzx   is: 30.9 %
+Accurary for class qtx   is: 23.2 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 36.4 %
+
+========== Train Epoch 5 ==========
+Loss: 2.010	Accuracy: 26 %
+Accurary for class bzx   is: 40.9 %
+Accurary for class cwx   is: 28.7 %
+Accurary for class hdx   is: 5.1 %
+Accurary for class mtx   is: 3.9 %
+Accurary for class nqx   is: 9.4 %
+Accurary for class nzx   is: 34.0 %
+Accurary for class qtx   is: 34.3 %
+Accurary for class sjx   is: 58.6 %
+Accurary for class zxx   is: 33.9 %
+
+========== Train Epoch 6 ==========
+Loss: 1.952	Accuracy: 29 %
+Accurary for class bzx   is: 50.5 %
+Accurary for class cwx   is: 19.1 %
+Accurary for class hdx   is: 17.8 %
+Accurary for class mtx   is: 4.9 %
+Accurary for class nqx   is: 8.7 %
+Accurary for class nzx   is: 41.2 %
+Accurary for class qtx   is: 34.3 %
+Accurary for class sjx   is: 53.5 %
+Accurary for class zxx   is: 42.4 %
+
+========== Train Epoch 7 ==========
+Loss: 1.789	Accuracy: 34 %
+Accurary for class bzx   is: 49.5 %
+Accurary for class cwx   is: 35.7 %
+Accurary for class hdx   is: 27.1 %
+Accurary for class mtx   is: 9.7 %
+Accurary for class nqx   is: 26.0 %
+Accurary for class nzx   is: 60.8 %
+Accurary for class qtx   is: 25.3 %
+Accurary for class sjx   is: 39.4 %
+Accurary for class zxx   is: 43.2 %
+
+========== Train Epoch 8 ==========
+Loss: 1.661	Accuracy: 37 %
+Accurary for class bzx   is: 37.6 %
+Accurary for class cwx   is: 4.3 %
+Accurary for class hdx   is: 44.9 %
+Accurary for class mtx   is: 47.6 %
+Accurary for class nqx   is: 18.1 %
+Accurary for class nzx   is: 64.9 %
+Accurary for class qtx   is: 35.4 %
+Accurary for class sjx   is: 58.6 %
+Accurary for class zxx   is: 35.6 %
+
+========== Train Epoch 9 ==========
+Loss: 1.491	Accuracy: 42 %
+Accurary for class bzx   is: 35.5 %
+Accurary for class cwx   is: 7.8 %
+Accurary for class hdx   is: 66.9 %
+Accurary for class mtx   is: 37.9 %
+Accurary for class nqx   is: 27.6 %
+Accurary for class nzx   is: 58.8 %
+Accurary for class qtx   is: 37.4 %
+Accurary for class sjx   is: 47.5 %
+Accurary for class zxx   is: 66.9 %
+
+========== Train Epoch 10 ==========
+Loss: 1.391	Accuracy: 46 %
+Accurary for class bzx   is: 52.7 %
+Accurary for class cwx   is: 35.7 %
+Accurary for class hdx   is: 44.1 %
+Accurary for class mtx   is: 23.3 %
+Accurary for class nqx   is: 26.8 %
+Accurary for class nzx   is: 68.0 %
+Accurary for class qtx   is: 49.5 %
+Accurary for class sjx   is: 73.7 %
+Accurary for class zxx   is: 51.7 %
+
+========== Train Epoch 11 ==========
+Loss: 1.231	Accuracy: 46 %
+Accurary for class bzx   is: 51.6 %
+Accurary for class cwx   is: 25.2 %
+Accurary for class hdx   is: 40.7 %
+Accurary for class mtx   is: 35.0 %
+Accurary for class nqx   is: 40.9 %
+Accurary for class nzx   is: 74.2 %
+Accurary for class qtx   is: 39.4 %
+Accurary for class sjx   is: 70.7 %
+Accurary for class zxx   is: 49.2 %
+
+========== Train Epoch 12 ==========
+Loss: 1.083	Accuracy: 55 %
+Accurary for class bzx   is: 68.8 %
+Accurary for class cwx   is: 14.8 %
+Accurary for class hdx   is: 57.6 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 39.4 %
+Accurary for class nzx   is: 76.3 %
+Accurary for class qtx   is: 54.5 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 58.5 %
+
+========== Train Epoch 13 ==========
+Loss: 0.900	Accuracy: 55 %
+Accurary for class bzx   is: 47.3 %
+Accurary for class cwx   is: 57.4 %
+Accurary for class hdx   is: 43.2 %
+Accurary for class mtx   is: 63.1 %
+Accurary for class nqx   is: 37.0 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 68.7 %
+Accurary for class sjx   is: 54.5 %
+Accurary for class zxx   is: 56.8 %
+
+========== Train Epoch 14 ==========
+Loss: 0.834	Accuracy: 59 %
+Accurary for class bzx   is: 55.9 %
+Accurary for class cwx   is: 48.7 %
+Accurary for class hdx   is: 44.1 %
+Accurary for class mtx   is: 47.6 %
+Accurary for class nqx   is: 73.2 %
+Accurary for class nzx   is: 66.0 %
+Accurary for class qtx   is: 60.6 %
+Accurary for class sjx   is: 68.7 %
+Accurary for class zxx   is: 66.1 %
+
+========== Train Epoch 15 ==========
+Loss: 0.704	Accuracy: 58 %
+Accurary for class bzx   is: 51.6 %
+Accurary for class cwx   is: 40.0 %
+Accurary for class hdx   is: 54.2 %
+Accurary for class mtx   is: 54.4 %
+Accurary for class nqx   is: 55.1 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 57.6 %
+Accurary for class sjx   is: 79.8 %
+Accurary for class zxx   is: 61.9 %
+
+========== Train Epoch 16 ==========
+Loss: 0.555	Accuracy: 61 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 67.8 %
+Accurary for class hdx   is: 39.0 %
+Accurary for class mtx   is: 59.2 %
+Accurary for class nqx   is: 53.5 %
+Accurary for class nzx   is: 75.3 %
+Accurary for class qtx   is: 65.7 %
+Accurary for class sjx   is: 69.7 %
+Accurary for class zxx   is: 60.2 %
+
+========== Train Epoch 17 ==========
+Loss: 0.507	Accuracy: 59 %
+Accurary for class bzx   is: 83.9 %
+Accurary for class cwx   is: 49.6 %
+Accurary for class hdx   is: 50.0 %
+Accurary for class mtx   is: 43.7 %
+Accurary for class nqx   is: 51.2 %
+Accurary for class nzx   is: 81.4 %
+Accurary for class qtx   is: 59.6 %
+Accurary for class sjx   is: 67.7 %
+Accurary for class zxx   is: 55.1 %
+
+========== Train Epoch 18 ==========
+Loss: 0.399	Accuracy: 62 %
+Accurary for class bzx   is: 62.4 %
+Accurary for class cwx   is: 45.2 %
+Accurary for class hdx   is: 48.3 %
+Accurary for class mtx   is: 57.3 %
+Accurary for class nqx   is: 65.4 %
+Accurary for class nzx   is: 80.4 %
+Accurary for class qtx   is: 63.6 %
+Accurary for class sjx   is: 63.6 %
+Accurary for class zxx   is: 74.6 %
+
+========== Train Epoch 19 ==========
+Loss: 0.325	Accuracy: 60 %
+Accurary for class bzx   is: 67.7 %
+Accurary for class cwx   is: 48.7 %
+Accurary for class hdx   is: 39.0 %
+Accurary for class mtx   is: 59.2 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 71.1 %
+Accurary for class qtx   is: 75.8 %
+Accurary for class sjx   is: 70.7 %
+Accurary for class zxx   is: 48.3 %
+
+========== Train Epoch 20 ==========
+Loss: 0.361	Accuracy: 65 %
+Accurary for class bzx   is: 60.2 %
+Accurary for class cwx   is: 57.4 %
+Accurary for class hdx   is: 58.5 %
+Accurary for class mtx   is: 56.3 %
+Accurary for class nqx   is: 70.9 %
+Accurary for class nzx   is: 78.4 %
+Accurary for class qtx   is: 63.6 %
+Accurary for class sjx   is: 64.6 %
+Accurary for class zxx   is: 78.8 %
+
+========== Train Epoch 21 ==========
+Loss: 0.240	Accuracy: 65 %
+Accurary for class bzx   is: 61.3 %
+Accurary for class cwx   is: 52.2 %
+Accurary for class hdx   is: 62.7 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 58.3 %
+Accurary for class nzx   is: 80.4 %
+Accurary for class qtx   is: 68.7 %
+Accurary for class sjx   is: 60.6 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 22 ==========
+Loss: 0.146	Accuracy: 65 %
+Accurary for class bzx   is: 74.2 %
+Accurary for class cwx   is: 53.9 %
+Accurary for class hdx   is: 55.9 %
+Accurary for class mtx   is: 68.0 %
+Accurary for class nqx   is: 55.1 %
+Accurary for class nzx   is: 80.4 %
+Accurary for class qtx   is: 70.7 %
+Accurary for class sjx   is: 66.7 %
+Accurary for class zxx   is: 73.7 %
+
+========== Train Epoch 23 ==========
+Loss: 0.093	Accuracy: 68 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 70.4 %
+Accurary for class hdx   is: 55.1 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 54.3 %
+Accurary for class nzx   is: 81.4 %
+Accurary for class qtx   is: 75.8 %
+Accurary for class sjx   is: 66.7 %
+Accurary for class zxx   is: 78.0 %
+
+========== Train Epoch 24 ==========
+Loss: 0.112	Accuracy: 68 %
+Accurary for class bzx   is: 68.8 %
+Accurary for class cwx   is: 47.0 %
+Accurary for class hdx   is: 65.3 %
+Accurary for class mtx   is: 62.1 %
+Accurary for class nqx   is: 67.7 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 75.8 %
+Accurary for class sjx   is: 67.7 %
+Accurary for class zxx   is: 81.4 %
+
+========== Train Epoch 25 ==========
+Loss: 0.115	Accuracy: 67 %
+Accurary for class bzx   is: 67.7 %
+Accurary for class cwx   is: 58.3 %
+Accurary for class hdx   is: 40.7 %
+Accurary for class mtx   is: 76.7 %
+Accurary for class nqx   is: 68.5 %
+Accurary for class nzx   is: 78.4 %
+Accurary for class qtx   is: 76.8 %
+Accurary for class sjx   is: 69.7 %
+Accurary for class zxx   is: 74.6 %
+
+========== Train Epoch 26 ==========
+Loss: 0.166	Accuracy: 66 %
+Accurary for class bzx   is: 75.3 %
+Accurary for class cwx   is: 56.5 %
+Accurary for class hdx   is: 43.2 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 71.7 %
+Accurary for class nzx   is: 70.1 %
+Accurary for class qtx   is: 74.7 %
+Accurary for class sjx   is: 62.6 %
+Accurary for class zxx   is: 81.4 %
+
+========== Train Epoch 27 ==========
+Loss: 0.129	Accuracy: 66 %
+Accurary for class bzx   is: 67.7 %
+Accurary for class cwx   is: 57.4 %
+Accurary for class hdx   is: 54.2 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 61.4 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 69.7 %
+Accurary for class sjx   is: 68.7 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 28 ==========
+Loss: 0.077	Accuracy: 69 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 56.5 %
+Accurary for class hdx   is: 63.6 %
+Accurary for class mtx   is: 62.1 %
+Accurary for class nqx   is: 73.2 %
+Accurary for class nzx   is: 77.3 %
+Accurary for class qtx   is: 76.8 %
+Accurary for class sjx   is: 75.8 %
+Accurary for class zxx   is: 67.8 %
+
+========== Train Epoch 29 ==========
+Loss: 0.073	Accuracy: 67 %
+Accurary for class bzx   is: 68.8 %
+Accurary for class cwx   is: 54.8 %
+Accurary for class hdx   is: 56.8 %
+Accurary for class mtx   is: 67.0 %
+Accurary for class nqx   is: 58.3 %
+Accurary for class nzx   is: 83.5 %
+Accurary for class qtx   is: 78.8 %
+Accurary for class sjx   is: 68.7 %
+Accurary for class zxx   is: 75.4 %
+
+========== Train Epoch 30 ==========
+Loss: 0.109	Accuracy: 67 %
+Accurary for class bzx   is: 66.7 %
+Accurary for class cwx   is: 47.8 %
+Accurary for class hdx   is: 59.3 %
+Accurary for class mtx   is: 67.0 %
+Accurary for class nqx   is: 74.8 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 59.6 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 31 ==========
+Loss: 0.093	Accuracy: 68 %
+Accurary for class bzx   is: 60.2 %
+Accurary for class cwx   is: 57.4 %
+Accurary for class hdx   is: 67.8 %
+Accurary for class mtx   is: 64.1 %
+Accurary for class nqx   is: 63.0 %
+Accurary for class nzx   is: 75.3 %
+Accurary for class qtx   is: 75.8 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 77.1 %
+
+========== Train Epoch 32 ==========
+Loss: 0.063	Accuracy: 69 %
+Accurary for class bzx   is: 68.8 %
+Accurary for class cwx   is: 52.2 %
+Accurary for class hdx   is: 63.6 %
+Accurary for class mtx   is: 63.1 %
+Accurary for class nqx   is: 73.2 %
+Accurary for class nzx   is: 77.3 %
+Accurary for class qtx   is: 71.7 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 79.7 %
+
+========== Train Epoch 33 ==========
+Loss: 0.060	Accuracy: 70 %
+Accurary for class bzx   is: 65.6 %
+Accurary for class cwx   is: 59.1 %
+Accurary for class hdx   is: 64.4 %
+Accurary for class mtx   is: 74.8 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 76.3 %
+Accurary for class qtx   is: 70.7 %
+Accurary for class sjx   is: 79.8 %
+Accurary for class zxx   is: 74.6 %
+
+========== Train Epoch 34 ==========
+Loss: 0.067	Accuracy: 69 %
+Accurary for class bzx   is: 73.1 %
+Accurary for class cwx   is: 65.2 %
+Accurary for class hdx   is: 57.6 %
+Accurary for class mtx   is: 69.9 %
+Accurary for class nqx   is: 63.8 %
+Accurary for class nzx   is: 77.3 %
+Accurary for class qtx   is: 72.7 %
+Accurary for class sjx   is: 64.6 %
+Accurary for class zxx   is: 79.7 %
+
+========== Train Epoch 35 ==========
+Loss: 0.076	Accuracy: 66 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 45.2 %
+Accurary for class hdx   is: 52.5 %
+Accurary for class mtx   is: 56.3 %
+Accurary for class nqx   is: 62.2 %
+Accurary for class nzx   is: 76.3 %
+Accurary for class qtx   is: 77.8 %
+Accurary for class sjx   is: 79.8 %
+Accurary for class zxx   is: 83.9 %
+
+========== Train Epoch 36 ==========
+Loss: 0.083	Accuracy: 66 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 62.6 %
+Accurary for class hdx   is: 56.8 %
+Accurary for class mtx   is: 58.3 %
+Accurary for class nqx   is: 63.8 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 67.7 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 65.3 %
+
+========== Train Epoch 37 ==========
+Loss: 0.083	Accuracy: 67 %
+Accurary for class bzx   is: 65.6 %
+Accurary for class cwx   is: 56.5 %
+Accurary for class hdx   is: 62.7 %
+Accurary for class mtx   is: 69.9 %
+Accurary for class nqx   is: 63.0 %
+Accurary for class nzx   is: 75.3 %
+Accurary for class qtx   is: 69.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 74.6 %
+
+========== Train Epoch 38 ==========
+Loss: 0.083	Accuracy: 65 %
+Accurary for class bzx   is: 48.4 %
+Accurary for class cwx   is: 58.3 %
+Accurary for class hdx   is: 55.9 %
+Accurary for class mtx   is: 76.7 %
+Accurary for class nqx   is: 62.2 %
+Accurary for class nzx   is: 74.2 %
+Accurary for class qtx   is: 66.7 %
+Accurary for class sjx   is: 67.7 %
+Accurary for class zxx   is: 81.4 %
+
+========== Train Epoch 39 ==========
+Loss: 0.090	Accuracy: 68 %
+Accurary for class bzx   is: 57.0 %
+Accurary for class cwx   is: 64.3 %
+Accurary for class hdx   is: 65.3 %
+Accurary for class mtx   is: 59.2 %
+Accurary for class nqx   is: 63.0 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 71.7 %
+Accurary for class sjx   is: 77.8 %
+Accurary for class zxx   is: 78.0 %
+
+========== Train Epoch 40 ==========
+Loss: 0.089	Accuracy: 69 %
+Accurary for class bzx   is: 74.2 %
+Accurary for class cwx   is: 50.4 %
+Accurary for class hdx   is: 57.6 %
+Accurary for class mtx   is: 77.7 %
+Accurary for class nqx   is: 65.4 %
+Accurary for class nzx   is: 77.3 %
+Accurary for class qtx   is: 77.8 %
+Accurary for class sjx   is: 67.7 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 41 ==========
+Loss: 0.035	Accuracy: 69 %
+Accurary for class bzx   is: 69.9 %
+Accurary for class cwx   is: 57.4 %
+Accurary for class hdx   is: 65.3 %
+Accurary for class mtx   is: 64.1 %
+Accurary for class nqx   is: 65.4 %
+Accurary for class nzx   is: 83.5 %
+Accurary for class qtx   is: 74.7 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 75.4 %
+
+========== Train Epoch 42 ==========
+Loss: 0.025	Accuracy: 69 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 50.4 %
+Accurary for class hdx   is: 60.2 %
+Accurary for class mtx   is: 70.9 %
+Accurary for class nqx   is: 66.1 %
+Accurary for class nzx   is: 78.4 %
+Accurary for class qtx   is: 77.8 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 75.4 %
+
+========== Train Epoch 43 ==========
+Loss: 0.036	Accuracy: 67 %
+Accurary for class bzx   is: 78.5 %
+Accurary for class cwx   is: 61.7 %
+Accurary for class hdx   is: 54.2 %
+Accurary for class mtx   is: 61.2 %
+Accurary for class nqx   is: 68.5 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 73.7 %
+Accurary for class sjx   is: 64.6 %
+Accurary for class zxx   is: 67.8 %
+
+========== Train Epoch 44 ==========
+Loss: 0.040	Accuracy: 67 %
+Accurary for class bzx   is: 76.3 %
+Accurary for class cwx   is: 41.7 %
+Accurary for class hdx   is: 55.9 %
+Accurary for class mtx   is: 62.1 %
+Accurary for class nqx   is: 70.9 %
+Accurary for class nzx   is: 82.5 %
+Accurary for class qtx   is: 70.7 %
+Accurary for class sjx   is: 75.8 %
+Accurary for class zxx   is: 77.1 %
+
+========== Train Epoch 45 ==========
+Loss: 0.062	Accuracy: 66 %
+Accurary for class bzx   is: 64.5 %
+Accurary for class cwx   is: 41.7 %
+Accurary for class hdx   is: 66.1 %
+Accurary for class mtx   is: 60.2 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 63.6 %
+Accurary for class sjx   is: 68.7 %
+Accurary for class zxx   is: 83.9 %
+
+========== Train Epoch 46 ==========
+Loss: 0.058	Accuracy: 68 %
+Accurary for class bzx   is: 72.0 %
+Accurary for class cwx   is: 55.7 %
+Accurary for class hdx   is: 60.2 %
+Accurary for class mtx   is: 64.1 %
+Accurary for class nqx   is: 70.1 %
+Accurary for class nzx   is: 74.2 %
+Accurary for class qtx   is: 70.7 %
+Accurary for class sjx   is: 71.7 %
+Accurary for class zxx   is: 78.8 %
+
+========== Train Epoch 47 ==========
+Loss: 0.038	Accuracy: 69 %
+Accurary for class bzx   is: 62.4 %
+Accurary for class cwx   is: 58.3 %
+Accurary for class hdx   is: 55.9 %
+Accurary for class mtx   is: 71.8 %
+Accurary for class nqx   is: 63.8 %
+Accurary for class nzx   is: 86.6 %
+Accurary for class qtx   is: 69.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 85.6 %
+
+========== Train Epoch 48 ==========
+Loss: 0.067	Accuracy: 68 %
+Accurary for class bzx   is: 79.6 %
+Accurary for class cwx   is: 59.1 %
+Accurary for class hdx   is: 56.8 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 61.4 %
+Accurary for class nzx   is: 80.4 %
+Accurary for class qtx   is: 67.7 %
+Accurary for class sjx   is: 69.7 %
+Accurary for class zxx   is: 77.1 %
+
+========== Train Epoch 49 ==========
+Loss: 0.050	Accuracy: 67 %
+Accurary for class bzx   is: 53.8 %
+Accurary for class cwx   is: 60.9 %
+Accurary for class hdx   is: 62.7 %
+Accurary for class mtx   is: 62.1 %
+Accurary for class nqx   is: 66.9 %
+Accurary for class nzx   is: 78.4 %
+Accurary for class qtx   is: 66.7 %
+Accurary for class sjx   is: 65.7 %
+Accurary for class zxx   is: 86.4 %
+
+========== Train Epoch 50 ==========
+Loss: 0.067	Accuracy: 67 %
+Accurary for class bzx   is: 66.7 %
+Accurary for class cwx   is: 64.3 %
+Accurary for class hdx   is: 53.4 %
+Accurary for class mtx   is: 68.0 %
+Accurary for class nqx   is: 66.9 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 78.8 %
+Accurary for class sjx   is: 63.6 %
+Accurary for class zxx   is: 72.0 %
+
+========== Train Epoch 51 ==========
+Loss: 0.033	Accuracy: 68 %
+Accurary for class bzx   is: 66.7 %
+Accurary for class cwx   is: 58.3 %
+Accurary for class hdx   is: 67.8 %
+Accurary for class mtx   is: 62.1 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 83.5 %
+Accurary for class qtx   is: 62.6 %
+Accurary for class sjx   is: 71.7 %
+Accurary for class zxx   is: 72.0 %
+
+========== Train Epoch 52 ==========
+Loss: 0.040	Accuracy: 70 %
+Accurary for class bzx   is: 68.8 %
+Accurary for class cwx   is: 65.2 %
+Accurary for class hdx   is: 61.0 %
+Accurary for class mtx   is: 71.8 %
+Accurary for class nqx   is: 66.9 %
+Accurary for class nzx   is: 82.5 %
+Accurary for class qtx   is: 64.6 %
+Accurary for class sjx   is: 73.7 %
+Accurary for class zxx   is: 83.1 %
+
+========== Train Epoch 53 ==========
+Loss: 0.036	Accuracy: 70 %
+Accurary for class bzx   is: 74.2 %
+Accurary for class cwx   is: 60.9 %
+Accurary for class hdx   is: 62.7 %
+Accurary for class mtx   is: 63.1 %
+Accurary for class nqx   is: 75.6 %
+Accurary for class nzx   is: 86.6 %
+Accurary for class qtx   is: 67.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 76.3 %
+
+========== Train Epoch 54 ==========
+Loss: 0.032	Accuracy: 69 %
+Accurary for class bzx   is: 58.1 %
+Accurary for class cwx   is: 60.9 %
+Accurary for class hdx   is: 68.6 %
+Accurary for class mtx   is: 77.7 %
+Accurary for class nqx   is: 66.1 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 69.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 66.9 %
+
+========== Train Epoch 55 ==========
+Loss: 0.029	Accuracy: 70 %
+Accurary for class bzx   is: 69.9 %
+Accurary for class cwx   is: 55.7 %
+Accurary for class hdx   is: 66.1 %
+Accurary for class mtx   is: 64.1 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 88.7 %
+Accurary for class qtx   is: 70.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 76.3 %
+
+========== Train Epoch 56 ==========
+Loss: 0.039	Accuracy: 70 %
+Accurary for class bzx   is: 69.9 %
+Accurary for class cwx   is: 52.2 %
+Accurary for class hdx   is: 58.5 %
+Accurary for class mtx   is: 77.7 %
+Accurary for class nqx   is: 67.7 %
+Accurary for class nzx   is: 84.5 %
+Accurary for class qtx   is: 71.7 %
+Accurary for class sjx   is: 74.7 %
+Accurary for class zxx   is: 79.7 %
+
+========== Train Epoch 57 ==========
+Loss: 0.044	Accuracy: 68 %
+Accurary for class bzx   is: 65.6 %
+Accurary for class cwx   is: 53.0 %
+Accurary for class hdx   is: 61.9 %
+Accurary for class mtx   is: 65.0 %
+Accurary for class nqx   is: 64.6 %
+Accurary for class nzx   is: 82.5 %
+Accurary for class qtx   is: 71.7 %
+Accurary for class sjx   is: 71.7 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 58 ==========
+Loss: 0.034	Accuracy: 68 %
+Accurary for class bzx   is: 66.7 %
+Accurary for class cwx   is: 50.4 %
+Accurary for class hdx   is: 67.8 %
+Accurary for class mtx   is: 69.9 %
+Accurary for class nqx   is: 59.8 %
+Accurary for class nzx   is: 78.4 %
+Accurary for class qtx   is: 73.7 %
+Accurary for class sjx   is: 73.7 %
+Accurary for class zxx   is: 76.3 %
+
+========== Train Epoch 59 ==========
+Loss: 0.021	Accuracy: 68 %
+Accurary for class bzx   is: 65.6 %
+Accurary for class cwx   is: 53.0 %
+Accurary for class hdx   is: 59.3 %
+Accurary for class mtx   is: 71.8 %
+Accurary for class nqx   is: 65.4 %
+Accurary for class nzx   is: 82.5 %
+Accurary for class qtx   is: 73.7 %
+Accurary for class sjx   is: 72.7 %
+Accurary for class zxx   is: 78.8 %
+
+========== Train Epoch 60 ==========
+Loss: 0.013	Accuracy: 69 %
+Accurary for class bzx   is: 63.4 %
+Accurary for class cwx   is: 49.6 %
+Accurary for class hdx   is: 60.2 %
+Accurary for class mtx   is: 71.8 %
+Accurary for class nqx   is: 69.3 %
+Accurary for class nzx   is: 79.4 %
+Accurary for class qtx   is: 78.8 %
+Accurary for class sjx   is: 70.7 %
+Accurary for class zxx   is: 80.5 %
+
+========== Train Epoch 61 ==========
+Loss: 0.010	Accuracy: 69 %
+Accurary for class bzx   is: 66.7 %
+Accurary for class cwx   is: 61.7 %
+Accurary for class hdx   is: 66.1 %
+Accurary for class mtx   is: 69.9 %
+Accurary for class nqx   is: 61.4 %
+Accurary for class nzx   is: 82.5 %
+Accurary for class qtx   is: 76.8 %
+Accurary for class sjx   is: 70.7 %
+Accurary for class zxx   is: 76.3 %
+
+========== Train Epoch 62 ==========
+Loss: 0.023	Accuracy: 65 %
+Accurary for class bzx   is: 54.8 %
+Accurary for class cwx   is: 49.6 %
+Accurary for class hdx   is: 71.2 %
+Accurary for class mtx   is: 68.9 %
+Accurary for class nqx   is: 61.4 %
+Accurary for class nzx   is: 80.4 %
+Accurary for class qtx   is: 81.8 %
+Accurary for class sjx   is: 64.6 %
+Accurary for class zxx   is: 59.3 %
+
+========== Train Epoch 63 ==========
+Loss: 0.040	Accuracy: 67 %
+Accurary for class bzx   is: 67.7 %
+Accurary for class cwx   is: 61.7 %
+Accurary for class hdx   is: 55.9 %
+Accurary for class mtx   is: 69.9 %
+Accurary for class nqx   is: 60.6 %
+Accurary for class nzx   is: 85.6 %
+Accurary for class qtx   is: 63.6 %
+Accurary for class sjx   is: 73.7 %
+Accurary for class zxx   is: 72.0 %
+
+========== Train Epoch 64 ==========
+Loss: 0.056	Accuracy: 65 %
+Accurary for class bzx   is: 71.0 %
+Accurary for class cwx   is: 53.9 %
+Accurary for class hdx   is: 55.1 %
+Accurary for class mtx   is: 52.4 %
+Accurary for class nqx   is: 66.1 %
+Accurary for class nzx   is: 86.6 %
+Accurary for class qtx   is: 68.7 %
+Accurary for class sjx   is: 70.7 %
+Accurary for class zxx   is: 72.0 %
+Finished training!!!
+
+Min loss = 0.392 in epoch 60, max Accuracy = 70.90% in epoch 52
+
+DenseNet(
+  (features): Sequential(
+    (conv0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (norm0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu0): ReLU(inplace=True)
+    (pool0): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (denseblock1): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(96, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(192, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(224, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition1): _Transition(
+      (norm): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock2): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(192, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(224, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(288, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(352, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(352, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(416, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(416, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(448, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(480, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(480, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition2): _Transition(
+      (norm): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock3): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(288, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(352, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(352, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(416, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(416, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(448, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(480, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(480, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(544, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(544, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(576, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(608, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(608, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer13): _DenseLayer(
+        (norm1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer14): _DenseLayer(
+        (norm1): BatchNorm2d(672, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(672, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer15): _DenseLayer(
+        (norm1): BatchNorm2d(704, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(704, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer16): _DenseLayer(
+        (norm1): BatchNorm2d(736, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(736, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer17): _DenseLayer(
+        (norm1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer18): _DenseLayer(
+        (norm1): BatchNorm2d(800, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(800, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer19): _DenseLayer(
+        (norm1): BatchNorm2d(832, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer20): _DenseLayer(
+        (norm1): BatchNorm2d(864, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(864, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer21): _DenseLayer(
+        (norm1): BatchNorm2d(896, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(896, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer22): _DenseLayer(
+        (norm1): BatchNorm2d(928, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(928, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer23): _DenseLayer(
+        (norm1): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer24): _DenseLayer(
+        (norm1): BatchNorm2d(992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(992, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition3): _Transition(
+      (norm): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock4): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(544, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(544, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(576, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(608, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(608, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(672, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(672, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(704, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(704, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(736, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(736, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(800, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(800, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(832, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(864, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(864, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer13): _DenseLayer(
+        (norm1): BatchNorm2d(896, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(896, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer14): _DenseLayer(
+        (norm1): BatchNorm2d(928, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(928, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer15): _DenseLayer(
+        (norm1): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer16): _DenseLayer(
+        (norm1): BatchNorm2d(992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(992, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (norm5): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (classifier): Linear(in_features=1024, out_features=9, bias=True)
+)
+
+batch_size = 100
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.001
+    weight_decay: 0
+)

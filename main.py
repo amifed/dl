@@ -9,8 +9,9 @@ import torchvision.transforms as transforms
 import torch.optim as optim
 from models.lenet import LeNet
 from models.alexnet import AlexNet
-import models.vgg as vgg
 import models.resnet as resnet
+import models.vgg as vgg
+import models.densenet as densenet
 import os
 import sys
 import getopt
@@ -21,7 +22,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # 1. load & normalize
 transform = transforms.Compose(
-    [transforms.Resize((32, 32)), transforms.ToTensor(),
+    [transforms.Resize((64, 64)), transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 batch_size = 100
@@ -33,14 +34,24 @@ testset_path = '/home/djy/dataset/dataset'
 #                                         download=False, transform=transform)
 trainset = torchvision.datasets.ImageFolder(
     root=trainset_path, transform=transform)
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
-                                          shuffle=True, num_workers=2)
-
 # 测试图片
 # testset = torchvision.datasets.CIFAR10(root='./data', train=False,
 #                                        download=False, transform=transform)
 testset = torchvision.datasets.ImageFolder(
     root=testset_path, transform=transform)
+
+
+dataset_path = '/home/djy/dataset/uni_dataset'
+dataset = torchvision.datasets.ImageFolder(
+    root=dataset_path, transform=transform)
+full_size = len(dataset)
+train_size = int(0.8 * full_size)
+test_size = full_size - train_size
+trainset, testset = torch.utils.data.random_split(
+    dataset, [train_size, test_size])
+
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=2)
 testloader = torch.utils.data.DataLoader(testset, batch_size=100,
                                          shuffle=False, num_workers=2)
 # test_dataiter = iter(testloader)
@@ -48,20 +59,20 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=100,
 
 # classes = ('plane', 'car', 'bird', 'cat',
 #            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'nzx', 'qtx', 'sjx', 'zxx')
 
 # 2. define a CNN
-net = resnet.resnet18(num_classes=len(classes))
+net = densenet.densenet161(num_classes=len(classes))
 net.to(device)
-print(f'Train Model: LeNet, Using device {device}')
-
+print(f'Train Model: {net.__class__.__name__}, Using device {device}')
 
 # 3. define a loss function & optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 
 # 4. train
-epochs = 0
+epochs = 64
 max_accuracy, max_accuracy_epoch = 0, 0
 min_loss, min_loss_epoch = float('inf'), 0
 
@@ -117,7 +128,7 @@ for epoch in range(epochs):  # loop over the dataset multiple times
     if ((100 * correct / total) > max_accuracy):
         max_accuracy, max_accuracy_epoch = (100 * correct / total), epoch
     if running_loss < min_loss:
-        min_loss, min_loss_epoch = min_loss, epoch
+        min_loss, min_loss_epoch = running_loss, epoch
     for classname, correct_cnt in correct_pred.items():
         accuracy = 100 * float(correct_cnt) / total_pred[classname]
         print('Accurary for class {:5s} is: {:.1f} %'.format(

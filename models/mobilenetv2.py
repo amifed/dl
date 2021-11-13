@@ -5,8 +5,8 @@ import torch
 from torch import Tensor
 from torch import nn
 
-from ...ops.misc import ConvNormActivation
-from .._utils import _make_divisible
+from .ops.misc import ConvNormActivation
+from ._utils import _make_divisible
 
 
 __all__ = ["MobileNetV2", "mobilenet_v2"]

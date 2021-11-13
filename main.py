@@ -12,13 +12,12 @@ from models.alexnet import AlexNet
 import models.resnet as resnet
 import models.vgg as vgg
 import models.densenet as densenet
+import models.mobilenet as mobilenet
 import os
 import sys
 import getopt
-
-
-# use gpu
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+import util
+from util import device
 
 # 1. load & normalize
 transform = transforms.Compose(
@@ -26,19 +25,19 @@ transform = transforms.Compose(
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 batch_size = 100
-trainset_path = '/home/djy/dataset/dataset'
-testset_path = '/home/djy/dataset/dataset'
+# trainset_path = '/home/djy/dataset/dataset'
+# testset_path = '/home/djy/dataset/dataset'
 
 # 训练图片
 # trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
 #                                         download=False, transform=transform)
-trainset = torchvision.datasets.ImageFolder(
-    root=trainset_path, transform=transform)
+# trainset = torchvision.datasets.ImageFolder(
+# root = trainset_path, transform = transform)
 # 测试图片
 # testset = torchvision.datasets.CIFAR10(root='./data', train=False,
 #                                        download=False, transform=transform)
-testset = torchvision.datasets.ImageFolder(
-    root=testset_path, transform=transform)
+# testset = torchvision.datasets.ImageFolder(
+# root=testset_path, transform=transform)
 
 
 dataset_path = '/home/djy/dataset/uni_dataset'
@@ -48,7 +47,7 @@ full_size = len(dataset)
 train_size = int(0.8 * full_size)
 test_size = full_size - train_size
 trainset, testset = torch.utils.data.random_split(
-    dataset, [train_size, test_size])
+    dataset, [train_size, test_size], generator=torch.Generator.manual_seed(0))
 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                           shuffle=True, num_workers=2)
@@ -63,7 +62,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=100,
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'nzx', 'qtx', 'sjx', 'zxx')
 
 # 2. define a CNN
-net = densenet.densenet161(num_classes=len(classes))
+net = mobilenet.mobilenet_v3_large(num_classes=len(classes))
 net.to(device)
 print(f'Train Model: {net.__class__.__name__}, Using device {device}')
 

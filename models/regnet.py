@@ -11,7 +11,7 @@ from typing import Any, Callable, List, Optional, Tuple
 import torch
 from torch import nn, Tensor
 
-from ..ops.misc import ConvNormActivation, SqueezeExcitation
+from .ops.misc import ConvNormActivation, SqueezeExcitation
 from ._utils import _make_divisible
 
 

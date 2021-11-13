@@ -1,0 +1,496 @@
+Train Model: MobileNetV2, Using device cuda:0
+
+========== Train Epoch 1 ==========
+Loss: 2.243	Accuracy: 12 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 100.0 %
+Accurary for class nqx   is: 0.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 2 ==========
+Loss: 2.216	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 3 ==========
+Loss: 2.200	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 4 ==========
+Loss: 2.198	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 5 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 6 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 7 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 8 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 9 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 10 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 11 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 12 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 13 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 14 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 15 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 16 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 17 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 18 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 19 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 20 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 21 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 22 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 23 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 24 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 25 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 26 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 27 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 28 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 29 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 30 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 31 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 32 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 33 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 34 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 35 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 36 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 37 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 38 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 39 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 40 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 41 ==========
+Loss: 2.197	Accuracy: 9 %
+Accurary for class bzx   is: 0.0 %
+Accurary for class cwx   is: 0.0 %
+Accurary for class hdx   is: 0.0 %
+Accurary for class mtx   is: 0.0 %
+Accurary for class nqx   is: 100.0 %
+Accurary for class nzx   is: 0.0 %
+Accurary for class qtx   is: 0.0 %
+Accurary for class sjx   is: 0.0 %
+Accurary for class zxx   is: 0.0 %
+
+========== Train Epoch 42 ==========
+Loss: 2.197	

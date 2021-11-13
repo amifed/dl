@@ -5,7 +5,7 @@ from typing import Any, Callable, List, Optional, Sequence
 import torch
 from torch import nn, Tensor
 
-from ..ops.misc import ConvNormActivation, SqueezeExcitation as SElayer
+from .ops.misc import ConvNormActivation, SqueezeExcitation as SElayer
 from ._utils import _make_divisible
 
 

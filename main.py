@@ -17,7 +17,7 @@ import os
 import sys
 import getopt
 import util
-from util import device
+from util.device import device
 
 # 1. load & normalize
 transform = transforms.Compose(
@@ -47,11 +47,11 @@ full_size = len(dataset)
 train_size = int(0.8 * full_size)
 test_size = full_size - train_size
 trainset, testset = torch.utils.data.random_split(
-    dataset, [train_size, test_size], generator=torch.Generator.manual_seed(0))
+    dataset, [train_size, test_size], generator=torch.Generator().manual_seed(0))
 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                           shuffle=True, num_workers=2)
-testloader = torch.utils.data.DataLoader(testset, batch_size=100,
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                          shuffle=False, num_workers=2)
 # test_dataiter = iter(testloader)
 # test_image, test_label = test_dataiter.next()
@@ -62,7 +62,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=100,
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'nzx', 'qtx', 'sjx', 'zxx')
 
 # 2. define a CNN
-net = mobilenet.mobilenet_v3_large(num_classes=len(classes))
+net = resnet.resnet50(num_classes=len(classes))
 net.to(device)
 print(f'Train Model: {net.__class__.__name__}, Using device {device}')
 
@@ -124,13 +124,13 @@ for epoch in range(epochs):  # loop over the dataset multiple times
                 total_pred[classes[label]] += 1
 
     print('Accuracy: %d %%' % (100 * correct / total))
-    if ((100 * correct / total) > max_accuracy):
+    if (100 * correct / total) > max_accuracy:
         max_accuracy, max_accuracy_epoch = (100 * correct / total), epoch
     if running_loss < min_loss:
         min_loss, min_loss_epoch = running_loss, epoch
     for classname, correct_cnt in correct_pred.items():
         accuracy = 100 * float(correct_cnt) / total_pred[classname]
-        print('Accurary for class {:5s} is: {:.1f} %'.format(
+        print('Accuracy for class {:5s} is: {:.1f} %'.format(
             classname, accuracy), end='\n')
 
 print('Finished training!!!', end='\n\n')

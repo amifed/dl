@@ -2,22 +2,20 @@ import matplotlib.pyplot as plt
 from torchvision import transforms
 from PIL import Image
 import torch
-import cv2
-import numpy as np
-import torchvision
-from util.device import device
+# from util.device import device
 
 # model = torch.hub.load('pytorch/vision:v0.10.0',
 #                        'fcn_resnet50', pretrained=True)
 # or
 model = torch.hub.load('pytorch/vision:v0.10.0',
-                       'fcn_resnet101', pretrained=True, skip_validation=True)
-model.to(device)
+                       'fcn_resnet101', pretrained=True)
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+model.to("cpu")
 model.eval()
-input_image = Image.open('/home/djy/dl/data/image.jpg')
+input_image = Image.open('/home/djy/dl/data/images/odbzx1.jpg')
 # input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
-    transforms.Resize((1024, 1024)),
+    transforms.Resize((256, 256)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                          std=[0.229, 0.224, 0.225]),

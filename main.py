@@ -13,18 +13,25 @@ import models.resnet as resnet
 import models.vgg as vgg
 import models.densenet as densenet
 import models.mobilenet as mobilenet
+import models.ghostnet as ghostnet
+import models.shufflenetv2 as shufflenetv2
 import os
 import sys
+import time
 import getopt
 import util
 from util.device import device
 
 # 1. load & normalize
-transform = transforms.Compose(
-    [transforms.Resize((64, 64)), transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+transform = transforms.Compose([
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(degrees=(0, 180)),
+    transforms.Resize((256, 256)),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+])
 
-batch_size = 100
+batch_size = 20
 # trainset_path = '/home/djy/dataset/dataset'
 # testset_path = '/home/djy/dataset/dataset'
 
@@ -43,32 +50,33 @@ batch_size = 100
 dataset_path = '/home/djy/dataset/uni_dataset'
 dataset = torchvision.datasets.ImageFolder(
     root=dataset_path, transform=transform)
-full_size = len(dataset)
-train_size = int(0.8 * full_size)
-test_size = full_size - train_size
-trainset, testset = torch.utils.data.random_split(
-    dataset, [train_size, test_size], generator=torch.Generator().manual_seed(0))
+# full_size = len(dataset)
+# train_size = int(0.8 * full_size)
+# test_size = full_size - train_size
+# trainset, testset = torch.utils.data.random_split(
+# dataset, [train_size, test_size], generator=torch.Generator().manual_seed(0))
 
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
-                                          shuffle=True, num_workers=2)
-testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
-                                         shuffle=False, num_workers=2)
+trainloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
+                                          shuffle=True, num_workers=8)
+testloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
+                                         shuffle=False, num_workers=8)
 # test_dataiter = iter(testloader)
 # test_image, test_label = test_dataiter.next()
 
 # classes = ('plane', 'car', 'bird', 'cat',
 #            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'nzx', 'qtx', 'sjx', 'zxx')
+# classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'nzx', 'qtx', 'sjx', 'zxx')
+classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
 
 # 2. define a CNN
-net = resnet.resnet50(num_classes=len(classes))
+net = resnet.resnet101(num_classes=len(classes))
 net.to(device)
 print(f'Train Model: {net.__class__.__name__}, Using device {device}')
 
 # 3. define a loss function & optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(net.parameters(), lr=0.001)
+optimizer = optim.Adadelta(net.parameters(), lr=0.001)
 
 # 4. train
 epochs = 64
@@ -76,10 +84,10 @@ max_accuracy, max_accuracy_epoch = 0, 0
 min_loss, min_loss_epoch = float('inf'), 0
 
 for epoch in range(epochs):  # loop over the dataset multiple times
-
     print(f'\n========== Train Epoch {epoch + 1} ==========', end='\n')
 
     """train"""
+    now = time.time()
     running_loss = 0.0
     for i, [inputs, labels] in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
@@ -123,7 +131,8 @@ for epoch in range(epochs):  # loop over the dataset multiple times
                     correct_pred[classes[label]] += 1
                 total_pred[classes[label]] += 1
 
-    print('Accuracy: %d %%' % (100 * correct / total))
+    print('Accuracy: %d %%' % (100 * correct / total), end='\t')
+    print('Time %d s' % (time.time() - now))
     if (100 * correct / total) > max_accuracy:
         max_accuracy, max_accuracy_epoch = (100 * correct / total), epoch
     if running_loss < min_loss:

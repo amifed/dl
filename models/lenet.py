@@ -1,5 +1,6 @@
 from torch.nn import Conv2d, MaxPool2d, Module, Linear
 from torch.nn.functional import relu
+from keras.layers import merge
 
 
 class LeNet(Module):

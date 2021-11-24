@@ -19,21 +19,21 @@ import os
 import sys
 import time
 import getopt
-import util
-from util.device import device
+from utils.device import device
+from utils.data import ParallelImageFolder
 
 # 1. load & normalize
 transform = transforms.Compose([
-    transforms.RandomHorizontalFlip(),
-    transforms.RandomRotation(degrees=(0, 180)),
-    transforms.Resize((256, 256)),
+    # transforms.RandomHorizontalFlip(),
+    # transforms.RandomRotation(degrees=(0, 180)),
+    transforms.Resize((320, 320)),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
 batch_size = 20
-# trainset_path = '/home/djy/dataset/dataset'
-# testset_path = '/home/djy/dataset/dataset'
+trainset_path = '/home/djy/dataset/dataset'
+testset_path = '/home/djy/dataset/dataset'
 
 # 训练图片
 # trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
@@ -48,17 +48,18 @@ batch_size = 20
 
 
 dataset_path = '/home/djy/dataset/uni_dataset'
-dataset = torchvision.datasets.ImageFolder(
-    root=dataset_path, transform=transform)
-# full_size = len(dataset)
-# train_size = int(0.8 * full_size)
-# test_size = full_size - train_size
-# trainset, testset = torch.utils.data.random_split(
-# dataset, [train_size, test_size], generator=torch.Generator().manual_seed(0))
+seg_dataset_path = '/home/djy/dataset/seg_dataset'
+dataset = ParallelImageFolder(
+    root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
+full_size = len(dataset)
+train_size = int(0.8 * full_size)
+test_size = full_size - train_size
+trainset, testset = torch.utils.data.random_split(
+    dataset, [train_size, test_size], generator=torch.Generator().manual_seed(0))
 
-trainloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                           shuffle=True, num_workers=8)
-testloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                          shuffle=False, num_workers=8)
 # test_dataiter = iter(testloader)
 # test_image, test_label = test_dataiter.next()
@@ -70,13 +71,13 @@ testloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
 
 # 2. define a CNN
-net = resnet.resnet101(num_classes=len(classes))
+net = AlexNet(num_classes=len(classes))
 net.to(device)
 print(f'Train Model: {net.__class__.__name__}, Using device {device}')
 
 # 3. define a loss function & optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adadelta(net.parameters(), lr=0.001)
+optimizer = optim.Adam(net.parameters(), lr=0.0001)
 
 # 4. train
 epochs = 64
@@ -87,17 +88,20 @@ for epoch in range(epochs):  # loop over the dataset multiple times
     print(f'\n========== Train Epoch {epoch + 1} ==========', end='\n')
 
     """train"""
+    net.train()
     now = time.time()
     running_loss = 0.0
-    for i, [inputs, labels] in enumerate(trainloader, 0):
+    for i, [inputs, labels, parallel_inputs] in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = inputs.to(device), labels.to(device)
+        if (parallel_inputs != None):
+            parallel_inputs = parallel_inputs.to(device)
 
         # zero the parameter gradients
         optimizer.zero_grad()
 
         # forward + backward + optimize
-        outputs = net(inputs)
+        outputs = net(inputs, parallel_inputs)
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
@@ -117,10 +121,14 @@ for epoch in range(epochs):  # loop over the dataset multiple times
     total_pred = {classname: 0 for classname in classes}
 
     with torch.no_grad():
-        for images, labels in testloader:
+        for images, labels, parallel_images in testloader:
 
             images, labels = images.to(device), labels.to(device)
-            outputs = net(images)
+
+            if (parallel_images != None):
+                parallel_images = parallel_images.to(device)
+
+            outputs = net(images, parallel_images)
 
             _, predictions = torch.max(outputs.data, 1)
             total += labels.size(0)

@@ -1,0 +1,1177 @@
+Train Model: ResNet, Using device cuda
+
+========== Train Epoch 1 ==========
+Loss: 2.426	Accuracy: 12 %	Time 155 s
+Accuracy for class plane is: 7.1 %
+Accuracy for class car   is: 8.3 %
+Accuracy for class bird  is: 14.8 %
+Accuracy for class cat   is: 6.7 %
+Accuracy for class deer  is: 31.8 %
+Accuracy for class dog   is: 7.0 %
+Accuracy for class frog  is: 20.7 %
+Accuracy for class horse is: 5.6 %
+Accuracy for class ship  is: 14.2 %
+Accuracy for class truck is: 10.1 %
+
+========== Train Epoch 2 ==========
+Loss: 2.366	Accuracy: 13 %	Time 147 s
+Accuracy for class plane is: 5.4 %
+Accuracy for class car   is: 18.2 %
+Accuracy for class bird  is: 14.8 %
+Accuracy for class cat   is: 7.1 %
+Accuracy for class deer  is: 24.2 %
+Accuracy for class dog   is: 9.1 %
+Accuracy for class frog  is: 18.9 %
+Accuracy for class horse is: 11.3 %
+Accuracy for class ship  is: 10.1 %
+Accuracy for class truck is: 20.2 %
+
+========== Train Epoch 3 ==========
+Loss: 2.302	Accuracy: 15 %	Time 146 s
+Accuracy for class plane is: 12.9 %
+Accuracy for class car   is: 21.0 %
+Accuracy for class bird  is: 10.4 %
+Accuracy for class cat   is: 6.2 %
+Accuracy for class deer  is: 25.0 %
+Accuracy for class dog   is: 9.0 %
+Accuracy for class frog  is: 25.3 %
+Accuracy for class horse is: 12.4 %
+Accuracy for class ship  is: 11.1 %
+Accuracy for class truck is: 19.7 %
+
+========== Train Epoch 4 ==========
+Loss: 2.262	Accuracy: 16 %	Time 147 s
+Accuracy for class plane is: 12.4 %
+Accuracy for class car   is: 16.5 %
+Accuracy for class bird  is: 18.3 %
+Accuracy for class cat   is: 5.3 %
+Accuracy for class deer  is: 25.1 %
+Accuracy for class dog   is: 6.3 %
+Accuracy for class frog  is: 23.2 %
+Accuracy for class horse is: 7.5 %
+Accuracy for class ship  is: 18.7 %
+Accuracy for class truck is: 26.7 %
+
+========== Train Epoch 5 ==========
+Loss: 2.236	Accuracy: 16 %	Time 147 s
+Accuracy for class plane is: 19.0 %
+Accuracy for class car   is: 15.5 %
+Accuracy for class bird  is: 13.8 %
+Accuracy for class cat   is: 6.1 %
+Accuracy for class deer  is: 25.9 %
+Accuracy for class dog   is: 3.8 %
+Accuracy for class frog  is: 21.9 %
+Accuracy for class horse is: 10.9 %
+Accuracy for class ship  is: 23.6 %
+Accuracy for class truck is: 26.3 %
+
+========== Train Epoch 6 ==========
+Loss: 2.199	Accuracy: 18 %	Time 146 s
+Accuracy for class plane is: 16.6 %
+Accuracy for class car   is: 19.5 %
+Accuracy for class bird  is: 9.1 %
+Accuracy for class cat   is: 7.3 %
+Accuracy for class deer  is: 27.4 %
+Accuracy for class dog   is: 7.9 %
+Accuracy for class frog  is: 24.2 %
+Accuracy for class horse is: 6.4 %
+Accuracy for class ship  is: 36.5 %
+Accuracy for class truck is: 30.2 %
+
+========== Train Epoch 7 ==========
+Loss: 2.168	Accuracy: 19 %	Time 146 s
+Accuracy for class plane is: 29.6 %
+Accuracy for class car   is: 13.5 %
+Accuracy for class bird  is: 9.8 %
+Accuracy for class cat   is: 6.8 %
+Accuracy for class deer  is: 32.4 %
+Accuracy for class dog   is: 12.1 %
+Accuracy for class frog  is: 23.3 %
+Accuracy for class horse is: 10.8 %
+Accuracy for class ship  is: 33.2 %
+Accuracy for class truck is: 21.3 %
+
+========== Train Epoch 8 ==========
+Loss: 2.137	Accuracy: 19 %	Time 147 s
+Accuracy for class plane is: 22.7 %
+Accuracy for class car   is: 20.1 %
+Accuracy for class bird  is: 13.6 %
+Accuracy for class cat   is: 8.2 %
+Accuracy for class deer  is: 33.3 %
+Accuracy for class dog   is: 9.8 %
+Accuracy for class frog  is: 25.3 %
+Accuracy for class horse is: 6.1 %
+Accuracy for class ship  is: 33.5 %
+Accuracy for class truck is: 25.9 %
+
+========== Train Epoch 9 ==========
+Loss: 2.109	Accuracy: 20 %	Time 146 s
+Accuracy for class plane is: 20.2 %
+Accuracy for class car   is: 17.2 %
+Accuracy for class bird  is: 16.9 %
+Accuracy for class cat   is: 9.8 %
+Accuracy for class deer  is: 29.9 %
+Accuracy for class dog   is: 12.7 %
+Accuracy for class frog  is: 17.1 %
+Accuracy for class horse is: 8.7 %
+Accuracy for class ship  is: 43.1 %
+Accuracy for class truck is: 33.4 %
+
+========== Train Epoch 10 ==========
+Loss: 2.087	Accuracy: 21 %	Time 147 s
+Accuracy for class plane is: 19.1 %
+Accuracy for class car   is: 19.0 %
+Accuracy for class bird  is: 10.0 %
+Accuracy for class cat   is: 7.4 %
+Accuracy for class deer  is: 26.5 %
+Accuracy for class dog   is: 15.2 %
+Accuracy for class frog  is: 24.1 %
+Accuracy for class horse is: 19.1 %
+Accuracy for class ship  is: 43.4 %
+Accuracy for class truck is: 30.9 %
+
+========== Train Epoch 11 ==========
+Loss: 2.069	Accuracy: 22 %	Time 146 s
+Accuracy for class plane is: 30.9 %
+Accuracy for class car   is: 14.6 %
+Accuracy for class bird  is: 14.3 %
+Accuracy for class cat   is: 15.8 %
+Accuracy for class deer  is: 24.5 %
+Accuracy for class dog   is: 13.4 %
+Accuracy for class frog  is: 23.5 %
+Accuracy for class horse is: 11.3 %
+Accuracy for class ship  is: 40.6 %
+Accuracy for class truck is: 34.1 %
+
+========== Train Epoch 12 ==========
+Loss: 2.046	Accuracy: 23 %	Time 147 s
+Accuracy for class plane is: 26.8 %
+Accuracy for class car   is: 21.3 %
+Accuracy for class bird  is: 12.4 %
+Accuracy for class cat   is: 12.1 %
+Accuracy for class deer  is: 36.7 %
+Accuracy for class dog   is: 14.9 %
+Accuracy for class frog  is: 28.3 %
+Accuracy for class horse is: 11.7 %
+Accuracy for class ship  is: 38.5 %
+Accuracy for class truck is: 27.5 %
+
+========== Train Epoch 13 ==========
+Loss: 2.030	Accuracy: 23 %	Time 146 s
+Accuracy for class plane is: 26.8 %
+Accuracy for class car   is: 26.7 %
+Accuracy for class bird  is: 19.7 %
+Accuracy for class cat   is: 10.8 %
+Accuracy for class deer  is: 25.5 %
+Accuracy for class dog   is: 11.5 %
+Accuracy for class frog  is: 28.1 %
+Accuracy for class horse is: 12.2 %
+Accuracy for class ship  is: 42.0 %
+Accuracy for class truck is: 32.7 %
+
+========== Train Epoch 14 ==========
+Loss: 2.010	Accuracy: 24 %	Time 146 s
+Accuracy for class plane is: 36.0 %
+Accuracy for class car   is: 22.9 %
+Accuracy for class bird  is: 17.7 %
+Accuracy for class cat   is: 13.2 %
+Accuracy for class deer  is: 19.1 %
+Accuracy for class dog   is: 15.7 %
+Accuracy for class frog  is: 40.1 %
+Accuracy for class horse is: 10.6 %
+Accuracy for class ship  is: 37.3 %
+Accuracy for class truck is: 35.3 %
+
+========== Train Epoch 15 ==========
+Loss: 1.986	Accuracy: 25 %	Time 146 s
+Accuracy for class plane is: 38.8 %
+Accuracy for class car   is: 24.7 %
+Accuracy for class bird  is: 25.4 %
+Accuracy for class cat   is: 9.9 %
+Accuracy for class deer  is: 20.9 %
+Accuracy for class dog   is: 19.5 %
+Accuracy for class frog  is: 31.0 %
+Accuracy for class horse is: 20.2 %
+Accuracy for class ship  is: 35.4 %
+Accuracy for class truck is: 30.6 %
+
+========== Train Epoch 16 ==========
+Loss: 1.957	Accuracy: 26 %	Time 146 s
+Accuracy for class plane is: 31.6 %
+Accuracy for class car   is: 34.0 %
+Accuracy for class bird  is: 9.8 %
+Accuracy for class cat   is: 12.7 %
+Accuracy for class deer  is: 28.6 %
+Accuracy for class dog   is: 19.7 %
+Accuracy for class frog  is: 38.4 %
+Accuracy for class horse is: 14.6 %
+Accuracy for class ship  is: 36.1 %
+Accuracy for class truck is: 34.6 %
+
+========== Train Epoch 17 ==========
+Loss: 1.940	Accuracy: 26 %	Time 146 s
+Accuracy for class plane is: 37.3 %
+Accuracy for class car   is: 26.6 %
+Accuracy for class bird  is: 15.5 %
+Accuracy for class cat   is: 10.9 %
+Accuracy for class deer  is: 27.7 %
+Accuracy for class dog   is: 18.0 %
+Accuracy for class frog  is: 33.9 %
+Accuracy for class horse is: 21.1 %
+Accuracy for class ship  is: 44.0 %
+Accuracy for class truck is: 33.9 %
+
+========== Train Epoch 18 ==========
+Loss: 1.926	Accuracy: 26 %	Time 147 s
+Accuracy for class plane is: 40.0 %
+Accuracy for class car   is: 26.5 %
+Accuracy for class bird  is: 15.9 %
+Accuracy for class cat   is: 11.0 %
+Accuracy for class deer  is: 28.4 %
+Accuracy for class dog   is: 22.9 %
+Accuracy for class frog  is: 28.1 %
+Accuracy for class horse is: 24.6 %
+Accuracy for class ship  is: 37.3 %
+Accuracy for class truck is: 33.3 %
+
+========== Train Epoch 19 ==========
+Loss: 1.903	Accuracy: 28 %	Time 148 s
+Accuracy for class plane is: 38.5 %
+Accuracy for class car   is: 34.7 %
+Accuracy for class bird  is: 21.8 %
+Accuracy for class cat   is: 11.7 %
+Accuracy for class deer  is: 20.0 %
+Accuracy for class dog   is: 19.5 %
+Accuracy for class frog  is: 40.8 %
+Accuracy for class horse is: 23.8 %
+Accuracy for class ship  is: 42.7 %
+Accuracy for class truck is: 29.6 %
+
+========== Train Epoch 20 ==========
+Loss: 1.876	Accuracy: 29 %	Time 148 s
+Accuracy for class plane is: 39.5 %
+Accuracy for class car   is: 34.9 %
+Accuracy for class bird  is: 14.7 %
+Accuracy for class cat   is: 5.1 %
+Accuracy for class deer  is: 26.3 %
+Accuracy for class dog   is: 36.2 %
+Accuracy for class frog  is: 31.5 %
+Accuracy for class horse is: 22.7 %
+Accuracy for class ship  is: 46.4 %
+Accuracy for class truck is: 33.9 %
+
+========== Train Epoch 21 ==========
+Loss: 1.859	Accuracy: 29 %	Time 147 s
+Accuracy for class plane is: 27.1 %
+Accuracy for class car   is: 31.7 %
+Accuracy for class bird  is: 8.4 %
+Accuracy for class cat   is: 11.7 %
+Accuracy for class deer  is: 35.0 %
+Accuracy for class dog   is: 24.8 %
+Accuracy for class frog  is: 43.1 %
+Accuracy for class horse is: 20.0 %
+Accuracy for class ship  is: 52.7 %
+Accuracy for class truck is: 38.8 %
+
+========== Train Epoch 22 ==========
+Loss: 1.836	Accuracy: 30 %	Time 147 s
+Accuracy for class plane is: 48.1 %
+Accuracy for class car   is: 36.4 %
+Accuracy for class bird  is: 16.2 %
+Accuracy for class cat   is: 7.7 %
+Accuracy for class deer  is: 30.0 %
+Accuracy for class dog   is: 33.9 %
+Accuracy for class frog  is: 33.9 %
+Accuracy for class horse is: 26.5 %
+Accuracy for class ship  is: 40.2 %
+Accuracy for class truck is: 30.7 %
+
+========== Train Epoch 23 ==========
+Loss: 1.811	Accuracy: 30 %	Time 147 s
+Accuracy for class plane is: 43.2 %
+Accuracy for class car   is: 46.3 %
+Accuracy for class bird  is: 12.7 %
+Accuracy for class cat   is: 16.4 %
+Accuracy for class deer  is: 32.7 %
+Accuracy for class dog   is: 24.8 %
+Accuracy for class frog  is: 43.5 %
+Accuracy for class horse is: 20.8 %
+Accuracy for class ship  is: 39.1 %
+Accuracy for class truck is: 28.8 %
+
+========== Train Epoch 24 ==========
+Loss: 1.788	Accuracy: 31 %	Time 146 s
+Accuracy for class plane is: 35.2 %
+Accuracy for class car   is: 47.8 %
+Accuracy for class bird  is: 13.7 %
+Accuracy for class cat   is: 7.7 %
+Accuracy for class deer  is: 35.6 %
+Accuracy for class dog   is: 30.1 %
+Accuracy for class frog  is: 38.0 %
+Accuracy for class horse is: 25.8 %
+Accuracy for class ship  is: 46.9 %
+Accuracy for class truck is: 32.1 %
+
+========== Train Epoch 25 ==========
+Loss: 1.762	Accuracy: 32 %	Time 146 s
+Accuracy for class plane is: 51.8 %
+Accuracy for class car   is: 38.5 %
+Accuracy for class bird  is: 23.1 %
+Accuracy for class cat   is: 10.0 %
+Accuracy for class deer  is: 27.4 %
+Accuracy for class dog   is: 33.2 %
+Accuracy for class frog  is: 39.7 %
+Accuracy for class horse is: 28.7 %
+Accuracy for class ship  is: 33.5 %
+Accuracy for class truck is: 35.5 %
+
+========== Train Epoch 26 ==========
+Loss: 1.746	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 37.3 %
+Accuracy for class car   is: 34.0 %
+Accuracy for class bird  is: 19.7 %
+Accuracy for class cat   is: 16.3 %
+Accuracy for class deer  is: 27.1 %
+Accuracy for class dog   is: 31.9 %
+Accuracy for class frog  is: 43.4 %
+Accuracy for class horse is: 26.5 %
+Accuracy for class ship  is: 42.8 %
+Accuracy for class truck is: 47.8 %
+
+========== Train Epoch 27 ==========
+Loss: 1.722	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 47.5 %
+Accuracy for class car   is: 39.6 %
+Accuracy for class bird  is: 26.2 %
+Accuracy for class cat   is: 11.2 %
+Accuracy for class deer  is: 20.8 %
+Accuracy for class dog   is: 44.3 %
+Accuracy for class frog  is: 36.3 %
+Accuracy for class horse is: 26.8 %
+Accuracy for class ship  is: 43.4 %
+Accuracy for class truck is: 30.1 %
+
+========== Train Epoch 28 ==========
+Loss: 1.697	Accuracy: 33 %	Time 147 s
+Accuracy for class plane is: 39.8 %
+Accuracy for class car   is: 47.8 %
+Accuracy for class bird  is: 18.9 %
+Accuracy for class cat   is: 10.0 %
+Accuracy for class deer  is: 25.6 %
+Accuracy for class dog   is: 35.1 %
+Accuracy for class frog  is: 39.4 %
+Accuracy for class horse is: 30.2 %
+Accuracy for class ship  is: 49.9 %
+Accuracy for class truck is: 37.6 %
+
+========== Train Epoch 29 ==========
+Loss: 1.677	Accuracy: 33 %	Time 146 s
+Accuracy for class plane is: 50.3 %
+Accuracy for class car   is: 45.6 %
+Accuracy for class bird  is: 16.5 %
+Accuracy for class cat   is: 19.0 %
+Accuracy for class deer  is: 29.0 %
+Accuracy for class dog   is: 23.7 %
+Accuracy for class frog  is: 37.4 %
+Accuracy for class horse is: 40.4 %
+Accuracy for class ship  is: 36.9 %
+Accuracy for class truck is: 36.7 %
+
+========== Train Epoch 30 ==========
+Loss: 1.650	Accuracy: 33 %	Time 147 s
+Accuracy for class plane is: 41.6 %
+Accuracy for class car   is: 40.7 %
+Accuracy for class bird  is: 22.4 %
+Accuracy for class cat   is: 23.5 %
+Accuracy for class deer  is: 22.1 %
+Accuracy for class dog   is: 25.3 %
+Accuracy for class frog  is: 44.9 %
+Accuracy for class horse is: 38.7 %
+Accuracy for class ship  is: 43.2 %
+Accuracy for class truck is: 36.5 %
+
+========== Train Epoch 31 ==========
+Loss: 1.629	Accuracy: 34 %	Time 147 s
+Accuracy for class plane is: 44.0 %
+Accuracy for class car   is: 40.5 %
+Accuracy for class bird  is: 21.0 %
+Accuracy for class cat   is: 23.6 %
+Accuracy for class deer  is: 27.1 %
+Accuracy for class dog   is: 23.7 %
+Accuracy for class frog  is: 48.1 %
+Accuracy for class horse is: 34.0 %
+Accuracy for class ship  is: 41.9 %
+Accuracy for class truck is: 37.6 %
+
+========== Train Epoch 32 ==========
+Loss: 1.599	Accuracy: 34 %	Time 147 s
+Accuracy for class plane is: 49.5 %
+Accuracy for class car   is: 48.6 %
+Accuracy for class bird  is: 27.5 %
+Accuracy for class cat   is: 15.5 %
+Accuracy for class deer  is: 25.1 %
+Accuracy for class dog   is: 31.4 %
+Accuracy for class frog  is: 44.2 %
+Accuracy for class horse is: 28.8 %
+Accuracy for class ship  is: 40.8 %
+Accuracy for class truck is: 31.0 %
+
+========== Train Epoch 33 ==========
+Loss: 1.560	Accuracy: 34 %	Time 146 s
+Accuracy for class plane is: 36.7 %
+Accuracy for class car   is: 53.6 %
+Accuracy for class bird  is: 18.4 %
+Accuracy for class cat   is: 23.8 %
+Accuracy for class deer  is: 30.6 %
+Accuracy for class dog   is: 27.9 %
+Accuracy for class frog  is: 41.7 %
+Accuracy for class horse is: 30.4 %
+Accuracy for class ship  is: 48.2 %
+Accuracy for class truck is: 37.3 %
+
+========== Train Epoch 34 ==========
+Loss: 1.522	Accuracy: 35 %	Time 146 s
+Accuracy for class plane is: 40.8 %
+Accuracy for class car   is: 41.7 %
+Accuracy for class bird  is: 16.6 %
+Accuracy for class cat   is: 20.2 %
+Accuracy for class deer  is: 36.1 %
+Accuracy for class dog   is: 33.0 %
+Accuracy for class frog  is: 47.5 %
+Accuracy for class horse is: 36.4 %
+Accuracy for class ship  is: 53.0 %
+Accuracy for class truck is: 32.0 %
+
+========== Train Epoch 35 ==========
+Loss: 1.482	Accuracy: 35 %	Time 147 s
+Accuracy for class plane is: 47.0 %
+Accuracy for class car   is: 41.4 %
+Accuracy for class bird  is: 19.9 %
+Accuracy for class cat   is: 11.0 %
+Accuracy for class deer  is: 32.9 %
+Accuracy for class dog   is: 38.1 %
+Accuracy for class frog  is: 39.1 %
+Accuracy for class horse is: 36.5 %
+Accuracy for class ship  is: 45.4 %
+Accuracy for class truck is: 39.5 %
+
+========== Train Epoch 36 ==========
+Loss: 1.428	Accuracy: 34 %	Time 146 s
+Accuracy for class plane is: 45.0 %
+Accuracy for class car   is: 41.5 %
+Accuracy for class bird  is: 18.3 %
+Accuracy for class cat   is: 23.0 %
+Accuracy for class deer  is: 32.1 %
+Accuracy for class dog   is: 25.9 %
+Accuracy for class frog  is: 45.2 %
+Accuracy for class horse is: 28.6 %
+Accuracy for class ship  is: 50.1 %
+Accuracy for class truck is: 38.0 %
+
+========== Train Epoch 37 ==========
+Loss: 1.369	Accuracy: 35 %	Time 146 s
+Accuracy for class plane is: 42.9 %
+Accuracy for class car   is: 45.9 %
+Accuracy for class bird  is: 20.8 %
+Accuracy for class cat   is: 11.3 %
+Accuracy for class deer  is: 30.6 %
+Accuracy for class dog   is: 34.3 %
+Accuracy for class frog  is: 43.0 %
+Accuracy for class horse is: 44.7 %
+Accuracy for class ship  is: 45.0 %
+Accuracy for class truck is: 35.7 %
+
+========== Train Epoch 38 ==========
+Loss: 1.304	Accuracy: 34 %	Time 147 s
+Accuracy for class plane is: 44.1 %
+Accuracy for class car   is: 40.8 %
+Accuracy for class bird  is: 19.0 %
+Accuracy for class cat   is: 29.6 %
+Accuracy for class deer  is: 27.6 %
+Accuracy for class dog   is: 25.0 %
+Accuracy for class frog  is: 38.3 %
+Accuracy for class horse is: 36.0 %
+Accuracy for class ship  is: 46.7 %
+Accuracy for class truck is: 40.4 %
+
+========== Train Epoch 39 ==========
+Loss: 1.217	Accuracy: 34 %	Time 148 s
+Accuracy for class plane is: 41.1 %
+Accuracy for class car   is: 40.5 %
+Accuracy for class bird  is: 19.3 %
+Accuracy for class cat   is: 23.4 %
+Accuracy for class deer  is: 26.0 %
+Accuracy for class dog   is: 27.9 %
+Accuracy for class frog  is: 43.8 %
+Accuracy for class horse is: 39.1 %
+Accuracy for class ship  is: 40.8 %
+Accuracy for class truck is: 42.5 %
+
+========== Train Epoch 40 ==========
+Loss: 1.126	Accuracy: 34 %	Time 147 s
+Accuracy for class plane is: 44.2 %
+Accuracy for class car   is: 39.9 %
+Accuracy for class bird  is: 19.8 %
+Accuracy for class cat   is: 20.0 %
+Accuracy for class deer  is: 31.4 %
+Accuracy for class dog   is: 34.2 %
+Accuracy for class frog  is: 36.6 %
+Accuracy for class horse is: 34.8 %
+Accuracy for class ship  is: 48.2 %
+Accuracy for class truck is: 36.8 %
+
+========== Train Epoch 41 ==========
+Loss: 1.019	Accuracy: 34 %	Time 147 s
+Accuracy for class plane is: 45.8 %
+Accuracy for class car   is: 37.1 %
+Accuracy for class bird  is: 22.1 %
+Accuracy for class cat   is: 22.2 %
+Accuracy for class deer  is: 32.0 %
+Accuracy for class dog   is: 30.2 %
+Accuracy for class frog  is: 39.4 %
+Accuracy for class horse is: 33.8 %
+Accuracy for class ship  is: 41.9 %
+Accuracy for class truck is: 38.4 %
+
+========== Train Epoch 42 ==========
+Loss: 0.896	Accuracy: 33 %	Time 147 s
+Accuracy for class plane is: 48.6 %
+Accuracy for class car   is: 35.8 %
+Accuracy for class bird  is: 24.2 %
+Accuracy for class cat   is: 24.7 %
+Accuracy for class deer  is: 27.7 %
+Accuracy for class dog   is: 24.1 %
+Accuracy for class frog  is: 33.6 %
+Accuracy for class horse is: 31.5 %
+Accuracy for class ship  is: 38.8 %
+Accuracy for class truck is: 42.0 %
+
+========== Train Epoch 43 ==========
+Loss: 0.761	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 43.7 %
+Accuracy for class car   is: 25.8 %
+Accuracy for class bird  is: 20.2 %
+Accuracy for class cat   is: 25.3 %
+Accuracy for class deer  is: 31.1 %
+Accuracy for class dog   is: 27.8 %
+Accuracy for class frog  is: 36.4 %
+Accuracy for class horse is: 34.8 %
+Accuracy for class ship  is: 43.2 %
+Accuracy for class truck is: 40.6 %
+
+========== Train Epoch 44 ==========
+Loss: 0.626	Accuracy: 33 %	Time 148 s
+Accuracy for class plane is: 33.5 %
+Accuracy for class car   is: 38.7 %
+Accuracy for class bird  is: 24.0 %
+Accuracy for class cat   is: 26.8 %
+Accuracy for class deer  is: 21.2 %
+Accuracy for class dog   is: 31.6 %
+Accuracy for class frog  is: 37.0 %
+Accuracy for class horse is: 27.9 %
+Accuracy for class ship  is: 51.6 %
+Accuracy for class truck is: 38.8 %
+
+========== Train Epoch 45 ==========
+Loss: 0.488	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 39.1 %
+Accuracy for class car   is: 37.8 %
+Accuracy for class bird  is: 21.3 %
+Accuracy for class cat   is: 22.7 %
+Accuracy for class deer  is: 26.0 %
+Accuracy for class dog   is: 30.5 %
+Accuracy for class frog  is: 39.5 %
+Accuracy for class horse is: 28.3 %
+Accuracy for class ship  is: 47.2 %
+Accuracy for class truck is: 36.4 %
+
+========== Train Epoch 46 ==========
+Loss: 0.363	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 43.7 %
+Accuracy for class car   is: 41.2 %
+Accuracy for class bird  is: 18.4 %
+Accuracy for class cat   is: 23.2 %
+Accuracy for class deer  is: 24.0 %
+Accuracy for class dog   is: 29.4 %
+Accuracy for class frog  is: 42.0 %
+Accuracy for class horse is: 23.8 %
+Accuracy for class ship  is: 44.0 %
+Accuracy for class truck is: 38.4 %
+
+========== Train Epoch 47 ==========
+Loss: 0.260	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 38.7 %
+Accuracy for class car   is: 38.7 %
+Accuracy for class bird  is: 21.7 %
+Accuracy for class cat   is: 20.9 %
+Accuracy for class deer  is: 29.4 %
+Accuracy for class dog   is: 27.4 %
+Accuracy for class frog  is: 33.4 %
+Accuracy for class horse is: 33.0 %
+Accuracy for class ship  is: 43.9 %
+Accuracy for class truck is: 36.1 %
+
+========== Train Epoch 48 ==========
+Loss: 0.180	Accuracy: 31 %	Time 146 s
+Accuracy for class plane is: 40.2 %
+Accuracy for class car   is: 35.1 %
+Accuracy for class bird  is: 24.3 %
+Accuracy for class cat   is: 20.4 %
+Accuracy for class deer  is: 29.3 %
+Accuracy for class dog   is: 25.4 %
+Accuracy for class frog  is: 38.6 %
+Accuracy for class horse is: 26.6 %
+Accuracy for class ship  is: 42.3 %
+Accuracy for class truck is: 37.2 %
+
+========== Train Epoch 49 ==========
+Loss: 0.128	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 45.5 %
+Accuracy for class car   is: 38.0 %
+Accuracy for class bird  is: 22.6 %
+Accuracy for class cat   is: 21.2 %
+Accuracy for class deer  is: 27.1 %
+Accuracy for class dog   is: 23.6 %
+Accuracy for class frog  is: 39.8 %
+Accuracy for class horse is: 31.0 %
+Accuracy for class ship  is: 38.6 %
+Accuracy for class truck is: 41.6 %
+
+========== Train Epoch 50 ==========
+Loss: 0.088	Accuracy: 32 %	Time 181 s
+Accuracy for class plane is: 36.5 %
+Accuracy for class car   is: 36.5 %
+Accuracy for class bird  is: 21.0 %
+Accuracy for class cat   is: 27.6 %
+Accuracy for class deer  is: 27.8 %
+Accuracy for class dog   is: 26.4 %
+Accuracy for class frog  is: 39.7 %
+Accuracy for class horse is: 26.4 %
+Accuracy for class ship  is: 45.1 %
+Accuracy for class truck is: 38.4 %
+
+========== Train Epoch 51 ==========
+Loss: 0.068	Accuracy: 31 %	Time 147 s
+Accuracy for class plane is: 48.2 %
+Accuracy for class car   is: 38.3 %
+Accuracy for class bird  is: 26.5 %
+Accuracy for class cat   is: 23.7 %
+Accuracy for class deer  is: 25.4 %
+Accuracy for class dog   is: 23.1 %
+Accuracy for class frog  is: 32.4 %
+Accuracy for class horse is: 26.3 %
+Accuracy for class ship  is: 35.4 %
+Accuracy for class truck is: 38.0 %
+
+========== Train Epoch 52 ==========
+Loss: 0.053	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 41.1 %
+Accuracy for class car   is: 40.6 %
+Accuracy for class bird  is: 20.1 %
+Accuracy for class cat   is: 21.8 %
+Accuracy for class deer  is: 27.9 %
+Accuracy for class dog   is: 33.2 %
+Accuracy for class frog  is: 32.0 %
+Accuracy for class horse is: 28.4 %
+Accuracy for class ship  is: 41.1 %
+Accuracy for class truck is: 37.0 %
+
+========== Train Epoch 53 ==========
+Loss: 0.047	Accuracy: 31 %	Time 147 s
+Accuracy for class plane is: 42.8 %
+Accuracy for class car   is: 41.2 %
+Accuracy for class bird  is: 20.3 %
+Accuracy for class cat   is: 21.0 %
+Accuracy for class deer  is: 28.1 %
+Accuracy for class dog   is: 23.9 %
+Accuracy for class frog  is: 41.3 %
+Accuracy for class horse is: 29.6 %
+Accuracy for class ship  is: 36.9 %
+Accuracy for class truck is: 32.7 %
+
+========== Train Epoch 54 ==========
+Loss: 0.040	Accuracy: 31 %	Time 147 s
+Accuracy for class plane is: 39.9 %
+Accuracy for class car   is: 39.5 %
+Accuracy for class bird  is: 23.9 %
+Accuracy for class cat   is: 23.5 %
+Accuracy for class deer  is: 24.2 %
+Accuracy for class dog   is: 28.9 %
+Accuracy for class frog  is: 32.9 %
+Accuracy for class horse is: 27.0 %
+Accuracy for class ship  is: 43.2 %
+Accuracy for class truck is: 35.8 %
+
+========== Train Epoch 55 ==========
+Loss: 0.032	Accuracy: 32 %	Time 149 s
+Accuracy for class plane is: 40.7 %
+Accuracy for class car   is: 30.0 %
+Accuracy for class bird  is: 20.6 %
+Accuracy for class cat   is: 18.9 %
+Accuracy for class deer  is: 29.4 %
+Accuracy for class dog   is: 27.4 %
+Accuracy for class frog  is: 39.6 %
+Accuracy for class horse is: 30.5 %
+Accuracy for class ship  is: 45.6 %
+Accuracy for class truck is: 39.4 %
+
+========== Train Epoch 56 ==========
+Loss: 0.033	Accuracy: 31 %	Time 148 s
+Accuracy for class plane is: 39.5 %
+Accuracy for class car   is: 35.7 %
+Accuracy for class bird  is: 19.8 %
+Accuracy for class cat   is: 23.8 %
+Accuracy for class deer  is: 29.3 %
+Accuracy for class dog   is: 30.9 %
+Accuracy for class frog  is: 34.2 %
+Accuracy for class horse is: 25.8 %
+Accuracy for class ship  is: 42.8 %
+Accuracy for class truck is: 37.1 %
+
+========== Train Epoch 57 ==========
+Loss: 0.029	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 40.0 %
+Accuracy for class car   is: 42.4 %
+Accuracy for class bird  is: 29.3 %
+Accuracy for class cat   is: 21.7 %
+Accuracy for class deer  is: 20.4 %
+Accuracy for class dog   is: 30.6 %
+Accuracy for class frog  is: 35.2 %
+Accuracy for class horse is: 21.7 %
+Accuracy for class ship  is: 46.5 %
+Accuracy for class truck is: 33.4 %
+
+========== Train Epoch 58 ==========
+Loss: 0.029	Accuracy: 31 %	Time 148 s
+Accuracy for class plane is: 42.4 %
+Accuracy for class car   is: 31.2 %
+Accuracy for class bird  is: 29.3 %
+Accuracy for class cat   is: 17.2 %
+Accuracy for class deer  is: 25.0 %
+Accuracy for class dog   is: 32.2 %
+Accuracy for class frog  is: 32.4 %
+Accuracy for class horse is: 26.4 %
+Accuracy for class ship  is: 40.9 %
+Accuracy for class truck is: 39.6 %
+
+========== Train Epoch 59 ==========
+Loss: 0.024	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 39.6 %
+Accuracy for class car   is: 39.4 %
+Accuracy for class bird  is: 18.0 %
+Accuracy for class cat   is: 27.5 %
+Accuracy for class deer  is: 26.9 %
+Accuracy for class dog   is: 25.9 %
+Accuracy for class frog  is: 37.9 %
+Accuracy for class horse is: 28.1 %
+Accuracy for class ship  is: 41.8 %
+Accuracy for class truck is: 37.6 %
+
+========== Train Epoch 60 ==========
+Loss: 0.027	Accuracy: 32 %	Time 148 s
+Accuracy for class plane is: 45.6 %
+Accuracy for class car   is: 38.6 %
+Accuracy for class bird  is: 19.9 %
+Accuracy for class cat   is: 20.5 %
+Accuracy for class deer  is: 27.5 %
+Accuracy for class dog   is: 24.2 %
+Accuracy for class frog  is: 40.6 %
+Accuracy for class horse is: 27.2 %
+Accuracy for class ship  is: 39.5 %
+Accuracy for class truck is: 36.6 %
+
+========== Train Epoch 61 ==========
+Loss: 0.026	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 41.6 %
+Accuracy for class car   is: 40.0 %
+Accuracy for class bird  is: 23.9 %
+Accuracy for class cat   is: 22.1 %
+Accuracy for class deer  is: 26.4 %
+Accuracy for class dog   is: 25.4 %
+Accuracy for class frog  is: 39.6 %
+Accuracy for class horse is: 30.2 %
+Accuracy for class ship  is: 38.4 %
+Accuracy for class truck is: 39.3 %
+
+========== Train Epoch 62 ==========
+Loss: 0.021	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 46.2 %
+Accuracy for class car   is: 35.6 %
+Accuracy for class bird  is: 21.3 %
+Accuracy for class cat   is: 18.4 %
+Accuracy for class deer  is: 28.8 %
+Accuracy for class dog   is: 27.1 %
+Accuracy for class frog  is: 37.1 %
+Accuracy for class horse is: 31.4 %
+Accuracy for class ship  is: 40.3 %
+Accuracy for class truck is: 35.9 %
+
+========== Train Epoch 63 ==========
+Loss: 0.023	Accuracy: 32 %	Time 147 s
+Accuracy for class plane is: 42.5 %
+Accuracy for class car   is: 45.8 %
+Accuracy for class bird  is: 21.4 %
+Accuracy for class cat   is: 19.7 %
+Accuracy for class deer  is: 25.3 %
+Accuracy for class dog   is: 27.2 %
+Accuracy for class frog  is: 43.8 %
+Accuracy for class horse is: 24.5 %
+Accuracy for class ship  is: 40.9 %
+Accuracy for class truck is: 30.7 %
+
+========== Train Epoch 64 ==========
+Loss: 0.022	Accuracy: 32 %	Time 146 s
+Accuracy for class plane is: 44.8 %
+Accuracy for class car   is: 32.2 %
+Accuracy for class bird  is: 21.6 %
+Accuracy for class cat   is: 22.3 %
+Accuracy for class deer  is: 27.8 %
+Accuracy for class dog   is: 27.7 %
+Accuracy for class frog  is: 37.1 %
+Accuracy for class horse is: 28.4 %
+Accuracy for class ship  is: 38.6 %
+Accuracy for class truck is: 42.5 %
+Finished training!!!
+
+Min loss = 51.310 in epoch 61, max Accuracy = 35.73% in epoch 33
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (3): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (4): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (5): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (6): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (7): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (8): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (9): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (10): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (11): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (12): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (13): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (14): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (15): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (16): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (17): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (18): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (19): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (20): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (21): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (22): Bottleneck(
+      (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): Bottleneck(
+      (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (downsample): Sequential(
+        (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): Bottleneck(
+      (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=2048, out_features=10, bias=True)
+)
+
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adadelta (
+Parameter Group 0
+    eps: 1e-06
+    lr: 0.001
+    rho: 0.9
+    weight_decay: 0
+)

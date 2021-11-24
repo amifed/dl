@@ -11,9 +11,12 @@ from numpy.lib.function_base import sort_complex
 source = '/home/djy/dataset/uni_dataset'
 target = '/home/djy/dataset/seg_dataset'
 
+if (not os.path.exists(target)):
+    os.mkdir(target)
 
-def segment(img, pth, num):
-    cv2.imwrite(os.path.join(pth, f'{num}.jpg'), img)
+
+def segment(img, filename):
+    # cv2.imwrite(os.path.join(pth, f'{num}.jpg'), img)
     # converting from gbr to hsv color space
     img_HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # skin color range for hsv color space
@@ -38,27 +41,24 @@ def segment(img, pth, num):
     YCrCb_result = cv2.bitwise_not(YCrCb_mask)
     global_result = cv2.bitwise_not(global_mask)
 
-    # show results
-    # cv2.imshow("1_HSV.jpg",HSV_result)
-    # cv2.imshow("2_YCbCr.jpg",YCrCb_result)
-    # cv2.imshow("3_global_result.jpg",global_result)
-    # cv2.imshow("Image.jpg",img)
-    # cv2.imwrite(os.path.join(pth, f'{num}_HSV.jpg'), HSV_result)
-    # cv2.imwrite(os.path.join(pth, f'{num}_YCbCr.jpg'), YCrCb_result)
-    # cv2.imwrite(os.path.join(pth, f'{num}_global_result.jpg'), global_result)
-    cv2.imwrite(os.path.join(pth, f'{num}.jpg'), global_result)
+    cv2.imwrite(filename, global_result)
 
 
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
-mp = {cls: 0 for cls in classes}
 
 for cls in classes:
     fr, to = os.path.join(source, cls), os.path.join(target, cls)
     if not os.path.exists(to):
         os.mkdir(to)
     for file in os.listdir(fr):
-        if not file.endswith('.jpg'):
+        if not file.endswith('.jpg') and not file.endswith('.jpeg'):
             continue
+
         image = cv2.imread(os.path.join(fr, file))
-        segment(image, to, mp[cls])
-        mp[cls] += 1
+
+        _, name = os.path.split(file)
+        filename = os.path.join(to, name)
+
+        segment(image, filename)
+
+        print(f'processing in {name}')

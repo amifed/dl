@@ -32,8 +32,8 @@ transform = transforms.Compose([
 ])
 
 batch_size = 20
-trainset_path = '/home/djy/dataset/dataset'
-testset_path = '/home/djy/dataset/dataset'
+# trainset_path = '/home/djy/dataset/dataset'
+# testset_path = '/home/djy/dataset/dataset'
 
 # 训练图片
 # trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
@@ -48,7 +48,7 @@ testset_path = '/home/djy/dataset/dataset'
 
 
 dataset_path = '/home/djy/dataset/uni_dataset'
-seg_dataset_path = '/home/djy/dataset/seg_dataset'
+seg_dataset_path = '/home/djy/dataset/seg_deeplabv3_dataset'
 dataset = ParallelImageFolder(
     root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
 full_size = len(dataset)

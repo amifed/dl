@@ -1,4 +1,4 @@
-from os import PRIO_PGRP
-import models.densenet as densenet
+import torch
 
-print(densenet.densenet121().__class__.__name__)
+torch.hub.load('pytorch/vision:v0.10.0',
+               'deeplabv3_resnet101', pretrained=True)

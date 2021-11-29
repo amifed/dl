@@ -6,7 +6,7 @@ import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
-from model import LeNet
+from ..lenet import LeNet
 from PIL import Image
 from util import imshow
 

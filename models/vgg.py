@@ -2,6 +2,12 @@ from typing import Union, List, Dict, Any, cast
 
 import torch
 import torch.nn as nn
+from torchvision import transforms
+try:
+    from torch.hub import load_state_dict_from_url
+except ImportError:
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
+
 
 __all__ = [
     "VGG",
@@ -35,8 +41,8 @@ class VGG(nn.Module):
         super().__init__()
         self.features = features
         self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
-        self.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
+        self.__classifier__ = nn.Sequential(
+            nn.Linear(2 * 512 * 7 * 7, 4096),
             nn.ReLU(True),
             nn.Dropout(p=dropout),
             nn.Linear(4096, 4096),
@@ -47,12 +53,14 @@ class VGG(nn.Module):
         if init_weights:
             self._initialize_weights()
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.features(x)
-        x = self.avgpool(x)
-        x = torch.flatten(x, 1)
-        x = self.classifier(x)
-        return x
+    def forward(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():
+            x, y = self.features(x), self.features(y)
+        x, y = self.avgpool(x), self.avgpool(y)
+        z = torch.cat((x, y), 1)
+        z = torch.flatten(z, 1)
+        z = self.__classifier__(z)
+        return z
 
     def _initialize_weights(self) -> None:
         for m in self.modules():
@@ -98,6 +106,10 @@ def _vgg(arch: str, cfg: str, batch_norm: bool, pretrained: bool, progress: bool
     if pretrained:
         kwargs["init_weights"] = False
     model = VGG(make_layers(cfgs[cfg], batch_norm=batch_norm), **kwargs)
+    if pretrained:
+        state_dict = load_state_dict_from_url(model_urls[arch],
+                                              progress=progress)
+        model.load_state_dict(state_dict, strict=False)
     return model
 
 

@@ -1,4 +1,7 @@
-import torch
+import getopt
+import sys
 
-torch.hub.load('pytorch/vision:v0.10.0',
-               'deeplabv3_resnet101', pretrained=True)
+print(sys.argv)
+opts, _ = getopt.getopt(sys.argv[1:], "a:d:S",)
+opt_dict = {k: v for [k, v] in opts}
+print(opt_dict)

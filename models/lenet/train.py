@@ -3,7 +3,34 @@ import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
-from model import LeNet
+
+
+class LeNet(nn.Module):
+    # leNet
+    def __init__(self, num_classes=10):
+        super(LeNet, self).__init__()
+        self.feature = nn.Sequential(
+            nn.Conv2d(3, 16, 5),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(16, 32, 5),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, 2),
+        )
+        self.classifier = nn.Sequential(
+            nn.Linear(32 * 5 * 5, 120),
+            nn.ReLU(inplace=True),
+            nn.Linear(120, 84),
+            nn.ReLU(inplace=True),
+            nn.Linear(84, num_classes)
+        )
+
+    def forward(self, x):
+
+        x = self.feature(x)
+        x = torch.flatten(x, 1)
+        x = self.classifier(x)
+        return x
 
 
 # use gpu

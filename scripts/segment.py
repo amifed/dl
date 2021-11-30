@@ -112,23 +112,6 @@ if __name__ == '__main__':
                            'deeplabv3_resnet50', pretrained=True)
     model.to(device)
     torch.cuda.empty_cache()
-    source = '/home/djy/dataset/uni_dataset'
-    target = '/home/djy/dataset/seg_deeplabv3_dataset'
-    # segment(source, target, deeplabv3(model))
-    if not os.path.exists(source):
-        raise ValueError('source not exist')
-    if not os.path.exists(target):
-        os.mkdir(target)
-    with torch.no_grad():
-        for classname in os.listdir(source):
-            origin, dist = os.path.join(
-                source, classname), os.path.join(target, classname)
-            if not os.path.exists(dist):
-                os.mkdir(dist)
-            for filename in os.listdir(origin):
-                if not filename.endswith('.jpg') and not filename.endswith('.jpeg'):
-                    continue
-
-                deeplabv3(os.path.join(origin, filename),
-                          os.path.join(dist, filename))
-                print(f'processing {filename}')
+    source = '/home/djy/dataset/dataset1'
+    target = '/home/djy/dataset/ycrcb_hsv_dataset1'
+    segment(source, target, YCrCb_HSV)

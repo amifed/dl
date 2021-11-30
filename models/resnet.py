@@ -3,7 +3,10 @@ from typing import Type, Any, Callable, Union, List, Optional
 import torch
 import torch.nn as nn
 from torch import Tensor
-
+try:
+    from torch.hub import load_state_dict_from_url
+except ImportError:
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
 __all__ = [
     "ResNet",
@@ -83,7 +86,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
-    def forward(self, x: Tensor) -> Tensor:
+    def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
 
         out = self.conv1(x)
@@ -203,7 +206,8 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        self.fc = nn.Linear(512 * block.expansion, num_classes)
+        # self.fc = nn.Linear(512 * block.expansion, num_classes)
+        self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -266,7 +270,7 @@ class ResNet(nn.Module):
 
         return nn.Sequential(*layers)
 
-    def _forward_impl(self, x: Tensor) -> Tensor:
+    def _forward_impl(self, x: Tensor, y: Tensor = None) -> Tensor:
         # See note [TorchScript super()]
         x = self.conv1(x)
         x = self.bn1(x)
@@ -279,13 +283,33 @@ class ResNet(nn.Module):
         x = self.layer4(x)
 
         x = self.avgpool(x)
-        x = torch.flatten(x, 1)
-        x = self.fc(x)
+        # x = torch.flatten(x, 1)
+        # x = self.fc(x)
 
-        return x
+        # parallel input y
+        y = self.conv1(y)
+        y = self.bn1(y)
+        y = self.relu(y)
+        y = self.maxpool(y)
 
-    def forward(self, x: Tensor) -> Tensor:
-        return self._forward_impl(x)
+        y = self.layer1(y)
+        y = self.layer2(y)
+        y = self.layer3(y)
+        y = self.layer4(y)
+
+        y = self.avgpool(y)
+        # y = torch.flatten(y, 1)
+        # y = self.fc(y)
+
+        z = torch.cat((x, y), 1)
+        z = torch.flatten(z, 1)
+        z = self.__fc__(z)
+        return z
+
+        # return x
+
+    def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
+        return self._forward_impl(x, y)
 
 
 def _resnet(
@@ -297,6 +321,10 @@ def _resnet(
     **kwargs: Any,
 ) -> ResNet:
     model = ResNet(block, layers, **kwargs)
+    if pretrained:
+        state_dict = load_state_dict_from_url(model_urls[arch],
+                                              progress=progress)
+        model.load_state_dict(state_dict, strict=False)
     return model
 
 

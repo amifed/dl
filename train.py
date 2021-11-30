@@ -26,10 +26,11 @@ from utils.data import ParallelImageFolder
 start = time.time()
 
 # save model path from shell args
-opts, _ = getopt.getopt(sys.argv[1:], "d:S")
+opts, _ = getopt.getopt(sys.argv[1:], "f:m:", ['save-model'])
 opt_dict = {k: v for [k, v] in opts}
-SAVE_MODEL = '-S' in opt_dict
-SAVE_PATH = os.path.join(opt_dict.get('-d', './'), 'model.pth')
+msg = opt_dict.get('-m', '')
+SAVE_MODEL = '--save-model' in opt_dict
+SAVE_PATH = os.path.join(opt_dict.get('-f', './'), 'model.pth')
 
 # 1. load & normalize
 transform = transforms.Compose([
@@ -56,8 +57,8 @@ batch_size = 20
 # root=testset_path, transform=transform)
 
 
-dataset_path = '/home/djy/dataset/uni_dataset'
-seg_dataset_path = '/home/djy/dataset/seg_deeplabv3_dataset'
+dataset_path = '/home/djy/dataset/dataset1'
+seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset1'
 dataset = ParallelImageFolder(
     root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
 full_size = len(dataset)
@@ -80,9 +81,11 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
 classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
 
 # 2. define a CNN
-net = AlexNet(num_classes=len(classes))
+net = resnet.resnet18(num_classes=len(classes), pretrained=True)
 net.to(device)
-print(f'Train Model: {net.__class__.__name__}, Using device {device}')
+print(f'Train Model: {net.__class__.__name__}, Using device {device}\n')
+
+print(f'{msg}')
 
 # 3. define a loss function & optimizer
 criterion = nn.CrossEntropyLoss()
@@ -142,7 +145,7 @@ for epoch in range(epochs):  # loop over the dataset multiple times
             if parallel_train and parallel_images is not None:
                 parallel_images = parallel_images.to(device)
 
-            outputs = net(images)
+            outputs = net(images, parallel_images)
 
             _, predictions = torch.max(outputs.data, 1)
             total += labels.size(0)
@@ -169,11 +172,11 @@ for epoch in range(epochs):  # loop over the dataset multiple times
 print('Finished training!!!', end='\n\n')
 print('Min loss = %.3f in epoch %d;\n\
 max Accuracy = %.2f%% in epoch %d;\n\
-Total Time %d' % (min_loss,
-                  min_loss_epoch,
-                  max_accuracy,
-                  max_accuracy_epoch,
-                  time.time() - start), end='\n\n')
+Total Time %d minutes' % (min_loss,
+                          min_loss_epoch,
+                          max_accuracy,
+                          max_accuracy_epoch,
+                          (time.time() - start) / 60), end='\n\n')
 print(f'parallel_train = {parallel_train}\n\
 batch_size = {batch_size}\n\
 epochs = {epochs}\n\

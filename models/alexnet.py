@@ -1,5 +1,16 @@
 import torch
 import torch.nn as nn
+from typing import Any
+try:
+    from torch.hub import load_state_dict_from_url
+except ImportError:
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
+
+__all__ = ['AlexNet', 'alexnet']
+
+model_urls = {
+    'alexnet': 'https://download.pytorch.org/models/alexnet-owt-7be5be79.pth',
+}
 
 
 class AlexNet(nn.Module):
@@ -41,12 +52,12 @@ class AlexNet(nn.Module):
         )
 
     def forward(self, x: torch.Tensor, y: torch.Tensor = None) -> torch.Tensor:
-        if not self.training:
-            x = self.features(x)
-            x = self.avgpool(x)
-            x = torch.flatten(x, 1)
-            x = self.classifier1(x)
-            return x
+        # if not self.training:
+        #     x = self.features(x)
+        #     x = self.avgpool(x)
+        #     x = torch.flatten(x, 1)
+        #     x = self.classifier1(x)
+        #     return x
         x, y = self.features(x), self.features(y)
         x, y = self.avgpool(x), self.avgpool(y)
 
@@ -55,3 +66,20 @@ class AlexNet(nn.Module):
         z = torch.flatten(z, 1)
         z = self.classifier2(z)
         return z
+
+
+def alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> AlexNet:
+    r"""AlexNet model architecture from the
+    `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
+    The required minimum input size of the model is 63x63.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet
+        progress (bool): If True, displays a progress bar of the download to stderr
+    """
+    model = AlexNet(**kwargs)
+    if pretrained:
+        state_dict = load_state_dict_from_url(model_urls['alexnet'],
+                                              progress=progress)
+        model.load_state_dict(state_dict, strict=False)
+    return model

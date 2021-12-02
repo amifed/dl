@@ -1,0 +1,210 @@
+dataset_path: /home/djy/dataset/dataset1
+Train Model: ResNet, pretrained : True , Using device cuda:0
+
+resnet18_pretrained_rgb_yrrcb_hsv
+parallel_train : True
+parallel_train dataset : /home/djy/dataset/ycrcb_hsv_dataset1
+
+========== Train Epoch 1 ==========
+Loss: 1.356	Accuracy: 64 %	Time 31 s
+Accuracy for class bzx   is: 82.4 %
+Accuracy for class cwx   is: 57.1 %
+Accuracy for class hdx   is: 40.0 %
+Accuracy for class mtx   is: 31.8 %
+Accuracy for class nqx   is: 30.8 %
+Accuracy for class qtx   is: 91.4 %
+Accuracy for class zxx   is: 79.7 %
+
+========== Train Epoch 2 ==========
+Loss: 0.559	Accuracy: 74 %	Time 31 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 64.3 %
+Accuracy for class hdx   is: 60.0 %
+Accuracy for class mtx   is: 86.4 %
+Accuracy for class nqx   is: 53.8 %
+Accuracy for class qtx   is: 91.4 %
+Accuracy for class zxx   is: 78.1 %
+
+========== Train Epoch 3 ==========
+Loss: 0.177	Accuracy: 75 %	Time 32 s
+Accuracy for class bzx   is: 64.7 %
+Accuracy for class cwx   is: 64.3 %
+Accuracy for class hdx   is: 45.0 %
+Accuracy for class mtx   is: 63.6 %
+Accuracy for class nqx   is: 57.7 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 89.1 %
+
+========== Train Epoch 4 ==========
+Loss: 0.092	Accuracy: 75 %	Time 31 s
+Accuracy for class bzx   is: 58.8 %
+Accuracy for class cwx   is: 82.1 %
+Accuracy for class hdx   is: 35.0 %
+Accuracy for class mtx   is: 54.5 %
+Accuracy for class nqx   is: 57.7 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 89.1 %
+
+========== Train Epoch 5 ==========
+Loss: 0.043	Accuracy: 75 %	Time 32 s
+Accuracy for class bzx   is: 47.1 %
+Accuracy for class cwx   is: 75.0 %
+Accuracy for class hdx   is: 40.0 %
+Accuracy for class mtx   is: 72.7 %
+Accuracy for class nqx   is: 57.7 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 87.5 %
+
+========== Train Epoch 6 ==========
+Loss: 0.034	Accuracy: 78 %	Time 32 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 71.4 %
+Accuracy for class hdx   is: 45.0 %
+Accuracy for class mtx   is: 77.3 %
+Accuracy for class nqx   is: 65.4 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 89.1 %
+
+========== Train Epoch 7 ==========
+Loss: 0.031	Accuracy: 81 %	Time 31 s
+Accuracy for class bzx   is: 76.5 %
+Accuracy for class cwx   is: 85.7 %
+Accuracy for class hdx   is: 35.0 %
+Accuracy for class mtx   is: 86.4 %
+Accuracy for class nqx   is: 69.2 %
+Accuracy for class qtx   is: 97.1 %
+Accuracy for class zxx   is: 90.6 %
+
+========== Train Epoch 8 ==========
+Loss: 0.025	Accuracy: 79 %	Time 31 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 75.0 %
+Accuracy for class hdx   is: 40.0 %
+Accuracy for class mtx   is: 68.2 %
+Accuracy for class nqx   is: 69.2 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 92.2 %
+
+========== Train Epoch 9 ==========
+Loss: 0.021	Accuracy: 80 %	Time 31 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 78.6 %
+Accuracy for class hdx   is: 45.0 %
+Accuracy for class mtx   is: 72.7 %
+Accuracy for class nqx   is: 73.1 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 89.1 %
+
+========== Train Epoch 10 ==========
+Loss: 0.010	Accuracy: 83 %	Time 32 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 85.7 %
+Accuracy for class hdx   is: 40.0 %
+Accuracy for class mtx   is: 90.9 %
+Accuracy for class nqx   is: 73.1 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 90.6 %
+Finished training!!!
+
+Min loss = 0.010 in epoch 9;
+max Accuracy = 83.02% in epoch 9;
+Total Time 5 minutes
+
+batch_size = 10
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc_): Linear(in_features=512, out_features=7, bias=True)
+  (__fc__): Linear(in_features=1024, out_features=7, bias=True)
+)
+

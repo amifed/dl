@@ -1,0 +1,458 @@
+Train Model: ResNet, Using device cuda:0
+
+parallel_train_with_ycrcb_hsv
+
+========== Train Epoch 1 ==========
+Loss: 1.798	Accuracy: 26 %	Time 30 s
+Accuracy for class bzx   is: 0.0 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 68.2 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 54.3 %
+Accuracy for class zxx   is: 34.4 %
+
+========== Train Epoch 2 ==========
+Loss: 1.566	Accuracy: 22 %	Time 30 s
+Accuracy for class bzx   is: 58.8 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 13.6 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 94.3 %
+Accuracy for class zxx   is: 3.1 %
+
+========== Train Epoch 3 ==========
+Loss: 1.376	Accuracy: 27 %	Time 32 s
+Accuracy for class bzx   is: 29.4 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 18.2 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 94.3 %
+Accuracy for class zxx   is: 25.0 %
+
+========== Train Epoch 4 ==========
+Loss: 1.145	Accuracy: 26 %	Time 32 s
+Accuracy for class bzx   is: 0.0 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 0.0 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 77.1 %
+Accuracy for class zxx   is: 43.8 %
+
+========== Train Epoch 5 ==========
+Loss: 0.843	Accuracy: 23 %	Time 31 s
+Accuracy for class bzx   is: 11.8 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 70.0 %
+Accuracy for class mtx   is: 31.8 %
+Accuracy for class nqx   is: 26.9 %
+Accuracy for class qtx   is: 0.0 %
+Accuracy for class zxx   is: 29.7 %
+
+========== Train Epoch 6 ==========
+Loss: 0.453	Accuracy: 32 %	Time 31 s
+Accuracy for class bzx   is: 70.6 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 25.0 %
+Accuracy for class mtx   is: 0.0 %
+Accuracy for class nqx   is: 11.5 %
+Accuracy for class qtx   is: 82.9 %
+Accuracy for class zxx   is: 29.7 %
+
+========== Train Epoch 7 ==========
+Loss: 0.191	Accuracy: 34 %	Time 32 s
+Accuracy for class bzx   is: 11.8 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 5.0 %
+Accuracy for class mtx   is: 27.3 %
+Accuracy for class nqx   is: 11.5 %
+Accuracy for class qtx   is: 85.7 %
+Accuracy for class zxx   is: 50.0 %
+
+========== Train Epoch 8 ==========
+Loss: 0.109	Accuracy: 35 %	Time 31 s
+Accuracy for class bzx   is: 17.6 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 15.0 %
+Accuracy for class mtx   is: 9.1 %
+Accuracy for class nqx   is: 7.7 %
+Accuracy for class qtx   is: 97.1 %
+Accuracy for class zxx   is: 46.9 %
+
+========== Train Epoch 9 ==========
+Loss: 0.064	Accuracy: 25 %	Time 32 s
+Accuracy for class bzx   is: 88.2 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 15.0 %
+Accuracy for class mtx   is: 9.1 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 77.1 %
+Accuracy for class zxx   is: 7.8 %
+
+========== Train Epoch 10 ==========
+Loss: 0.049	Accuracy: 33 %	Time 31 s
+Accuracy for class bzx   is: 11.8 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 5.0 %
+Accuracy for class mtx   is: 18.2 %
+Accuracy for class nqx   is: 11.5 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 39.1 %
+
+========== Train Epoch 11 ==========
+Loss: 0.037	Accuracy: 31 %	Time 32 s
+Accuracy for class bzx   is: 88.2 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 30.0 %
+Accuracy for class mtx   is: 13.6 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 74.3 %
+Accuracy for class zxx   is: 23.4 %
+
+========== Train Epoch 12 ==========
+Loss: 0.047	Accuracy: 25 %	Time 32 s
+Accuracy for class bzx   is: 23.5 %
+Accuracy for class cwx   is: 7.1 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 4.5 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 17.2 %
+
+========== Train Epoch 13 ==========
+Loss: 0.055	Accuracy: 37 %	Time 32 s
+Accuracy for class bzx   is: 0.0 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 54.5 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 85.7 %
+Accuracy for class zxx   is: 56.2 %
+
+========== Train Epoch 14 ==========
+Loss: 0.039	Accuracy: 43 %	Time 32 s
+Accuracy for class bzx   is: 0.0 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 10.0 %
+Accuracy for class mtx   is: 0.0 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 82.9 %
+Accuracy for class zxx   is: 95.3 %
+
+========== Train Epoch 15 ==========
+Loss: 0.031	Accuracy: 33 %	Time 32 s
+Accuracy for class bzx   is: 0.0 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 20.0 %
+Accuracy for class mtx   is: 0.0 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 97.1 %
+Accuracy for class zxx   is: 50.0 %
+
+========== Train Epoch 16 ==========
+Loss: 0.043	Accuracy: 28 %	Time 31 s
+Accuracy for class bzx   is: 23.5 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 0.0 %
+Accuracy for class mtx   is: 22.7 %
+Accuracy for class nqx   is: 38.5 %
+Accuracy for class qtx   is: 94.3 %
+Accuracy for class zxx   is: 12.5 %
+
+========== Train Epoch 17 ==========
+Loss: 0.069	Accuracy: 36 %	Time 31 s
+Accuracy for class bzx   is: 11.8 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 15.0 %
+Accuracy for class mtx   is: 4.5 %
+Accuracy for class nqx   is: 7.7 %
+Accuracy for class qtx   is: 48.6 %
+Accuracy for class zxx   is: 79.7 %
+
+========== Train Epoch 18 ==========
+Loss: 0.054	Accuracy: 29 %	Time 31 s
+Accuracy for class bzx   is: 23.5 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 35.0 %
+Accuracy for class mtx   is: 13.6 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 94.3 %
+Accuracy for class zxx   is: 20.3 %
+
+========== Train Epoch 19 ==========
+Loss: 0.061	Accuracy: 41 %	Time 31 s
+Accuracy for class bzx   is: 5.9 %
+Accuracy for class cwx   is: 21.4 %
+Accuracy for class hdx   is: 70.0 %
+Accuracy for class mtx   is: 4.5 %
+Accuracy for class nqx   is: 7.7 %
+Accuracy for class qtx   is: 82.9 %
+Accuracy for class zxx   is: 56.2 %
+
+========== Train Epoch 20 ==========
+Loss: 0.079	Accuracy: 36 %	Time 32 s
+Accuracy for class bzx   is: 5.9 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 45.0 %
+Accuracy for class mtx   is: 40.9 %
+Accuracy for class nqx   is: 0.0 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 43.8 %
+
+========== Train Epoch 21 ==========
+Loss: 0.098	Accuracy: 41 %	Time 31 s
+Accuracy for class bzx   is: 29.4 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 55.0 %
+Accuracy for class mtx   is: 45.5 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 57.1 %
+Accuracy for class zxx   is: 60.9 %
+
+========== Train Epoch 22 ==========
+Loss: 0.069	Accuracy: 42 %	Time 32 s
+Accuracy for class bzx   is: 47.1 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 15.0 %
+Accuracy for class mtx   is: 54.5 %
+Accuracy for class nqx   is: 38.5 %
+Accuracy for class qtx   is: 51.4 %
+Accuracy for class zxx   is: 62.5 %
+
+========== Train Epoch 23 ==========
+Loss: 0.089	Accuracy: 34 %	Time 32 s
+Accuracy for class bzx   is: 17.6 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 10.0 %
+Accuracy for class mtx   is: 9.1 %
+Accuracy for class nqx   is: 11.5 %
+Accuracy for class qtx   is: 100.0 %
+Accuracy for class zxx   is: 43.8 %
+
+========== Train Epoch 24 ==========
+Loss: 0.049	Accuracy: 34 %	Time 32 s
+Accuracy for class bzx   is: 52.9 %
+Accuracy for class cwx   is: 14.3 %
+Accuracy for class hdx   is: 35.0 %
+Accuracy for class mtx   is: 18.2 %
+Accuracy for class nqx   is: 19.2 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 21.9 %
+
+========== Train Epoch 25 ==========
+Loss: 0.042	Accuracy: 47 %	Time 32 s
+Accuracy for class bzx   is: 23.5 %
+Accuracy for class cwx   is: 7.1 %
+Accuracy for class hdx   is: 30.0 %
+Accuracy for class mtx   is: 9.1 %
+Accuracy for class nqx   is: 26.9 %
+Accuracy for class qtx   is: 97.1 %
+Accuracy for class zxx   is: 71.9 %
+
+========== Train Epoch 26 ==========
+Loss: 0.125	Accuracy: 42 %	Time 31 s
+Accuracy for class bzx   is: 41.2 %
+Accuracy for class cwx   is: 7.1 %
+Accuracy for class hdx   is: 10.0 %
+Accuracy for class mtx   is: 4.5 %
+Accuracy for class nqx   is: 57.7 %
+Accuracy for class qtx   is: 45.7 %
+Accuracy for class zxx   is: 73.4 %
+
+========== Train Epoch 27 ==========
+Loss: 0.102	Accuracy: 43 %	Time 32 s
+Accuracy for class bzx   is: 35.3 %
+Accuracy for class cwx   is: 7.1 %
+Accuracy for class hdx   is: 30.0 %
+Accuracy for class mtx   is: 22.7 %
+Accuracy for class nqx   is: 34.6 %
+Accuracy for class qtx   is: 68.6 %
+Accuracy for class zxx   is: 64.1 %
+
+========== Train Epoch 28 ==========
+Loss: 0.090	Accuracy: 41 %	Time 32 s
+Accuracy for class bzx   is: 29.4 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 40.0 %
+Accuracy for class mtx   is: 9.1 %
+Accuracy for class nqx   is: 3.8 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 65.6 %
+
+========== Train Epoch 29 ==========
+Loss: 0.071	Accuracy: 37 %	Time 32 s
+Accuracy for class bzx   is: 17.6 %
+Accuracy for class cwx   is: 10.7 %
+Accuracy for class hdx   is: 20.0 %
+Accuracy for class mtx   is: 13.6 %
+Accuracy for class nqx   is: 46.2 %
+Accuracy for class qtx   is: 91.4 %
+Accuracy for class zxx   is: 35.9 %
+
+========== Train Epoch 30 ==========
+Loss: 0.055	Accuracy: 45 %	Time 32 s
+Accuracy for class bzx   is: 35.3 %
+Accuracy for class cwx   is: 3.6 %
+Accuracy for class hdx   is: 15.0 %
+Accuracy for class mtx   is: 22.7 %
+Accuracy for class nqx   is: 15.4 %
+Accuracy for class qtx   is: 74.3 %
+Accuracy for class zxx   is: 81.2 %
+
+========== Train Epoch 31 ==========
+Loss: 0.053	Accuracy: 40 %	Time 32 s
+Accuracy for class bzx   is: 29.4 %
+Accuracy for class cwx   is: 7.1 %
+Accuracy for class hdx   is: 5.0 %
+Accuracy for class mtx   is: 59.1 %
+Accuracy for class nqx   is: 11.5 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 48.4 %
+
+========== Train Epoch 32 ==========
+Loss: 0.026	Accuracy: 46 %	Time 33 s
+Accuracy for class bzx   is: 17.6 %
+Accuracy for class cwx   is: 10.7 %
+Accuracy for class hdx   is: 25.0 %
+Accuracy for class mtx   is: 36.4 %
+Accuracy for class nqx   is: 30.8 %
+Accuracy for class qtx   is: 77.1 %
+Accuracy for class zxx   is: 70.3 %
+
+========== Train Epoch 33 ==========
+Loss: 0.011	Accuracy: 46 %	Time 32 s
+Accuracy for class bzx   is: 35.3 %
+Accuracy for class cwx   is: 10.7 %
+Accuracy for class hdx   is: 20.0 %
+Accuracy for class mtx   is: 4.5 %
+Accuracy for class nqx   is: 38.5 %
+Accuracy for class qtx   is: 71.4 %
+Accuracy for class zxx   is: 76.6 %
+
+========== Train Epoch 34 ==========
+Loss: 0.017	Accuracy: 48 %	Time 31 s
+Accuracy for class bzx   is: 23.5 %
+Accuracy for class cwx   is: 21.4 %
+Accuracy for class hdx   is: 25.0 %
+Accuracy for class mtx   is: 36.4 %
+Accuracy for class nqx   is: 46.2 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 56.2 %
+
+========== Train Epoch 35 ==========
+Loss: 0.007	Accuracy: 53 %	Time 32 s
+Accuracy for class bzx   is: 41.2 %
+Accuracy for class cwx   is: 0.0 %
+Accuracy for class hdx   is: 25.0 %
+Accuracy for class mtx   is: 36.4 %
+Accuracy for class nqx   is: 38.5 %
+Accuracy for class qtx   is: 88.6 %
+Accuracy for class zxx   is: 81.2 %
+Finished training!!!
+
+Min loss = 0.007 in epoch 34;
+max Accuracy = 53.30% in epoch 34;
+Total Time 18 minutes
+
+parallel_train = True
+batch_size = 10
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=512, out_features=7, bias=True)
+  (__fc__): Linear(in_features=1024, out_features=7, bias=True)
+)
+

@@ -206,7 +206,7 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        # self.fc = nn.Linear(512 * block.expansion, num_classes)
+        self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
         for m in self.modules():
@@ -271,7 +271,39 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def _forward_impl(self, x: Tensor, y: Tensor = None) -> Tensor:
-        # See note [TorchScript super()]
+        if y is not None:
+
+            # See note [TorchScript super()]
+            x = self.conv1(x)
+            x = self.bn1(x)
+            x = self.relu(x)
+            x = self.maxpool(x)
+
+            x = self.layer1(x)
+            x = self.layer2(x)
+            x = self.layer3(x)
+            x = self.layer4(x)
+
+            x = self.avgpool(x)
+
+            # parallel input y
+            y = self.conv1(y)
+            y = self.bn1(y)
+            y = self.relu(y)
+            y = self.maxpool(y)
+
+            y = self.layer1(y)
+            y = self.layer2(y)
+            y = self.layer3(y)
+            y = self.layer4(y)
+
+            y = self.avgpool(y)
+
+            z = torch.cat((x, y), 1)
+            z = torch.flatten(z, 1)
+            z = self.__fc__(z)
+            return z
+
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
@@ -283,30 +315,9 @@ class ResNet(nn.Module):
         x = self.layer4(x)
 
         x = self.avgpool(x)
-        # x = torch.flatten(x, 1)
-        # x = self.fc(x)
-
-        # parallel input y
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.relu(y)
-        y = self.maxpool(y)
-
-        y = self.layer1(y)
-        y = self.layer2(y)
-        y = self.layer3(y)
-        y = self.layer4(y)
-
-        y = self.avgpool(y)
-        # y = torch.flatten(y, 1)
-        # y = self.fc(y)
-
-        z = torch.cat((x, y), 1)
-        z = torch.flatten(z, 1)
-        z = self.__fc__(z)
-        return z
-
-        # return x
+        x = torch.flatten(x, 1)
+        x = self.fc_(x)
+        return x
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         return self._forward_impl(x, y)

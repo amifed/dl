@@ -4,10 +4,14 @@ from typing import Callable, Any, Optional, List
 import torch
 from torch import Tensor
 from torch import nn
+import torchvision
 
 from .ops.misc import ConvNormActivation
 from ._utils import _make_divisible
-
+try:
+    from torch.hub import load_state_dict_from_url
+except ImportError:
+    from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
 __all__ = ["MobileNetV2", "mobilenet_v2"]
 
@@ -121,6 +125,7 @@ class MobileNetV2(nn.Module):
         if inverted_residual_setting is None:
             inverted_residual_setting = [
                 # t, c, n, s
+                # t, 卷积核个数，n，步距
                 [1, 16, 1, 1],
                 [6, 24, 2, 2],
                 [6, 32, 3, 2],
@@ -146,9 +151,11 @@ class MobileNetV2(nn.Module):
                                norm_layer=norm_layer, activation_layer=nn.ReLU6)
         ]
         # building inverted residual blocks
+        # 扩展因子, 卷积核个数，倒残差结构个数，步距
         for t, c, n, s in inverted_residual_setting:
             output_channel = _make_divisible(c * width_mult, round_nearest)
             for i in range(n):
+                # 倒残差结构中，第一层步距为 s，其它层步距为 1
                 stride = s if i == 0 else 1
                 features.append(block(input_channel, output_channel,
                                 stride, expand_ratio=t, norm_layer=norm_layer))
@@ -163,9 +170,14 @@ class MobileNetV2(nn.Module):
         self.features = nn.Sequential(*features)
 
         # building classifier
-        self.classifier = nn.Sequential(
+        # self.classifier = nn.Sequential(
+        #     nn.Dropout(p=dropout),
+        #     nn.Linear(self.last_channel, num_classes),
+        # )
+        self.__classifier__ = nn.Sequential(
             nn.Dropout(p=dropout),
-            nn.Linear(self.last_channel, num_classes),
+            nn.Linear(2 * self.last_channel, 1024),
+            nn.Linear(1024, num_classes)
         )
 
         # weight initialization
@@ -181,18 +193,30 @@ class MobileNetV2(nn.Module):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.zeros_(m.bias)
 
-    def _forward_impl(self, x: Tensor) -> Tensor:
+    def _forward_impl(self, x: Tensor, y: Tensor = None) -> Tensor:
         # This exists since TorchScript doesn't support inheritance, so the superclass method
         # (this one) needs to have a name other than `forward` that can be accessed in a subclass
+        if y is not None:
+            x = self.features(x)
+            # Cannot use "squeeze" as batch-size can be 1
+            x = nn.functional.adaptive_avg_pool2d(x, (1, 1))
+
+            y = self.features(y)
+            y = nn.functional.adaptive_avg_pool2d(x, (1, 1))
+
+            z = torch.cat((x, y), 1)
+            z = torch.flatten(z, 1)
+            z = self.__classifier__(z)
+            return z
         x = self.features(x)
         # Cannot use "squeeze" as batch-size can be 1
         x = nn.functional.adaptive_avg_pool2d(x, (1, 1))
         x = torch.flatten(x, 1)
-        x = self.classifier(x)
+        x = self.__classifier__(x)
         return x
 
-    def forward(self, x: Tensor) -> Tensor:
-        return self._forward_impl(x)
+    def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
+        return self._forward_impl(x, y)
 
 
 def mobilenet_v2(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> MobileNetV2:
@@ -204,4 +228,8 @@ def mobilenet_v2(pretrained: bool = False, progress: bool = True, **kwargs: Any)
         progress (bool): If True, displays a progress bar of the download to stderr
     """
     model = MobileNetV2(**kwargs)
+    if pretrained:
+        state_dict = load_state_dict_from_url(model_urls['mobilenet_v2'],
+                                              progress=progress)
+        model.load_state_dict(state_dict, strict=False)
     return model

@@ -34,4 +34,4 @@ class ParallelImageFolder(torchvision.datasets.ImageFolder):
         if self.target_transform is not None:
             target = self.target_transform(target)
 
-        return sample, target, parallel_sample or []
+        return sample, target, parallel_sample if parallel_sample is not None else []

@@ -5,12 +5,11 @@ from PIL import Image
 import os
 import cv2
 import numpy as np
-from numpy.core.numeric import outer
 from torchvision import transforms
 from PIL import Image
 import torch
-import matplotlib.pyplot as plt
 import gc
+from tqdm import tqdm
 gc.collect()
 torch.cuda.empty_cache()
 
@@ -24,25 +23,31 @@ def YCrCb_HSV(source, target):
     img_HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # skin color range for hsv color space
     HSV_mask = cv2.inRange(img_HSV, (0, 15, 0), (17, 170, 255))
+    HSV_mask = cv2.medianBlur(HSV_mask, 13)
     HSV_mask = cv2.morphologyEx(
         HSV_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
 
     # converting from gbr to YCbCr color space
     img_YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
-    # skin color range for hsv color space
+    cv2.COLOR_YC
+    # skin color range for hsv YCbCr space
     YCrCb_mask = cv2.inRange(img_YCrCb, (0, 135, 85), (255, 180, 135))
+    # YCrCb_mask = cv2.inRange(img_YCrCb, (0, 0, 20), (234, 23, 10))
+    YCrCb_mask = cv2.medianBlur(YCrCb_mask, 13)
     YCrCb_mask = cv2.morphologyEx(
         YCrCb_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
 
     # merge skin detection (YCbCr and hsv)
-    global_mask = cv2.bitwise_and(YCrCb_mask, HSV_mask)
-    global_mask = cv2.medianBlur(global_mask, 3)
+    global_mask = cv2.bitwise_and(HSV_mask, YCrCb_mask)
+    global_mask = cv2.medianBlur(global_mask, 13)
     global_mask = cv2.morphologyEx(
         global_mask, cv2.MORPH_OPEN, np.ones((4, 4), np.uint8))
 
     HSV_result = cv2.bitwise_not(HSV_mask)
     YCrCb_result = cv2.bitwise_not(YCrCb_mask)
-    global_result = cv2.bitwise_not(global_mask)
+    # global_result = cv2.bitwise_not(global_mask)
+    # 抠图
+    global_result = cv2.bitwise_and(img, img, mask=global_mask)
 
     cv2.imwrite(target, global_result)
 
@@ -53,7 +58,6 @@ def deeplabv3(source, target):
     input_image = Image.open(source)
     input_image = input_image.convert("RGB")
     preprocess = transforms.Compose([
-        transforms.Resize([640, 640]),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                              std=[0.229, 0.224, 0.225]),
@@ -92,13 +96,13 @@ def segment(source, target, method):
         raise ValueError('source not exist')
     if not os.path.exists(target):
         os.mkdir(target)
-    for classname in os.listdir(source):
+    for classname in tqdm(os.listdir(source)):
         origin, dist = os.path.join(
             source, classname), os.path.join(target, classname)
         if not os.path.exists(dist):
             os.mkdir(dist)
         for filename in os.listdir(origin):
-            if not filename.endswith('.jpg') and not filename.endswith('.jpeg'):
+            if not filename.endswith('.jpg') and not filename.endswith('.jpeg') and not filename.endswith('.png'):
                 continue
 
             method(os.path.join(origin, filename),
@@ -112,6 +116,7 @@ if __name__ == '__main__':
                            'deeplabv3_resnet50', pretrained=True)
     model.to(device)
     torch.cuda.empty_cache()
-    source = '/home/djy/dataset/dataset1'
-    target = '/home/djy/dataset/ycrcb_hsv_dataset1'
+    source = '/home/djy/dataset/dataset'
+    # target = '/home/djy/dataset/deeplabv3_dataset_aug'
+    target = '/home/djy/dataset/ycrcb_hsv_dataset_matting'
     segment(source, target, YCrCb_HSV)

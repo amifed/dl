@@ -45,8 +45,8 @@ if __name__ == '__main__':
     # 打开当前文件夹下的 video.mp4 视频
     # for i in range(5):
     folder = '/home/djy/Videos'
-    source = os.path.join(folder, 'vidoe4.mov')
+    source = os.path.join(folder, 'video2.mov')
     target = os.path.join(
-        folder, f'frames_video4')
+        folder, f'frames_video2')
     print(source, target)
     frames_extraction(source, target)

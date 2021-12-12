@@ -22,7 +22,7 @@ def move(source, target):
         mkdir(dirt_path)
 
         for file in listdir(dirt_path):
-            if not file.endswith('.jpg') and not file.endswith('.jpeg'):
+            if not file.endswith('.jpg') and not file.endswith('.jpeg') and not file.endswith('.png'):
                 continue
             origin = path.join(target, dirt, file)
             dist = path.join(target, dirt, f'{dirt}_{map[dirt]}.jpg')
@@ -77,7 +77,7 @@ def reset(source):
         if not path.isdir(dirt_path):
             continue
         reorder(dirt_path, dirt, lambda x: x.endswith(
-            '.jpg') or x.endswith('.jpeg'))
+            '.jpg') or x.endswith('.jpeg') or x.endswith('.png'))
 
 
 def merge(sources: List[str], target):
@@ -101,11 +101,23 @@ def merge(sources: List[str], target):
             shutil.copy(src, dst)
         for dirt in dirts:
             merge([path.join(root, dirt)], path.join(target, dirt))
+        print(f'done for {source}')
 
 
 if __name__ == '__main__':
     # source = '/home/djy/dataset/dataset1'
     # target = '/home/djy/dataset/dataset_1'
-    # merge(['/home/djy/dataset/dataset', '/home/djy/dataset/dataset_1'],
-    #       '/home/djy/dataset/dataset1')
-    reset('/home/djy/dataset/dataset1')
+    # merge(['/home/djy/dataset/original_dataset_from_zl/alldata/dev',
+    #        '/home/djy/dataset/original_dataset_from_zl/alldata/test',
+    #        '/home/djy/dataset/original_dataset_from_zl/alldata/train',
+    #        '/home/djy/dataset/original_dataset_from_zl/data50/dev',
+    #        '/home/djy/dataset/original_dataset_from_zl/data50/test',
+    #        '/home/djy/dataset/original_dataset_from_zl/data50/train',
+    #        '/home/djy/dataset/original_dataset_from_zl/datall/dev',
+    #        '/home/djy/dataset/original_dataset_from_zl/datall/test',
+    #        '/home/djy/dataset/original_dataset_from_zl/datall/train',
+    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/dev',
+    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/test',
+    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/train'],
+    #       '/home/djy/dataset/original_dataset_from_zl/dataset')
+    reset('/home/djy/dataset/dataset')

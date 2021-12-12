@@ -1,7 +1,6 @@
 import os
 import sys
 import time
-import getopt
 
 # 记录执行时的当前时间
 now = time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime(time.time()))
@@ -21,10 +20,7 @@ log_path = os.path.join(result_dir, 'log.out')
 os.mkdir(result_dir)
 
 # 获取命令行参数
-opts, _ = getopt.getopt(sys.argv[1:], 'm:', ['save-model'])
 argv_str = ' '.join(sys.argv[1:])
-
-opts = ['-f', result_dir] + opts
 
 # 调用系统命令，后台训练模型，训练 log 输出到 log_path 中
 command = f'nohup python3 train.py {argv_str} > {log_path} &'

@@ -54,8 +54,7 @@ class VGG(nn.Module):
             self._initialize_weights()
 
     def forward(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
-        with torch.no_grad():
-            x, y = self.features(x), self.features(y)
+        x, y = self.features(x), self.features(y)
         x, y = self.avgpool(x), self.avgpool(y)
         z = torch.cat((x, y), 1)
         z = torch.flatten(z, 1)

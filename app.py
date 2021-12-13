@@ -23,5 +23,5 @@ os.mkdir(result_dir)
 argv_str = ' '.join(sys.argv[1:])
 
 # 调用系统命令，后台训练模型，训练 log 输出到 log_path 中
-command = f'nohup python3 train.py {argv_str} > {log_path} &'
+command = f'nohup python3 train.py {argv_str} -p {result_dir} > {log_path} &'
 os.system(command)

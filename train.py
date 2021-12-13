@@ -50,9 +50,9 @@ def train(
     classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
 
     # 2. define a CNN
-    net = network(num_classes=len(classes), pretrained=pretrained)
+    net: nn.Module = network(num_classes=len(classes), pretrained=pretrained)
     net.to(device)
-    print(f'using model: {net.__class__.__name__}')
+    print(f'using model: {net.__class__.__name__}, {network.__name__}')
     print(f'using device {device}')
     print(f'batch_size = {batch_size}')
     print(f'epochs = {epochs}')
@@ -60,8 +60,7 @@ def train(
     # 3. define a loss function & optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
-    print(f'loss_function = {criterion}\n\
-    optimizer = {optimizer}\n')
+    print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
     # 4. train
     max_accuracy, max_accuracy_epoch = 0.0, 0
@@ -189,7 +188,7 @@ if __name__ == '__main__':
     print(f"pretrained : {pretrained} \nparallel: {parallel}\n")
     if parallel:
         print(f'parallel segmentent dataset : {seg_dataset_path}')
-    print(f'msg: {msg}')
+    print(f'msg: {" ".join(msg)}')
     dataset = ParallelImageFolder(
         root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
     full_size = len(dataset)

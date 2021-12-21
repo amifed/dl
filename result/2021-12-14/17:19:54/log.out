@@ -1,0 +1,47 @@
+dataset_path: /home/djy/dataset/dataset
+pretrained : False 
+parallel: False
+
+msg: spp resnet18
+using model: ResNet, resnet18
+using device cuda:0
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Traceback (most recent call last):
+  File "train.py", line 228, in <module>
+    acc_list = train(trainset, validset, resnet_spp.resnet18, **args)
+  File "train.py", line 95, in train
+    inputs, parallel_inputs) if parallel else net(inputs)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/djy/dl/models/resnet_spp.py", line 328, in forward
+    return self._forward_impl(x, y)
+  File "/home/djy/dl/models/resnet_spp.py", line 316, in _forward_impl
+    x = self.layer1(x)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/djy/dl/models/resnet_spp.py", line 94, in forward
+    out = self.conv1(x)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 446, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 443, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Given groups=1, weight of size [64, 64, 3, 3], expected input[20, 256, 160, 160] to have 64 channels, but got 256 channels instead

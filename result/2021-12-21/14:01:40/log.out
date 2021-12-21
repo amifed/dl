@@ -1,0 +1,70 @@
+dataset_path: /home/djy/dataset/dataset2
+pretrained : False 
+parallel: True
+
+parallel segmentent dataset : /home/djy/dataset/ycrcb_hsv_dataset2
+msg: cbam resnet18
+using model: ResNet, resnet18
+using device cuda:0
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Loss: 1.824	Accuracy: 31.35%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3404    0.5161    0.4103        31
+         cwx     0.3333    0.0909    0.1429        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3544    0.6222    0.4516        45
+         zxx     0.2353    0.3077    0.2667        39
+
+    accuracy                         0.3135       185
+   macro avg     0.1805    0.2196    0.1816       185
+weighted avg     0.2325    0.3135    0.2518       185
+
+micro f-score: 0.31351351351351353
+
+========== Train Epoch 2 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.649	Accuracy: 28.11%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.0323    0.0588        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.1667    0.1053    0.1290        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3107    0.7111    0.4324        45
+         zxx     0.2537    0.4359    0.3208        39
+
+    accuracy                         0.2811       185
+   macro avg     0.1521    0.1835    0.1344       185
+weighted avg     0.2020    0.2811    0.1959       185
+
+micro f-score: 0.2810810810810811
+
+========== Train Epoch 3 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))

@@ -1,0 +1,550 @@
+dataset_path: /home/djy/dataset/dataset
+pretrained : False 
+parallel: True
+
+parallel segmentent dataset : /home/djy/dataset/ycrcb_hsv_dataset
+msg: resnet18 channel spatial coor
+using model: ResNet, resnet18
+using device cuda:0
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Loss: 1.825	Accuracy: 32.45%	Cost 30s
+
+========== Train Epoch 2 ==========
+Loss: 1.732	Accuracy: 33.51%	Cost 31s
+
+========== Train Epoch 3 ==========
+Loss: 1.661	Accuracy: 27.13%	Cost 31s
+
+========== Train Epoch 4 ==========
+Loss: 1.599	Accuracy: 38.83%	Cost 31s
+
+========== Train Epoch 5 ==========
+Loss: 1.508	Accuracy: 35.11%	Cost 32s
+
+========== Train Epoch 6 ==========
+Loss: 1.431	Accuracy: 36.17%	Cost 32s
+
+========== Train Epoch 7 ==========
+Loss: 1.357	Accuracy: 28.72%	Cost 32s
+
+========== Train Epoch 8 ==========
+Loss: 1.226	Accuracy: 36.17%	Cost 31s
+
+========== Train Epoch 9 ==========
+Loss: 1.073	Accuracy: 32.45%	Cost 31s
+
+========== Train Epoch 10 ==========
+Loss: 0.937	Accuracy: 25.53%	Cost 32s
+
+========== Train Epoch 11 ==========
+Loss: 0.840	Accuracy: 38.30%	Cost 33s
+
+========== Train Epoch 12 ==========
+Loss: 0.704	Accuracy: 30.85%	Cost 33s
+
+========== Train Epoch 13 ==========
+Loss: 0.652	Accuracy: 12.77%	Cost 31s
+
+========== Train Epoch 14 ==========
+Loss: 0.603	Accuracy: 19.15%	Cost 33s
+
+========== Train Epoch 15 ==========
+Loss: 0.484	Accuracy: 17.55%	Cost 32s
+
+========== Train Epoch 16 ==========
+Loss: 0.409	Accuracy: 22.34%	Cost 33s
+
+========== Train Epoch 17 ==========
+Loss: 0.327	Accuracy: 27.66%	Cost 32s
+
+========== Train Epoch 18 ==========
+Loss: 0.263	Accuracy: 43.62%	Cost 32s
+
+========== Train Epoch 19 ==========
+Loss: 0.212	Accuracy: 32.45%	Cost 31s
+
+========== Train Epoch 20 ==========
+Loss: 0.180	Accuracy: 18.09%	Cost 33s
+
+========== Train Epoch 21 ==========
+Loss: 0.147	Accuracy: 35.11%	Cost 31s
+
+========== Train Epoch 22 ==========
+Loss: 0.170	Accuracy: 30.85%	Cost 32s
+
+========== Train Epoch 23 ==========
+Loss: 0.118	Accuracy: 22.87%	Cost 32s
+
+========== Train Epoch 24 ==========
+Loss: 0.123	Accuracy: 30.32%	Cost 33s
+
+========== Train Epoch 25 ==========
+Loss: 0.074	Accuracy: 26.60%	Cost 31s
+
+========== Train Epoch 26 ==========
+Loss: 0.073	Accuracy: 30.32%	Cost 31s
+
+========== Train Epoch 27 ==========
+Loss: 0.051	Accuracy: 28.19%	Cost 32s
+
+========== Train Epoch 28 ==========
+Loss: 0.051	Accuracy: 25.00%	Cost 30s
+
+========== Train Epoch 29 ==========
+Loss: 0.073	Accuracy: 23.40%	Cost 32s
+
+========== Train Epoch 30 ==========
+Loss: 0.047	Accuracy: 34.04%	Cost 31s
+
+========== Train Epoch 31 ==========
+Loss: 0.040	Accuracy: 38.83%	Cost 32s
+
+========== Train Epoch 32 ==========
+Loss: 0.030	Accuracy: 36.17%	Cost 32s
+
+========== Train Epoch 33 ==========
+Loss: 0.023	Accuracy: 37.77%	Cost 32s
+
+========== Train Epoch 34 ==========
+Loss: 0.030	Accuracy: 41.49%	Cost 32s
+
+========== Train Epoch 35 ==========
+Loss: 0.064	Accuracy: 22.34%	Cost 32s
+
+========== Train Epoch 36 ==========
+Loss: 0.041	Accuracy: 26.60%	Cost 33s
+
+========== Train Epoch 37 ==========
+Loss: 0.032	Accuracy: 21.28%	Cost 32s
+
+========== Train Epoch 38 ==========
+Loss: 0.039	Accuracy: 29.26%	Cost 32s
+
+========== Train Epoch 39 ==========
+Loss: 0.024	Accuracy: 42.55%	Cost 31s
+
+========== Train Epoch 40 ==========
+Loss: 0.022	Accuracy: 43.09%	Cost 32s
+
+========== Train Epoch 41 ==========
+Loss: 0.012	Accuracy: 33.51%	Cost 32s
+
+========== Train Epoch 42 ==========
+Loss: 0.017	Accuracy: 29.26%	Cost 32s
+
+========== Train Epoch 43 ==========
+Loss: 0.017	Accuracy: 32.98%	Cost 33s
+
+========== Train Epoch 44 ==========
+Loss: 0.029	Accuracy: 33.51%	Cost 33s
+
+========== Train Epoch 45 ==========
+Loss: 0.027	Accuracy: 28.19%	Cost 32s
+
+========== Train Epoch 46 ==========
+Loss: 0.033	Accuracy: 35.11%	Cost 32s
+
+========== Train Epoch 47 ==========
+Loss: 0.076	Accuracy: 21.28%	Cost 31s
+
+========== Train Epoch 48 ==========
+Loss: 0.085	Accuracy: 20.21%	Cost 31s
+
+========== Train Epoch 49 ==========
+Loss: 0.124	Accuracy: 22.34%	Cost 32s
+
+========== Train Epoch 50 ==========
+Loss: 0.060	Accuracy: 41.49%	Cost 33s
+
+========== Train Epoch 51 ==========
+Loss: 0.048	Accuracy: 36.70%	Cost 33s
+
+========== Train Epoch 52 ==========
+Loss: 0.039	Accuracy: 17.02%	Cost 32s
+
+========== Train Epoch 53 ==========
+Loss: 0.024	Accuracy: 31.38%	Cost 32s
+
+========== Train Epoch 54 ==========
+Loss: 0.012	Accuracy: 33.51%	Cost 30s
+
+========== Train Epoch 55 ==========
+Loss: 0.013	Accuracy: 35.11%	Cost 32s
+
+========== Train Epoch 56 ==========
+Loss: 0.016	Accuracy: 32.98%	Cost 32s
+
+========== Train Epoch 57 ==========
+Loss: 0.021	Accuracy: 30.32%	Cost 30s
+
+========== Train Epoch 58 ==========
+Loss: 0.014	Accuracy: 32.98%	Cost 33s
+
+========== Train Epoch 59 ==========
+Loss: 0.026	Accuracy: 29.79%	Cost 31s
+
+========== Train Epoch 60 ==========
+Loss: 0.025	Accuracy: 30.32%	Cost 32s
+
+========== Train Epoch 61 ==========
+Loss: 0.025	Accuracy: 31.38%	Cost 32s
+
+========== Train Epoch 62 ==========
+Loss: 0.023	Accuracy: 21.28%	Cost 31s
+
+========== Train Epoch 63 ==========
+Loss: 0.022	Accuracy: 26.60%	Cost 33s
+
+========== Train Epoch 64 ==========
+Loss: 0.013	Accuracy: 31.38%	Cost 32s
+
+Finished training!!!
+
+Min Loss = 0.012 in epoch 40;
+    Max Accuracy = 43.62% in epoch 17;
+    Total Cost 34 minutes
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(64, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 64, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(64, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 64, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(128, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 128, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(128, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 128, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(256, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 256, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(256, 8, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(8, 256, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(8, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(512, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(16, 512, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(16, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (Channel): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (Coordinate): CoordAtt(
+          (pool_h): AdaptiveAvgPool2d(output_size=(None, 1))
+          (pool_w): AdaptiveAvgPool2d(output_size=(1, None))
+          (conv1): Conv2d(512, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): h_swish(
+            (sigmoid): h_sigmoid(
+              (relu): ReLU6(inplace=True)
+            )
+          )
+          (conv_h): Conv2d(16, 512, kernel_size=(1, 1), stride=(1, 1))
+          (conv_w): Conv2d(16, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (Spatial): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc_): Linear(in_features=512, out_features=7, bias=True)
+  (__fc__): Linear(in_features=1024, out_features=7, bias=True)
+)
+
+[0.324468085106383, 0.3351063829787234, 0.2712765957446808, 0.3882978723404255, 0.35106382978723405, 0.3617021276595745, 0.2872340425531915, 0.3617021276595745, 0.324468085106383, 0.2553191489361702, 0.3829787234042553, 0.30851063829787234, 0.1276595744680851, 0.19148936170212766, 0.17553191489361702, 0.22340425531914893, 0.2765957446808511, 0.43617021276595747, 0.324468085106383, 0.18085106382978725, 0.35106382978723405, 0.30851063829787234, 0.22872340425531915, 0.30319148936170215, 0.26595744680851063, 0.30319148936170215, 0.28191489361702127, 0.25, 0.23404255319148937, 0.3404255319148936, 0.3882978723404255, 0.3617021276595745, 0.3776595744680851, 0.4148936170212766, 0.22340425531914893, 0.26595744680851063, 0.2127659574468085, 0.2925531914893617, 0.425531914893617, 0.4308510638297872, 0.3351063829787234, 0.2925531914893617, 0.32978723404255317, 0.3351063829787234, 0.28191489361702127, 0.35106382978723405, 0.2127659574468085, 0.20212765957446807, 0.22340425531914893, 0.4148936170212766, 0.3670212765957447, 0.1702127659574468, 0.31382978723404253, 0.3351063829787234, 0.35106382978723405, 0.32978723404255317, 0.30319148936170215, 0.32978723404255317, 0.2978723404255319, 0.30319148936170215, 0.31382978723404253, 0.2127659574468085, 0.26595744680851063, 0.31382978723404253]
+Traceback (most recent call last):
+  File "train.py", line 247, in <module>
+    Plot('', 'b', acc_list)
+TypeError: plot() got an unexpected keyword argument 'args'

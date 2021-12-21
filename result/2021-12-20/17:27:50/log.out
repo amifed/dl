@@ -1,0 +1,1491 @@
+dataset_path: /home/djy/dataset/dataset2
+pretrained : False 
+parallel: True
+
+parallel segmentent dataset : /home/djy/dataset/ycrcb_hsv_dataset2
+msg: resnet18
+using model: ResNet, resnet18
+using device cuda:0
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Loss: 1.809	Accuracy: 28.65%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.3243    0.3871    0.3529        31
+         cwx     0.1471    0.2273    0.1786        22
+         hdx     0.1000    0.0588    0.0741        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.3333    0.1667    0.2222        12
+         qtx     0.3514    0.2889    0.3171        45
+         zxx     0.3509    0.5128    0.4167        39
+
+    accuracy                         0.2865       185
+   macro avg     0.2296    0.2345    0.2231       185
+weighted avg     0.2621    0.2865    0.2666       185
+
+
+========== Train Epoch 2 ==========
+Loss: 1.511	Accuracy: 29.73%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.3636    0.1818    0.2424        22
+         hdx     0.1154    0.1765    0.1395        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     0.3026    0.5111    0.3802        45
+         zxx     0.3582    0.6154    0.4528        39
+
+    accuracy                         0.2973       185
+   macro avg     0.2105    0.2240    0.1926       185
+weighted avg     0.2246    0.2973    0.2382       185
+
+
+========== Train Epoch 3 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.301	Accuracy: 34.05%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.4091    0.4091    0.4091        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.6667    0.1053    0.1818        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     0.3377    0.5778    0.4262        45
+         zxx     0.3165    0.6410    0.4237        39
+
+    accuracy                         0.3405       185
+   macro avg     0.2947    0.2595    0.2249       185
+weighted avg     0.2876    0.3405    0.2690       185
+
+
+========== Train Epoch 4 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.006	Accuracy: 36.22%	Cost 44s
+              precision    recall  f1-score   support
+
+         bzx     0.5238    0.3548    0.4231        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3030    0.8889    0.4520        45
+         zxx     0.5517    0.4103    0.4706        39
+
+    accuracy                         0.3622       185
+   macro avg     0.1969    0.2363    0.1922       185
+weighted avg     0.2778    0.3622    0.2800       185
+
+
+========== Train Epoch 5 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.596	Accuracy: 27.57%	Cost 45s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.3182    0.6364    0.4242        22
+         hdx     0.1410    0.6471    0.2316        17
+         mtx     0.0870    0.1053    0.0952        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     0.5294    0.2000    0.2903        45
+         zxx     0.7000    0.3590    0.4746        39
+
+    accuracy                         0.2757       185
+   macro avg     0.3013    0.2901    0.2356       185
+weighted avg     0.3577    0.2757    0.2608       185
+
+
+========== Train Epoch 6 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.324	Accuracy: 40.00%	Cost 45s
+              precision    recall  f1-score   support
+
+         bzx     1.0000    0.0968    0.1765        31
+         cwx     0.5556    0.2273    0.3226        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.2692    0.3684    0.3111        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3611    0.8667    0.5098        45
+         zxx     0.5128    0.5128    0.5128        39
+
+    accuracy                         0.4000       185
+   macro avg     0.3855    0.2960    0.2618       185
+weighted avg     0.4572    0.4000    0.3320       185
+
+
+========== Train Epoch 7 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.144	Accuracy: 39.46%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.5385    0.4516    0.4912        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.1538    0.5882    0.2439        17
+         mtx     0.3333    0.1053    0.1600        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.4833    0.6444    0.5524        45
+         zxx     0.6538    0.4359    0.5231        39
+
+    accuracy                         0.3946       185
+   macro avg     0.4518    0.3298    0.3035       185
+weighted avg     0.4589    0.3946    0.3758       185
+
+
+========== Train Epoch 8 ==========
+Loss: 0.094	Accuracy: 36.76%	Cost 44s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.4118    0.3182    0.3590        22
+         hdx     0.3000    0.1765    0.2222        17
+         mtx     0.1552    0.4737    0.2338        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4590    0.6222    0.5283        45
+         zxx     0.5833    0.5385    0.5600        39
+
+    accuracy                         0.3676       185
+   macro avg     0.2728    0.3041    0.2719       185
+weighted avg     0.3271    0.3676    0.3337       185
+
+
+========== Train Epoch 9 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.062	Accuracy: 38.92%	Cost 48s
+              precision    recall  f1-score   support
+
+         bzx     0.4048    0.5484    0.4658        31
+         cwx     0.6000    0.1364    0.2222        22
+         hdx     1.0000    0.0588    0.1111        17
+         mtx     0.2500    0.1579    0.1935        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3396    0.8000    0.4768        45
+         zxx     0.6316    0.3077    0.4138        39
+
+    accuracy                         0.3892       185
+   macro avg     0.4609    0.2870    0.2690       185
+weighted avg     0.4725    0.3892    0.3378       185
+
+
+========== Train Epoch 10 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.060	Accuracy: 32.97%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.0968    0.1667        31
+         cwx     0.2586    0.6818    0.3750        22
+         hdx     0.2000    0.0588    0.0909        17
+         mtx     0.1404    0.4211    0.2105        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5526    0.4667    0.5060        45
+         zxx     0.6190    0.3333    0.4333        39
+
+    accuracy                         0.3297       185
+   macro avg     0.3387    0.2941    0.2546       185
+weighted avg     0.4290    0.3297    0.3169       185
+
+
+========== Train Epoch 11 ==========
+Loss: 0.053	Accuracy: 30.27%	Cost 44s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.0968    0.1667        31
+         cwx     0.2105    0.7273    0.3265        22
+         hdx     0.2222    0.1176    0.1538        17
+         mtx     0.1636    0.4737    0.2432        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6522    0.3333    0.4412        45
+         zxx     0.6875    0.2821    0.4000        39
+
+    accuracy                         0.3027       185
+   macro avg     0.3623    0.2901    0.2474       185
+weighted avg     0.4664    0.3027    0.2975       185
+
+
+========== Train Epoch 12 ==========
+Loss: 0.057	Accuracy: 30.81%	Cost 45s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.2258    0.3111        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.2222    0.1176    0.1538        17
+         mtx     0.1000    0.0526    0.0690        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     0.2937    0.9333    0.4468        45
+         zxx     0.8000    0.1026    0.1818        39
+
+    accuracy                         0.3081       185
+   macro avg     0.3213    0.2165    0.1851       185
+weighted avg     0.3762    0.3081    0.2290       185
+
+
+========== Train Epoch 13 ==========
+Loss: 0.049	Accuracy: 36.76%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.6250    0.1613    0.2564        31
+         cwx     0.7500    0.1364    0.2308        22
+         hdx     0.1509    0.4706    0.2286        17
+         mtx     0.2143    0.3158    0.2553        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4667    0.7778    0.5833        45
+         zxx     0.6875    0.2821    0.4000        39
+
+    accuracy                         0.3676       185
+   macro avg     0.4135    0.3063    0.2792       185
+weighted avg     0.4882    0.3676    0.3439       185
+
+
+========== Train Epoch 14 ==========
+Loss: 0.038	Accuracy: 38.38%	Cost 44s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0323    0.0606        31
+         cwx     0.6667    0.1818    0.2857        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.2188    0.3684    0.2745        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3786    0.8667    0.5270        45
+         zxx     0.5128    0.5128    0.5128        39
+
+    accuracy                         0.3838       185
+   macro avg     0.3253    0.2803    0.2372       185
+weighted avg     0.3857    0.3838    0.3086       185
+
+
+========== Train Epoch 15 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.030	Accuracy: 29.19%	Cost 47s
+              precision    recall  f1-score   support
+
+         bzx     0.7500    0.0968    0.1714        31
+         cwx     0.2364    0.5909    0.3377        22
+         hdx     0.1375    0.6471    0.2268        17
+         mtx     0.1667    0.0526    0.0800        19
+         nqx     0.5000    0.0833    0.1429        12
+         qtx     0.5806    0.4000    0.4737        45
+         zxx     1.0000    0.1795    0.3043        39
+
+    accuracy                         0.2919       185
+   macro avg     0.4816    0.2929    0.2481       185
+weighted avg     0.5680    0.2919    0.2866       185
+
+
+========== Train Epoch 16 ==========
+Loss: 0.030	Accuracy: 31.89%	Cost 46s
+              precision    recall  f1-score   support
+
+         bzx     0.4667    0.2258    0.3043        31
+         cwx     1.0000    0.1364    0.2400        22
+         hdx     0.2222    0.1176    0.1538        17
+         mtx     0.1429    0.1053    0.1212        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.2985    0.8889    0.4469        45
+         zxx     0.5000    0.1282    0.2041        39
+
+    accuracy                         0.3189       185
+   macro avg     0.3758    0.2289    0.2101       185
+weighted avg     0.4102    0.3189    0.2579       185
+
+
+========== Train Epoch 17 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.046	Accuracy: 42.16%	Cost 41s
+              precision    recall  f1-score   support
+
+         bzx     0.4000    0.5161    0.4507        31
+         cwx     0.5000    0.0455    0.0833        22
+         hdx     0.2143    0.1765    0.1935        17
+         mtx     0.1765    0.1579    0.1667        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4222    0.8444    0.5630        45
+         zxx     0.7727    0.4359    0.5574        39
+
+    accuracy                         0.4216       185
+   macro avg     0.3551    0.3109    0.2878       185
+weighted avg     0.4299    0.4216    0.3748       185
+
+
+========== Train Epoch 18 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.036	Accuracy: 38.38%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.3824    0.4194    0.4000        31
+         cwx     0.4000    0.1818    0.2500        22
+         hdx     0.2105    0.4706    0.2909        17
+         mtx     0.1471    0.2632    0.1887        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5814    0.5556    0.5682        45
+         zxx     0.6154    0.4103    0.4923        39
+
+    accuracy                         0.3838       185
+   macro avg     0.3338    0.3287    0.3129       185
+weighted avg     0.4172    0.3838    0.3849       185
+
+
+========== Train Epoch 19 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.026	Accuracy: 37.84%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.3030    0.4545    0.3636        22
+         hdx     0.2667    0.2353    0.2500        17
+         mtx     0.1905    0.2105    0.2000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4815    0.5778    0.5253        45
+         zxx     0.4194    0.6667    0.5149        39
+
+    accuracy                         0.3784       185
+   macro avg     0.2373    0.3064    0.2648       185
+weighted avg     0.2856    0.3784    0.3231       185
+
+
+========== Train Epoch 20 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.029	Accuracy: 36.76%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.4118    0.4516    0.4308        31
+         cwx     0.5000    0.0909    0.1538        22
+         hdx     0.1667    0.5882    0.2597        17
+         mtx     0.2143    0.1579    0.1818        19
+         nqx     0.6667    0.1667    0.2667        12
+         qtx     0.4667    0.6222    0.5333        45
+         zxx     0.9000    0.2308    0.3673        39
+
+    accuracy                         0.3676       185
+   macro avg     0.4752    0.3298    0.3134       185
+weighted avg     0.5123    0.3676    0.3575       185
+
+
+========== Train Epoch 21 ==========
+Loss: 0.024	Accuracy: 38.92%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.3243    0.5455    0.4068        22
+         hdx     0.2105    0.4706    0.2909        17
+         mtx     0.1905    0.2105    0.2000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6389    0.5111    0.5679        45
+         zxx     0.4717    0.6410    0.5435        39
+
+    accuracy                         0.3892       185
+   macro avg     0.2623    0.3398    0.2870       185
+weighted avg     0.3323    0.3892    0.3484       185
+
+
+========== Train Epoch 22 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.025	Accuracy: 36.22%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.3871    0.4364        31
+         cwx     0.2941    0.2273    0.2564        22
+         hdx     0.1915    0.5294    0.2812        17
+         mtx     0.1622    0.3158    0.2143        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5610    0.5111    0.5349        45
+         zxx     0.6667    0.3077    0.4211        39
+
+    accuracy                         0.3622       185
+   macro avg     0.3393    0.3255    0.3063       185
+weighted avg     0.4300    0.3622    0.3703       185
+
+
+========== Train Epoch 23 ==========
+Loss: 0.021	Accuracy: 40.00%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     1.0000    0.0645    0.1212        31
+         cwx     0.4737    0.4091    0.4390        22
+         hdx     0.5000    0.0588    0.1053        17
+         mtx     0.2500    0.3158    0.2791        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3867    0.6444    0.4833        45
+         zxx     0.4286    0.6923    0.5294        39
+
+    accuracy                         0.4000       185
+   macro avg     0.4341    0.3121    0.2796       185
+weighted avg     0.4799    0.4000    0.3400       185
+
+
+========== Train Epoch 24 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.019	Accuracy: 42.16%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.7273    0.2581    0.3810        31
+         cwx     0.3636    0.3636    0.3636        22
+         hdx     0.1923    0.2941    0.2326        17
+         mtx     0.3636    0.2105    0.2667        19
+         nqx     0.6667    0.1667    0.2667        12
+         qtx     0.3889    0.7778    0.5185        45
+         zxx     0.7273    0.4103    0.5246        39
+
+    accuracy                         0.4216       185
+   macro avg     0.4900    0.3544    0.3648       185
+weighted avg     0.5113    0.4216    0.4098       185
+
+
+========== Train Epoch 25 ==========
+Loss: 0.018	Accuracy: 38.92%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.7143    0.1613    0.2632        31
+         cwx     0.5000    0.1364    0.2143        22
+         hdx     0.1667    0.2353    0.1951        17
+         mtx     0.3333    0.1579    0.2143        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3694    0.9111    0.5256        45
+         zxx     0.5714    0.4103    0.4776        39
+
+    accuracy                         0.3892       185
+   macro avg     0.3793    0.2875    0.2700       185
+weighted avg     0.4390    0.3892    0.3381       185
+
+
+========== Train Epoch 26 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.024	Accuracy: 39.46%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4375    0.2258    0.2979        31
+         cwx     0.4286    0.1364    0.2069        22
+         hdx     1.0000    0.0588    0.1111        17
+         mtx     0.1951    0.4211    0.2667        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4045    0.8000    0.5373        45
+         zxx     0.5806    0.4615    0.5143        39
+
+    accuracy                         0.3946       185
+   macro avg     0.4352    0.3005    0.2763       185
+weighted avg     0.4570    0.3946    0.3512       185
+
+
+========== Train Epoch 27 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.017	Accuracy: 36.76%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4783    0.3548    0.4074        31
+         cwx     0.5000    0.0909    0.1538        22
+         hdx     0.3750    0.1765    0.2400        17
+         mtx     0.3333    0.1579    0.2143        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.3083    0.9111    0.4607        45
+         zxx     1.0000    0.1795    0.3043        39
+
+    accuracy                         0.3676       185
+   macro avg     0.5707    0.2791    0.2763       185
+weighted avg     0.5590    0.3676    0.3168       185
+
+
+========== Train Epoch 28 ==========
+Loss: 0.019	Accuracy: 37.84%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4286    0.0968    0.1579        31
+         cwx     0.2545    0.6364    0.3636        22
+         hdx     0.2188    0.4118    0.2857        17
+         mtx     0.2174    0.2632    0.2381        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.7241    0.4667    0.5676        45
+         zxx     0.5263    0.5128    0.5195        39
+
+    accuracy                         0.3784       185
+   macro avg     0.3385    0.3411    0.3046       185
+weighted avg     0.4316    0.3784    0.3680       185
+
+
+========== Train Epoch 29 ==========
+Loss: 0.015	Accuracy: 32.97%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.0323    0.0588        31
+         cwx     0.3077    0.1818    0.2286        22
+         hdx     0.1304    0.1765    0.1500        17
+         mtx     0.1429    0.2632    0.1852        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3889    0.7778    0.5185        45
+         zxx     0.6190    0.3333    0.4333        39
+
+    accuracy                         0.3297       185
+   macro avg     0.2746    0.2521    0.2249       185
+weighted avg     0.3442    0.3297    0.2873       185
+
+
+========== Train Epoch 30 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.015	Accuracy: 39.46%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4091    0.2903    0.3396        31
+         cwx     0.4211    0.3636    0.3902        22
+         hdx     0.2000    0.1176    0.1481        17
+         mtx     0.1944    0.3684    0.2545        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4225    0.6667    0.5172        45
+         zxx     0.6538    0.4359    0.5231        39
+
+    accuracy                         0.3946       185
+   macro avg     0.3287    0.3204    0.3104       185
+weighted avg     0.3976    0.3946    0.3792       185
+
+
+========== Train Epoch 31 ==========
+Loss: 0.018	Accuracy: 34.05%	Cost 27s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.0645    0.1081        31
+         cwx     0.2097    0.5909    0.3095        22
+         hdx     0.1591    0.4118    0.2295        17
+         mtx     0.3125    0.2632    0.2857        19
+         nqx     0.5000    0.1667    0.2500        12
+         qtx     0.7778    0.4667    0.5833        45
+         zxx     0.5000    0.3333    0.4000        39
+
+    accuracy                         0.3405       185
+   macro avg     0.3989    0.3281    0.3095       185
+weighted avg     0.4545    0.3405    0.3478       185
+
+
+========== Train Epoch 32 ==========
+Loss: 0.015	Accuracy: 40.00%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3750    0.4839    0.4225        31
+         cwx     0.2444    0.5000    0.3284        22
+         hdx     0.2143    0.1765    0.1935        17
+         mtx     0.1875    0.3158    0.2353        19
+         nqx     0.5000    0.0833    0.1429        12
+         qtx     0.6842    0.5778    0.6265        45
+         zxx     0.8571    0.3077    0.4528        39
+
+    accuracy                         0.4000       185
+   macro avg     0.4375    0.3493    0.3431       185
+weighted avg     0.5104    0.4000    0.4089       185
+
+
+========== Train Epoch 33 ==========
+Loss: 0.017	Accuracy: 41.08%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4706    0.2581    0.3333        31
+         cwx     0.4375    0.3182    0.3684        22
+         hdx     0.1250    0.1765    0.1463        17
+         mtx     0.3077    0.2105    0.2500        19
+         nqx     0.4000    0.1667    0.2353        12
+         qtx     0.4416    0.7556    0.5574        45
+         zxx     0.5455    0.4615    0.5000        39
+
+    accuracy                         0.4108       185
+   macro avg     0.3897    0.3353    0.3415       185
+weighted avg     0.4223    0.4108    0.3950       185
+
+
+========== Train Epoch 34 ==========
+Loss: 0.014	Accuracy: 37.30%	Cost 27s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0645    0.1143        31
+         cwx     0.4615    0.2727    0.3429        22
+         hdx     0.1538    0.1176    0.1333        17
+         mtx     0.2500    0.3684    0.2979        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3737    0.8222    0.5139        45
+         zxx     0.5357    0.3846    0.4478        39
+
+    accuracy                         0.3730       185
+   macro avg     0.3250    0.2900    0.2643       185
+weighted avg     0.3823    0.3730    0.3222       185
+
+
+========== Train Epoch 35 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.013	Accuracy: 41.62%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4138    0.3871    0.4000        31
+         cwx     0.4667    0.3182    0.3784        22
+         hdx     0.1250    0.0588    0.0800        17
+         mtx     0.2069    0.3158    0.2500        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4231    0.7333    0.5366        45
+         zxx     0.6923    0.4615    0.5538        39
+
+    accuracy                         0.4162       185
+   macro avg     0.3325    0.3250    0.3141       185
+weighted avg     0.4064    0.4162    0.3923       185
+
+
+========== Train Epoch 36 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.013	Accuracy: 37.30%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4286    0.2903    0.3462        31
+         cwx     0.3529    0.2727    0.3077        22
+         hdx     0.2000    0.2353    0.2162        17
+         mtx     0.1522    0.3684    0.2154        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5192    0.6000    0.5567        45
+         zxx     0.5714    0.4103    0.4776        39
+
+    accuracy                         0.3730       185
+   macro avg     0.3178    0.3110    0.3028       185
+weighted avg     0.3946    0.3730    0.3727       185
+
+
+========== Train Epoch 37 ==========
+Loss: 0.012	Accuracy: 37.30%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4545    0.1613    0.2381        31
+         cwx     0.4375    0.3182    0.3684        22
+         hdx     0.3333    0.1176    0.1739        17
+         mtx     0.1321    0.3684    0.1944        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4697    0.6889    0.5586        45
+         zxx     0.5152    0.4359    0.4722        39
+
+    accuracy                         0.3730       185
+   macro avg     0.3346    0.2986    0.2865       185
+weighted avg     0.3952    0.3730    0.3551       185
+
+
+========== Train Epoch 38 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.012	Accuracy: 39.46%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3750    0.3871    0.3810        31
+         cwx     0.5000    0.3636    0.4211        22
+         hdx     0.2500    0.2353    0.2424        17
+         mtx     0.1591    0.3684    0.2222        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5091    0.6222    0.5600        45
+         zxx     0.6667    0.3590    0.4667        39
+
+    accuracy                         0.3946       185
+   macro avg     0.3514    0.3337    0.3276       185
+weighted avg     0.4260    0.3946    0.3936       185
+
+
+========== Train Epoch 39 ==========
+Loss: 0.013	Accuracy: 40.54%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3684    0.2258    0.2800        31
+         cwx     0.4231    0.5000    0.4583        22
+         hdx     0.1613    0.2941    0.2083        17
+         mtx     0.1818    0.3158    0.2308        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6190    0.5778    0.5977        45
+         zxx     0.6061    0.5128    0.5556        39
+
+    accuracy                         0.4054       185
+   macro avg     0.3371    0.3466    0.3330       185
+weighted avg     0.4239    0.4054    0.4068       185
+
+
+========== Train Epoch 40 ==========
+Loss: 0.013	Accuracy: 40.00%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3846    0.1613    0.2273        31
+         cwx     0.3846    0.4545    0.4167        22
+         hdx     0.1622    0.3529    0.2222        17
+         mtx     0.1852    0.2632    0.2174        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6222    0.6222    0.6222        45
+         zxx     0.5556    0.5128    0.5333        39
+
+    accuracy                         0.4000       185
+   macro avg     0.3278    0.3381    0.3199       185
+weighted avg     0.4126    0.4000    0.3942       185
+
+
+========== Train Epoch 41 ==========
+Loss: 0.018	Accuracy: 34.59%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.2381    0.6452    0.3478        31
+         cwx     0.4375    0.3182    0.3684        22
+         hdx     0.1000    0.1765    0.1277        17
+         mtx     0.2500    0.1579    0.1935        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6944    0.5556    0.6173        45
+         zxx     0.8571    0.1538    0.2609        39
+
+    accuracy                         0.3459       185
+   macro avg     0.3682    0.2867    0.2737       185
+weighted avg     0.4764    0.3459    0.3388       185
+
+
+========== Train Epoch 42 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.012	Accuracy: 41.08%	Cost 27s
+              precision    recall  f1-score   support
+
+         bzx     0.3846    0.1613    0.2273        31
+         cwx     0.4583    0.5000    0.4783        22
+         hdx     0.2667    0.2353    0.2500        17
+         mtx     0.1707    0.3684    0.2333        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5091    0.6222    0.5600        45
+         zxx     0.5676    0.5385    0.5526        39
+
+    accuracy                         0.4108       185
+   macro avg     0.3367    0.3465    0.3288       185
+weighted avg     0.4045    0.4108    0.3946       185
+
+
+========== Train Epoch 43 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 42.16%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3750    0.4839    0.4225        31
+         cwx     0.3750    0.4091    0.3913        22
+         hdx     0.1429    0.1765    0.1579        17
+         mtx     0.2778    0.2632    0.2703        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5088    0.6444    0.5686        45
+         zxx     0.7083    0.4359    0.5397        39
+
+    accuracy                         0.4216       185
+   macro avg     0.3411    0.3447    0.3358       185
+weighted avg     0.4222    0.4216    0.4117       185
+
+
+========== Train Epoch 44 ==========
+Loss: 0.012	Accuracy: 36.22%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.1935    0.2927        31
+         cwx     0.3810    0.3636    0.3721        22
+         hdx     0.0870    0.2353    0.1270        17
+         mtx     0.1724    0.2632    0.2083        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5200    0.5778    0.5474        45
+         zxx     0.6429    0.4615    0.5373        39
+
+    accuracy                         0.3622       185
+   macro avg     0.3433    0.2993    0.2978       185
+weighted avg     0.4335    0.3622    0.3728       185
+
+
+========== Train Epoch 45 ==========
+Loss: 0.012	Accuracy: 37.84%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.2963    0.2581    0.2759        31
+         cwx     0.4444    0.3636    0.4000        22
+         hdx     0.2000    0.1765    0.1875        17
+         mtx     0.1458    0.3684    0.2090        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5625    0.6000    0.5806        45
+         zxx     0.6071    0.4359    0.5075        39
+
+    accuracy                         0.3784       185
+   macro avg     0.3223    0.3146    0.3086       185
+weighted avg     0.4007    0.3784    0.3807       185
+
+
+========== Train Epoch 46 ==========
+Loss: 0.011	Accuracy: 38.92%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4444    0.2581    0.3265        31
+         cwx     0.3750    0.2727    0.3158        22
+         hdx     0.2308    0.1765    0.2000        17
+         mtx     0.1892    0.3684    0.2500        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4156    0.7111    0.5246        45
+         zxx     0.6957    0.4103    0.5161        39
+
+    accuracy                         0.3892       185
+   macro avg     0.3358    0.3139    0.3047       185
+weighted avg     0.4074    0.3892    0.3727       185
+
+
+========== Train Epoch 47 ==========
+Loss: 0.012	Accuracy: 37.30%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0645    0.1143        31
+         cwx     0.3889    0.3182    0.3500        22
+         hdx     0.1579    0.1765    0.1667        17
+         mtx     0.2273    0.2632    0.2439        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4242    0.6222    0.5045        45
+         zxx     0.4286    0.6154    0.5053        39
+
+    accuracy                         0.3730       185
+   macro avg     0.3038    0.2943    0.2692       185
+weighted avg     0.3614    0.3730    0.3304       185
+
+
+========== Train Epoch 48 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.013	Accuracy: 40.54%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4444    0.1290    0.2000        31
+         cwx     0.3667    0.5000    0.4231        22
+         hdx     0.1429    0.2353    0.1778        17
+         mtx     0.2381    0.2632    0.2500        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5490    0.6222    0.5833        45
+         zxx     0.5111    0.5897    0.5476        39
+
+    accuracy                         0.4054       185
+   macro avg     0.3217    0.3342    0.3117       185
+weighted avg     0.3970    0.4054    0.3832       185
+
+
+========== Train Epoch 49 ==========
+Loss: 0.010	Accuracy: 40.00%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3023    0.4194    0.3514        31
+         cwx     0.3810    0.3636    0.3721        22
+         hdx     0.1500    0.1765    0.1622        17
+         mtx     0.2188    0.3684    0.2745        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6250    0.5556    0.5882        45
+         zxx     0.6429    0.4615    0.5373        39
+
+    accuracy                         0.4000       185
+   macro avg     0.3314    0.3350    0.3265       185
+weighted avg     0.4198    0.4000    0.4026       185
+
+
+========== Train Epoch 50 ==========
+Loss: 0.011	Accuracy: 38.92%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.1935    0.2791        31
+         cwx     0.4211    0.3636    0.3902        22
+         hdx     0.1538    0.3529    0.2143        17
+         mtx     0.2273    0.2632    0.2439        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5750    0.5111    0.5412        45
+         zxx     0.4528    0.6154    0.5217        39
+
+    accuracy                         0.3892       185
+   macro avg     0.3329    0.3285    0.3129       185
+weighted avg     0.4067    0.3892    0.3795       185
+
+
+========== Train Epoch 51 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.013	Accuracy: 37.84%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.4615    0.1935    0.2727        31
+         cwx     0.5000    0.2273    0.3125        22
+         hdx     0.2222    0.1176    0.1538        17
+         mtx     0.2258    0.3684    0.2800        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3571    0.6667    0.4651        45
+         zxx     0.5263    0.5128    0.5195        39
+
+    accuracy                         0.3784       185
+   macro avg     0.3276    0.2981    0.2862       185
+weighted avg     0.3782    0.3784    0.3484       185
+
+
+========== Train Epoch 52 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 42.16%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3500    0.2258    0.2745        31
+         cwx     0.5556    0.4545    0.5000        22
+         hdx     0.1905    0.2353    0.2105        17
+         mtx     0.2593    0.3684    0.3043        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5294    0.6000    0.5625        45
+         zxx     0.4792    0.5897    0.5287        39
+
+    accuracy                         0.4216       185
+   macro avg     0.3377    0.3534    0.3401       185
+weighted avg     0.3986    0.4216    0.4043       185
+
+
+========== Train Epoch 53 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 39.46%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.1935    0.2449        31
+         cwx     0.5000    0.5000    0.5000        22
+         hdx     0.1818    0.1176    0.1429        17
+         mtx     0.2414    0.3684    0.2917        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4444    0.6222    0.5185        45
+         zxx     0.4634    0.4872    0.4750        39
+
+    accuracy                         0.3946       185
+   macro avg     0.3092    0.3270    0.3104       185
+weighted avg     0.3626    0.3946    0.3698       185
+
+
+========== Train Epoch 54 ==========
+Loss: 0.011	Accuracy: 41.08%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4400    0.3548    0.3929        31
+         cwx     0.3077    0.5455    0.3934        22
+         hdx     0.1905    0.2353    0.2105        17
+         mtx     0.2222    0.3158    0.2609        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     0.5490    0.6222    0.5833        45
+         zxx     0.7368    0.3590    0.4828        39
+
+    accuracy                         0.4108       185
+   macro avg     0.3971    0.3594    0.3510       185
+weighted avg     0.4611    0.4108    0.4111       185
+
+
+========== Train Epoch 55 ==========
+Loss: 0.010	Accuracy: 37.84%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3182    0.2258    0.2642        31
+         cwx     0.4118    0.3182    0.3590        22
+         hdx     0.2222    0.1176    0.1538        17
+         mtx     0.1818    0.3158    0.2308        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4203    0.6444    0.5088        45
+         zxx     0.5429    0.4872    0.5135        39
+
+    accuracy                         0.3784       185
+   macro avg     0.2996    0.3013    0.2900       185
+weighted avg     0.3581    0.3784    0.3568       185
+
+
+========== Train Epoch 56 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 41.08%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.2581    0.3404        31
+         cwx     0.4483    0.5909    0.5098        22
+         hdx     0.1892    0.4118    0.2593        17
+         mtx     0.2273    0.2632    0.2439        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.8095    0.3778    0.5152        45
+         zxx     0.4333    0.6667    0.5253        39
+
+    accuracy                         0.4108       185
+   macro avg     0.3725    0.3669    0.3420       185
+weighted avg     0.4661    0.4108    0.4026       185
+
+
+========== Train Epoch 57 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 40.54%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0323    0.0606        31
+         cwx     0.4400    0.5000    0.4681        22
+         hdx     0.2143    0.1765    0.1935        17
+         mtx     0.1935    0.3158    0.2400        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5200    0.5778    0.5474        45
+         zxx     0.4444    0.7179    0.5490        39
+
+    accuracy                         0.4054       185
+   macro avg     0.3303    0.3315    0.2941       185
+weighted avg     0.3959    0.4054    0.3571       185
+
+
+========== Train Epoch 58 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.010	Accuracy: 40.00%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3478    0.2581    0.2963        31
+         cwx     0.3636    0.5455    0.4364        22
+         hdx     0.0870    0.1176    0.1000        17
+         mtx     0.2105    0.2105    0.2105        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6216    0.5111    0.5610        45
+         zxx     0.5000    0.6410    0.5618        39
+
+    accuracy                         0.4000       185
+   macro avg     0.3044    0.3263    0.3094       185
+weighted avg     0.3878    0.4000    0.3872       185
+
+
+========== Train Epoch 59 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 40.00%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.2963    0.2581    0.2759        31
+         cwx     0.2895    0.5000    0.3667        22
+         hdx     0.2000    0.1765    0.1875        17
+         mtx     0.2222    0.3158    0.2609        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.6410    0.5556    0.5952        45
+         zxx     0.5385    0.5385    0.5385        39
+
+    accuracy                         0.4000       185
+   macro avg     0.3125    0.3349    0.3178       185
+weighted avg     0.3947    0.4000    0.3922       185
+
+
+========== Train Epoch 60 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.009	Accuracy: 37.84%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3600    0.2903    0.3214        31
+         cwx     0.4000    0.2727    0.3243        22
+         hdx     0.2727    0.1765    0.2143        17
+         mtx     0.1556    0.3684    0.2188        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4615    0.6667    0.5455        45
+         zxx     0.6250    0.3846    0.4762        39
+
+    accuracy                         0.3784       185
+   macro avg     0.3250    0.3085    0.3001       185
+weighted avg     0.3930    0.3784    0.3677       185
+
+
+========== Train Epoch 61 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.011	Accuracy: 39.46%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.4667    0.2258    0.3043        31
+         cwx     0.4000    0.4545    0.4255        22
+         hdx     0.1351    0.2941    0.1852        17
+         mtx     0.2174    0.2632    0.2381        19
+         nqx     0.5000    0.0833    0.1429        12
+         qtx     0.5417    0.5778    0.5591        45
+         zxx     0.5429    0.4872    0.5135        39
+
+    accuracy                         0.3946       185
+   macro avg     0.4005    0.3408    0.3384       185
+weighted avg     0.4391    0.3946    0.3966       185
+
+
+========== Train Epoch 62 ==========
+Loss: 0.010	Accuracy: 36.76%	Cost 28s
+              precision    recall  f1-score   support
+
+         bzx     0.3438    0.3548    0.3492        31
+         cwx     0.2632    0.2273    0.2439        22
+         hdx     0.0909    0.1176    0.1026        17
+         mtx     0.2353    0.2105    0.2222        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.4225    0.6667    0.5172        45
+         zxx     0.6957    0.4103    0.5161        39
+
+    accuracy                         0.3676       185
+   macro avg     0.2930    0.2839    0.2788       185
+weighted avg     0.3708    0.3676    0.3544       185
+
+
+========== Train Epoch 63 ==========
+Loss: 0.011	Accuracy: 40.54%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.1613    0.2174        31
+         cwx     0.3143    0.5000    0.3860        22
+         hdx     0.5000    0.1176    0.1905        17
+         mtx     0.2500    0.4737    0.3273        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5000    0.5778    0.5361        45
+         zxx     0.5116    0.5641    0.5366        39
+
+    accuracy                         0.4054       185
+   macro avg     0.3442    0.3421    0.3134       185
+weighted avg     0.3943    0.4054    0.3770       185
+
+
+========== Train Epoch 64 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.009	Accuracy: 37.30%	Cost 29s
+              precision    recall  f1-score   support
+
+         bzx     0.2857    0.0645    0.1053        31
+         cwx     0.3056    0.5000    0.3793        22
+         hdx     0.1613    0.2941    0.2083        17
+         mtx     0.2727    0.3158    0.2927        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.5333    0.5333    0.5333        45
+         zxx     0.4773    0.5385    0.5060        39
+
+    accuracy                         0.3730       185
+   macro avg     0.2908    0.3209    0.2893       185
+weighted avg     0.3574    0.3730    0.3484       185
+
+
+Finished training!!!
+
+Min Loss = 0.009 in epoch 63;
+Max Accuracy = 42.16% in epoch 16;
+Total Cost 35 minutes
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc_): Linear(in_features=512, out_features=7, bias=True)
+  (__fc__): Linear(in_features=1024, out_features=7, bias=True)
+  (conv1_): Conv2d(3, 512, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1_): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu_): ReLU(inplace=True)
+  (maxpool_): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(512, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool_): AdaptiveAvgPool2d(output_size=(1, 1))
+)/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+
+[0.2864864864864865, 0.2972972972972973, 0.34054054054054056, 0.3621621621621622, 0.2756756756756757, 0.4, 0.3945945945945946, 0.3675675675675676, 0.3891891891891892, 0.32972972972972975, 0.3027027027027027, 0.3081081081081081, 0.3675675675675676, 0.3837837837837838, 0.2918918918918919, 0.31891891891891894, 0.42162162162162165, 0.3837837837837838, 0.3783783783783784, 0.3675675675675676, 0.3891891891891892, 0.3621621621621622, 0.4, 0.42162162162162165, 0.3891891891891892, 0.3945945945945946, 0.3675675675675676, 0.3783783783783784, 0.32972972972972975, 0.3945945945945946, 0.34054054054054056, 0.4, 0.41081081081081083, 0.372972972972973, 0.41621621621621624, 0.372972972972973, 0.372972972972973, 0.3945945945945946, 0.40540540540540543, 0.4, 0.34594594594594597, 0.41081081081081083, 0.42162162162162165, 0.3621621621621622, 0.3783783783783784, 0.3891891891891892, 0.372972972972973, 0.40540540540540543, 0.4, 0.3891891891891892, 0.3783783783783784, 0.42162162162162165, 0.3945945945945946, 0.41081081081081083, 0.3783783783783784, 0.41081081081081083, 0.40540540540540543, 0.4, 0.4, 0.3783783783783784, 0.3945945945945946, 0.3675675675675676, 0.40540540540540543, 0.372972972972973]

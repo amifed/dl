@@ -54,52 +54,6 @@ def conv1x1(in_planes: int, out_planes: int, stride: int = 1) -> nn.Conv2d:
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
 
 
-class ECALayer(nn.Module):
-    """Constructs a ECA module.
-    Args:
-        channel: Number of channels of the input feature map
-        k_size: Adaptive selection of kernel size
-    """
-
-    def __init__(self, channel, k_size=3):
-        super(ECALayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.conv = nn.Conv1d(1, 1, kernel_size=k_size,
-                              padding=(k_size - 1) // 2, bias=False)
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        # feature descriptor on the global spatial information
-        y = self.avg_pool(x)
-
-        # Two different branches of ECA module
-        y = self.conv(y.squeeze(-1).transpose(-1, -2)
-                      ).transpose(-1, -2).unsqueeze(-1)
-
-        # Multi-scale information fusion
-        y = self.sigmoid(y)
-
-        return x * y.expand_as(x)
-
-
-class SELayer(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(SELayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Sequential(
-            nn.Linear(channel, channel // reduction, bias=False),
-            nn.ReLU(inplace=True),
-            nn.Linear(channel // reduction, channel, bias=False),
-            nn.Sigmoid()
-        )
-
-    def forward(self, x: Tensor):
-        b, c, _, _ = x.size()
-        y = self.avg_pool(x).view(b, c)
-        y = self.fc(y).view(b, c, 1, 1)
-        return x * y.expand_as(x)
-
-
 class BasicBlock(nn.Module):
     expansion: int = 1
 
@@ -131,8 +85,6 @@ class BasicBlock(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
-        self.se = SELayer(planes, reduction)
-        self.eca = ECALayer(planes, k_size)
         self.downsample = downsample
         self.stride = stride
 
@@ -142,13 +94,12 @@ class BasicBlock(nn.Module):
         out = self.conv1(x)
         out = self.bn1(out)
         out = self.relu(out)
+
         out = self.conv2(out)
         out = self.bn2(out)
-        out = self.eca(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
-            identity = self.se(identity)
 
         out += identity
         out = self.relu(out)
@@ -257,6 +208,13 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+
+        self.spppool = SPP()
+        self.convspp = nn.Conv2d(
+            64 * 4, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bnspp = norm_layer(self.inplanes // 8)
+        self.reluspp = nn.ReLU(inplace=True)
+
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
@@ -328,7 +286,13 @@ class ResNet(nn.Module):
             x = self.conv1(x)
             x = self.bn1(x)
             x = self.relu(x)
-            x = self.maxpool(x)
+            # x = self.maxpool(x)
+
+            # spp
+            x = self.spppool(x)
+            x = self.convspp(x)
+            x = self.bnspp(x)
+            x = self.reluspp(x)
 
             x = self.layer1(x)
             x = self.layer2(x)
@@ -358,7 +322,13 @@ class ResNet(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        x = self.maxpool(x)
+        # x = self.maxpool(x)
+
+        # spp
+        x = self.spppool(x)
+        x = self.convspp(x)
+        x = self.bnspp(x)
+        x = self.reluspp(x)
 
         x = self.layer1(x)
         x = self.layer2(x)
@@ -504,3 +474,20 @@ def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: 
     """
     kwargs["width_per_group"] = 64 * 2
     return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
+
+
+class SPP(nn.Module):
+    def __init__(self):
+        super(SPP, self).__init__()
+        self.pool1 = nn.MaxPool2d(kernel_size=5, stride=1, padding=5 // 2)
+        self.pool2 = nn.MaxPool2d(kernel_size=7, stride=1, padding=7 // 2)
+        self.pool3 = nn.MaxPool2d(kernel_size=13, stride=1, padding=13 // 2)
+
+    def forward(self, x):
+        x1 = self.pool1(x)
+        x2 = self.pool2(x)
+        x3 = self.pool3(x)
+
+        x = torch.cat([x, x1, x2, x3], dim=1)
+
+        return x

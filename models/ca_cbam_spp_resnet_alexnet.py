@@ -1,7 +1,8 @@
-from typing import Type, Any, Callable, Union, List, Optional
-
 import torch
+import math
 import torch.nn as nn
+import torch.nn.functional as F
+from typing import Type, Any, Callable, Union, List, Optional
 from torch import Tensor
 try:
     from torch.hub import load_state_dict_from_url
@@ -54,52 +55,6 @@ def conv1x1(in_planes: int, out_planes: int, stride: int = 1) -> nn.Conv2d:
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
 
 
-class ECALayer(nn.Module):
-    """Constructs a ECA module.
-    Args:
-        channel: Number of channels of the input feature map
-        k_size: Adaptive selection of kernel size
-    """
-
-    def __init__(self, channel, k_size=3):
-        super(ECALayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.conv = nn.Conv1d(1, 1, kernel_size=k_size,
-                              padding=(k_size - 1) // 2, bias=False)
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        # feature descriptor on the global spatial information
-        y = self.avg_pool(x)
-
-        # Two different branches of ECA module
-        y = self.conv(y.squeeze(-1).transpose(-1, -2)
-                      ).transpose(-1, -2).unsqueeze(-1)
-
-        # Multi-scale information fusion
-        y = self.sigmoid(y)
-
-        return x * y.expand_as(x)
-
-
-class SELayer(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(SELayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Sequential(
-            nn.Linear(channel, channel // reduction, bias=False),
-            nn.ReLU(inplace=True),
-            nn.Linear(channel // reduction, channel, bias=False),
-            nn.Sigmoid()
-        )
-
-    def forward(self, x: Tensor):
-        b, c, _, _ = x.size()
-        y = self.avg_pool(x).view(b, c)
-        y = self.fc(y).view(b, c, 1, 1)
-        return x * y.expand_as(x)
-
-
 class BasicBlock(nn.Module):
     expansion: int = 1
 
@@ -113,8 +68,7 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[Callable[..., nn.Module]] = None,
-        reduction=16,
-        k_size=3
+        use_cbam=True
     ) -> None:
         super().__init__()
         if norm_layer is None:
@@ -131,10 +85,9 @@ class BasicBlock(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
-        self.se = SELayer(planes, reduction)
-        self.eca = ECALayer(planes, k_size)
         self.downsample = downsample
         self.stride = stride
+        self.cbam = CBAM(planes, 16)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
@@ -142,13 +95,14 @@ class BasicBlock(nn.Module):
         out = self.conv1(x)
         out = self.bn1(out)
         out = self.relu(out)
+
         out = self.conv2(out)
         out = self.bn2(out)
-        out = self.eca(out)
+
+        out = self.cbam(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
-            identity = self.se(identity)
 
         out += identity
         out = self.relu(out)
@@ -257,8 +211,17 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+
+        # spp
+        self.spppool = SPP([1, 5, 7, 13])
+        self.convspp = nn.Conv2d(
+            64 * 4, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bnspp = norm_layer(self.inplanes // 8)
+        self.reluspp = nn.ReLU(inplace=True)
+
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
+        # self.sppfc = nn.Linear()
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -279,6 +242,24 @@ class ResNet(nn.Module):
                 elif isinstance(m, BasicBlock):
                     # type: ignore[arg-type]
                     nn.init.constant_(m.bn2.weight, 0)
+
+        # parallel alexnet
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(64, 192, kernel_size=5, padding=2),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(192, 384, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(384, 256, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(256, 512, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+        )
+        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
 
     def _make_layer(
         self,
@@ -328,37 +309,43 @@ class ResNet(nn.Module):
             x = self.conv1(x)
             x = self.bn1(x)
             x = self.relu(x)
-            x = self.maxpool(x)
+            # x = self.maxpool(x)
+
+            # spp
+            x = self.spppool(x)
+            x = self.convspp(x)
+            x = self.bnspp(x)
+            x = self.reluspp(x)
 
             x = self.layer1(x)
             x = self.layer2(x)
             x = self.layer3(x)
             x = self.layer4(x)
-
+            # x (batch_size, 512, 10, 10)
             x = self.avgpool(x)
 
             # parallel input y
-            y = self.conv1(y)
-            y = self.bn1(y)
-            y = self.relu(y)
-            y = self.maxpool(y)
-
-            y = self.layer1(y)
-            y = self.layer2(y)
-            y = self.layer3(y)
-            y = self.layer4(y)
-
-            y = self.avgpool(y)
+            y = self.features(y)
+            # (batch_size, 512, 9, 9)
+            y = self.avgpool_(y)
 
             z = torch.cat((x, y), 1)
-            z = torch.flatten(z, 1)
+            # z = x + y
+            # z = torch.flatten(z, 1)
             z = self.__fc__(z)
+            # z = self.fc_(z)
             return z
 
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        x = self.maxpool(x)
+        # x = self.maxpool(x)
+
+        # spp
+        x = self.spppool(x)
+        x = self.convspp(x)
+        x = self.bnspp(x)
+        x = self.reluspp(x)
 
         x = self.layer1(x)
         x = self.layer2(x)
@@ -504,3 +491,233 @@ def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: 
     """
     kwargs["width_per_group"] = 64 * 2
     return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
+
+
+class BasicConv(nn.Module):
+    def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1, groups=1, relu=True, bn=True, bias=False):
+        super(BasicConv, self).__init__()
+        self.out_channels = out_planes
+        self.conv = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size,
+                              stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias)
+        self.bn = nn.BatchNorm2d(out_planes, eps=1e-5,
+                                 momentum=0.01, affine=True) if bn else None
+        self.relu = nn.ReLU() if relu else None
+
+    def forward(self, x):
+        x = self.conv(x)
+        if self.bn is not None:
+            x = self.bn(x)
+        if self.relu is not None:
+            x = self.relu(x)
+        return x
+
+
+class Flatten(nn.Module):
+    def forward(self, x):
+        return x.view(x.size(0), -1)
+
+
+class ChannelGate(nn.Module):
+    def __init__(self, gate_channels, reduction_ratio=16, pool_types=['avg', 'max']):
+        super(ChannelGate, self).__init__()
+        self.gate_channels = gate_channels
+        self.mlp = nn.Sequential(
+            Flatten(),
+            nn.Linear(gate_channels, gate_channels // reduction_ratio),
+            nn.ReLU(),
+            nn.Linear(gate_channels // reduction_ratio, gate_channels)
+        )
+        self.pool_types = pool_types
+
+    def forward(self, x):
+        # channel_att_sum = None
+        # for pool_type in self.pool_types:
+        #     if pool_type == 'avg':
+        #         avg_pool = F.avg_pool2d(
+        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(avg_pool)
+        #     elif pool_type == 'max':
+        #         max_pool = F.max_pool2d(
+        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(max_pool)
+        #     elif pool_type == 'lp':
+        #         lp_pool = F.lp_pool2d(
+        #             x, 2, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(lp_pool)
+        #     elif pool_type == 'lse':
+        #         # LSE pool only
+        #         lse_pool = logsumexp_2d(x)
+        #         channel_att_raw = self.mlp(lse_pool)
+
+        #     if channel_att_sum is None:
+        #         channel_att_sum = channel_att_raw
+        #     else:
+        #         channel_att_sum = channel_att_sum + channel_att_raw
+
+        # scale = torch.sigmoid(channel_att_sum).unsqueeze(
+        #     2).unsqueeze(3).expand_as(x)
+        # return x * scale
+
+        avgpool = F.avg_pool2d(
+            x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        # global avgpool (batch_size, channel(64), 1, 1)
+        maxpool = F.max_pool2d(
+            x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        # global maxpool (batch_size, channel(64), 1, 1)
+        channel_att_sum = self.mlp(avgpool) + self.mlp(maxpool)
+        # channel_att_sum (batch_size, channel(64))
+        scale = torch.sigmoid(channel_att_sum).unsqueeze(
+            2).unsqueeze(3).expand_as(x)
+        # sigmod 激活函数，分布在 0 和 1 之间
+        # unsqueeze 升维
+        return x * scale
+
+
+# def logsumexp_2d(tensor):
+#     tensor_flatten = tensor.view(tensor.size(0), tensor.size(1), -1)
+#     s, _ = torch.max(tensor_flatten, dim=2, keepdim=True)
+#     outputs = s + (tensor_flatten - s).exp().sum(dim=2, keepdim=True).log()
+#     return outputs
+
+
+class ChannelPool(nn.Module):
+    def forward(self, x):
+        return torch.cat((torch.max(x, 1)[0].unsqueeze(1), torch.mean(x, 1).unsqueeze(1)), dim=1)
+
+
+class SpatialGate(nn.Module):
+    def __init__(self):
+        super(SpatialGate, self).__init__()
+        kernel_size = 7
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(2, 1, kernel_size, stride=1, padding=(
+            kernel_size-1) // 2, relu=False)
+
+    def forward(self, x):
+        # x  (batch_size, 64, H(80), W(80))
+        x_compress = self.compress(x)
+        # compress 对每个卷积核求 max 和 avg
+        # x_compress (batch_size, 2, H(80), W(80))
+        x_out = self.spatial(x_compress)
+        # x_out (batch_szie, 1, H, W)
+        scale = torch.sigmoid(x_out)  # broadcasting
+        # scale (batch_szie, 1, H, W)
+        return x * scale
+
+
+class CBAM(nn.Module):
+    def __init__(self, gate_channels, reduction_ratio=16, pool_types=['avg', 'max'], no_spatial=False):
+        super(CBAM, self).__init__()
+        # self.ChannelGate = ChannelGate(
+        #     gate_channels, reduction_ratio, pool_types)
+        self.ChannelGate = CoordAtt(gate_channels, gate_channels)
+        self.no_spatial = no_spatial
+        if not no_spatial:
+            self.SpatialGate = SpatialGate()
+
+    def forward(self, x):
+        x_out = self.ChannelGate(x)
+        if not self.no_spatial:
+            x_out = self.SpatialGate(x_out)
+        return x_out
+
+
+class h_sigmoid(nn.Module):
+    def __init__(self, inplace=True):
+        super(h_sigmoid, self).__init__()
+        self.relu = nn.ReLU6(inplace=inplace)
+
+    def forward(self, x):
+        return self.relu(x + 3) / 6
+
+
+class h_swish(nn.Module):
+    def __init__(self, inplace=True):
+        super(h_swish, self).__init__()
+        self.sigmoid = h_sigmoid(inplace=inplace)
+
+    def forward(self, x):
+        return x * self.sigmoid(x)
+
+
+class CoordAtt(nn.Module):
+    def __init__(self, inp, oup, reduction=32):
+        super(CoordAtt, self).__init__()
+        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
+        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
+
+        mip = max(8, inp // reduction)
+
+        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self.bn1 = nn.BatchNorm2d(mip)
+        self.act = h_swish()
+
+        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+
+    def forward(self, x):
+        identity = x
+
+        n, c, h, w = x.size()
+        x_h = self.pool_h(x)
+        x_w = self.pool_w(x).permute(0, 1, 3, 2)
+
+        y = torch.cat([x_h, x_w], dim=2)
+        y = self.conv1(y)
+        y = self.bn1(y)
+        y = self.act(y)
+
+        x_h, x_w = torch.split(y, [h, w], dim=2)
+        x_w = x_w.permute(0, 1, 3, 2)
+
+        a_h = self.conv_h(x_h).sigmoid()
+        a_w = self.conv_w(x_w).sigmoid()
+
+        out = identity * a_w * a_h
+
+        return out
+
+
+class SPP(nn.Module):
+    def __init__(self, kernel_size_list: List[int]):
+        super(SPP, self).__init__()
+        self.pools = []
+        for kernel_size in kernel_size_list:
+            self.pools.append(nn.MaxPool2d(
+                kernel_size=kernel_size, stride=1, padding=kernel_size // 2))
+        # self.pool1 = nn.MaxPool2d(kernel_size=4, stride=1, padding=4 // 2)
+        # self.pool2 = nn.MaxPool2d(kernel_size=8, stride=1, padding=8 // 2)
+        # self.pool3 = nn.MaxPool2d(kernel_size=12, stride=1, padding=12 // 2)
+
+    def forward(self, x):
+        pooled = [pool(x) for pool in self.pools]
+        x = torch.cat(pooled, dim=1)
+        return x
+
+
+def spatial_pyramid_pool(previous_conv, num_sample, previous_conv_size, out_pool_size):
+    '''
+    previous_conv: a tensor vector of previous convolution layer
+    num_sample: an int number of image in the batch
+    previous_conv_size: an int vector [height, width] of the matrix features size of previous convolution layer
+    out_pool_size: a int vector of expected output size of max pooling layer
+
+    returns: a tensor vector with shape [1 x n] is the concentration of multi-level pooling
+    '''
+    # print(previous_conv.size())
+    for i in range(len(out_pool_size)):
+        # print(previous_conv_size)
+        h_wid = int(math.ceil(previous_conv_size[0] / out_pool_size[i]))
+        w_wid = int(math.ceil(previous_conv_size[1] / out_pool_size[i]))
+        h_pad = (h_wid*out_pool_size[i] - previous_conv_size[0] + 1)//2
+        w_pad = (w_wid*out_pool_size[i] - previous_conv_size[1] + 1)//2
+        maxpool = nn.AvgPool2d((h_wid, w_wid), stride=(
+            h_wid, w_wid), padding=(h_pad, w_pad))
+        x = maxpool(previous_conv)
+        if(i == 0):
+            spp = x.view(num_sample, -1)
+            # print("spp size:",spp.size())
+        else:
+            # print("size:",spp.size())
+            spp = torch.cat((spp, x.view(num_sample, -1)), 1)
+    return spp

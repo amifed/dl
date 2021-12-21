@@ -1,4 +1,3 @@
-from re import S
 from typing import Type, Any, Callable, Union, List, Optional
 
 import torch
@@ -207,6 +206,7 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
@@ -233,16 +233,21 @@ class ResNet(nn.Module):
         # parallel alexnet
         self.features = nn.Sequential(
             nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            # nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Conv2d(64, 192, kernel_size=5, padding=2),
+            # nn.BatchNorm2d(192),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Conv2d(192, 384, kernel_size=3, padding=1),
+            # nn.BatchNorm2d(384),
             nn.ReLU(inplace=True),
             nn.Conv2d(384, 256, kernel_size=3, padding=1),
+            # nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
             nn.Conv2d(256, 512, kernel_size=3, padding=1),
+            # nn.BatchNorm2d(512,
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
         )
@@ -306,9 +311,10 @@ class ResNet(nn.Module):
 
             # parallel input y
             y = self.features(y)
-            y = self.avgpool(y)
+            y = self.avgpool_(y)
 
             z = torch.cat((x, y), 1)
+            # z = x * y
             z = torch.flatten(z, 1)
             z = self.__fc__(z)
             return z

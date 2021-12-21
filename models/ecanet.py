@@ -70,11 +70,21 @@ class ECALayer(nn.Module):
 
     def forward(self, x):
         # feature descriptor on the global spatial information
+        # x (batch_size, channel(64), H(80), W(80))
         y = self.avg_pool(x)
+        # y after global avg pool (batch_size, channel(64), 1, 1)
 
         # Two different branches of ECA module
-        y = self.conv(y.squeeze(-1).transpose(-1, -2)
-                      ).transpose(-1, -2).unsqueeze(-1)
+        y = y.squeeze(-1)
+        # 降维 (batch_size, channel(64), 1)
+        y = y.transpose(-1, -2)
+        # 转换维度 (batch_size, 1, channel(64))
+        y = self.conv(y)
+        # conv1x1 (batch_size, 1, channel(64))
+        y = y.transpose(-1, -2).unsqueeze(-1)
+        # (batch_size, channel(64), 1, 1)
+        # y = self.conv(y.squeeze(-1).transpose(-1, -2)
+        #               ).transpose(-1, -2).unsqueeze(-1)
 
         # Multi-scale information fusion
         y = self.sigmoid(y)

@@ -1,7 +1,8 @@
-from typing import Type, Any, Callable, Union, List, Optional
-
 import torch
+import math
 import torch.nn as nn
+import torch.nn.functional as F
+from typing import Type, Any, Callable, Union, List, Optional
 from torch import Tensor
 try:
     from torch.hub import load_state_dict_from_url
@@ -54,52 +55,6 @@ def conv1x1(in_planes: int, out_planes: int, stride: int = 1) -> nn.Conv2d:
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
 
 
-class ECALayer(nn.Module):
-    """Constructs a ECA module.
-    Args:
-        channel: Number of channels of the input feature map
-        k_size: Adaptive selection of kernel size
-    """
-
-    def __init__(self, channel, k_size=3):
-        super(ECALayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.conv = nn.Conv1d(1, 1, kernel_size=k_size,
-                              padding=(k_size - 1) // 2, bias=False)
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        # feature descriptor on the global spatial information
-        y = self.avg_pool(x)
-
-        # Two different branches of ECA module
-        y = self.conv(y.squeeze(-1).transpose(-1, -2)
-                      ).transpose(-1, -2).unsqueeze(-1)
-
-        # Multi-scale information fusion
-        y = self.sigmoid(y)
-
-        return x * y.expand_as(x)
-
-
-class SELayer(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(SELayer, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Sequential(
-            nn.Linear(channel, channel // reduction, bias=False),
-            nn.ReLU(inplace=True),
-            nn.Linear(channel // reduction, channel, bias=False),
-            nn.Sigmoid()
-        )
-
-    def forward(self, x: Tensor):
-        b, c, _, _ = x.size()
-        y = self.avg_pool(x).view(b, c)
-        y = self.fc(y).view(b, c, 1, 1)
-        return x * y.expand_as(x)
-
-
 class BasicBlock(nn.Module):
     expansion: int = 1
 
@@ -113,8 +68,7 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[Callable[..., nn.Module]] = None,
-        reduction=16,
-        k_size=3
+        use_cbam=True
     ) -> None:
         super().__init__()
         if norm_layer is None:
@@ -131,10 +85,9 @@ class BasicBlock(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
-        self.se = SELayer(planes, reduction)
-        self.eca = ECALayer(planes, k_size)
         self.downsample = downsample
         self.stride = stride
+        self.cbam = CBAM(planes, 16)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
@@ -142,13 +95,14 @@ class BasicBlock(nn.Module):
         out = self.conv1(x)
         out = self.bn1(out)
         out = self.relu(out)
+
         out = self.conv2(out)
         out = self.bn2(out)
-        out = self.eca(out)
+
+        out = self.cbam(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
-            identity = self.se(identity)
 
         out += identity
         out = self.relu(out)
@@ -504,3 +458,161 @@ def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: 
     """
     kwargs["width_per_group"] = 64 * 2
     return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
+
+
+class BasicConv(nn.Module):
+    def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1, groups=1, relu=True, bn=True, bias=False):
+        super(BasicConv, self).__init__()
+        self.out_channels = out_planes
+        self.conv = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size,
+                              stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias)
+        self.bn = nn.BatchNorm2d(out_planes, eps=1e-5,
+                                 momentum=0.01, affine=True) if bn else None
+        self.relu = nn.ReLU() if relu else None
+
+    def forward(self, x):
+        x = self.conv(x)
+        if self.bn is not None:
+            x = self.bn(x)
+        if self.relu is not None:
+            x = self.relu(x)
+        return x
+
+
+class Flatten(nn.Module):
+    def forward(self, x):
+        return x.view(x.size(0), -1)
+
+
+class ChannelGate(nn.Module):
+    def __init__(self, gate_channels, reduction_ratio=16, pool_types=['avg', 'max']):
+        super(ChannelGate, self).__init__()
+        self.gate_channels = gate_channels
+        self.mlp = nn.Sequential(
+            Flatten(),
+            nn.Linear(gate_channels, gate_channels // reduction_ratio),
+            nn.ReLU(),
+            nn.Linear(gate_channels // reduction_ratio, gate_channels)
+        )
+        self.pool_types = pool_types
+
+    def forward(self, x):
+        # channel_att_sum = None
+        # for pool_type in self.pool_types:
+        #     if pool_type == 'avg':
+        #         avg_pool = F.avg_pool2d(
+        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(avg_pool)
+        #     elif pool_type == 'max':
+        #         max_pool = F.max_pool2d(
+        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(max_pool)
+        #     elif pool_type == 'lp':
+        #         lp_pool = F.lp_pool2d(
+        #             x, 2, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        #         channel_att_raw = self.mlp(lp_pool)
+        #     elif pool_type == 'lse':
+        #         # LSE pool only
+        #         lse_pool = logsumexp_2d(x)
+        #         channel_att_raw = self.mlp(lse_pool)
+
+        #     if channel_att_sum is None:
+        #         channel_att_sum = channel_att_raw
+        #     else:
+        #         channel_att_sum = channel_att_sum + channel_att_raw
+
+        # scale = torch.sigmoid(channel_att_sum).unsqueeze(
+        #     2).unsqueeze(3).expand_as(x)
+        # return x * scale
+
+        avgpool = F.avg_pool2d(
+            x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        # global avgpool (batch_size, channel(64), 1, 1)
+        maxpool = F.max_pool2d(
+            x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
+        # global maxpool (batch_size, channel(64), 1, 1)
+        channel_att_sum = self.mlp(avgpool) + self.mlp(maxpool)
+        # channel_att_sum (batch_size, channel(64))
+        scale = torch.sigmoid(channel_att_sum).unsqueeze(
+            2).unsqueeze(3).expand_as(x)
+        # sigmod 激活函数，分布在 0 和 1 之间
+        # unsqueeze 升维
+        return x * scale
+
+
+# def logsumexp_2d(tensor):
+#     tensor_flatten = tensor.view(tensor.size(0), tensor.size(1), -1)
+#     s, _ = torch.max(tensor_flatten, dim=2, keepdim=True)
+#     outputs = s + (tensor_flatten - s).exp().sum(dim=2, keepdim=True).log()
+#     return outputs
+
+
+class ChannelPool(nn.Module):
+    def forward(self, x):
+        return torch.cat((torch.max(x, 1)[0].unsqueeze(1), torch.mean(x, 1).unsqueeze(1)), dim=1)
+
+
+class SpatialGate(nn.Module):
+    def __init__(self):
+        super(SpatialGate, self).__init__()
+        kernel_size = 7
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(2, 1, kernel_size, stride=1, padding=(
+            kernel_size-1) // 2, relu=False)
+
+    def forward(self, x):
+        # x  (batch_size, 64, H(80), W(80))
+        x_compress = self.compress(x)
+        # compress 对每个卷积核求 max 和 avg
+        # x_compress (batch_size, 2, H(80), W(80))
+        x_out = self.spatial(x_compress)
+        # x_out (batch_szie, 1, H, W)
+        scale = torch.sigmoid(x_out)  # broadcasting
+        # scale (batch_szie, 1, H, W)
+        return x * scale
+
+
+class CBAM(nn.Module):
+    def __init__(self, gate_channels, reduction_ratio=16, pool_types=['avg', 'max'], no_spatial=False):
+        super(CBAM, self).__init__()
+        # self.ChannelGate = ChannelGate(
+        #     gate_channels, reduction_ratio, pool_types)
+        self.eca = ECALayer(gate_channels)
+        self.no_spatial = no_spatial
+        if not no_spatial:
+            self.SpatialGate = SpatialGate()
+
+    def forward(self, x):
+        # x_out = self.ChannelGate(x)
+        x_out = self.eca(x)
+        if not self.no_spatial:
+            x_out = self.SpatialGate(x_out)
+        return x_out
+
+
+class ECALayer(nn.Module):
+    """Constructs a ECA module.
+    Args:
+        channel: Number of channels of the input feature map
+        k_size: Adaptive selection of kernel size
+    """
+
+    def __init__(self, channel, k_size=3):
+        super(ECALayer, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.conv = nn.Conv1d(1, 1, kernel_size=k_size,
+                              padding=(k_size - 1) // 2, bias=False)
+        self.sigmoid = nn.Sigmoid()
+
+    def forward(self, x):
+        # feature descriptor on the global spatial information
+        y = self.avg_pool(x)
+
+        # Two different branches of ECA module
+        y = self.conv(y.squeeze(-1).transpose(-1, -2)
+                      ).transpose(-1, -2).unsqueeze(-1)
+
+        # Multi-scale information fusion
+        y = self.sigmoid(y)
+
+        return x * y.expand_as(x)

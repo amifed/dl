@@ -17,39 +17,42 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def YCrCb_HSV(source, target):
-    img = cv2.imread(source)
+    try:
+        img = cv2.imread(source)
 
-    # converting from gbr to hsv color space
-    img_HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    # skin color range for hsv color space
-    HSV_mask = cv2.inRange(img_HSV, (0, 15, 0), (17, 170, 255))
-    HSV_mask = cv2.medianBlur(HSV_mask, 13)
-    HSV_mask = cv2.morphologyEx(
-        HSV_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        # converting from gbr to hsv color space
+        img_HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        # skin color range for hsv color space
+        HSV_mask = cv2.inRange(img_HSV, (0, 15, 0), (17, 170, 255))
+        HSV_mask = cv2.medianBlur(HSV_mask, 7)
+        HSV_mask = cv2.morphologyEx(
+            HSV_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
 
-    # converting from gbr to YCbCr color space
-    img_YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
-    cv2.COLOR_YC
-    # skin color range for hsv YCbCr space
-    YCrCb_mask = cv2.inRange(img_YCrCb, (0, 135, 85), (255, 180, 135))
-    # YCrCb_mask = cv2.inRange(img_YCrCb, (0, 0, 20), (234, 23, 10))
-    YCrCb_mask = cv2.medianBlur(YCrCb_mask, 13)
-    YCrCb_mask = cv2.morphologyEx(
-        YCrCb_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        # converting from gbr to YCbCr color space
+        img_YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
 
-    # merge skin detection (YCbCr and hsv)
-    global_mask = cv2.bitwise_and(HSV_mask, YCrCb_mask)
-    global_mask = cv2.medianBlur(global_mask, 13)
-    global_mask = cv2.morphologyEx(
-        global_mask, cv2.MORPH_OPEN, np.ones((4, 4), np.uint8))
+        # skin color range for hsv YCbCr space
+        YCrCb_mask = cv2.inRange(img_YCrCb, (0, 135, 85), (255, 180, 135))
+        # YCrCb_mask = cv2.inRange(img_YCrCb, (0, 0, 20), (234, 23, 10))
+        YCrCb_mask = cv2.medianBlur(YCrCb_mask, 7)
+        YCrCb_mask = cv2.morphologyEx(
+            YCrCb_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
 
-    HSV_result = cv2.bitwise_not(HSV_mask)
-    YCrCb_result = cv2.bitwise_not(YCrCb_mask)
-    # global_result = cv2.bitwise_not(global_mask)
-    # 抠图
-    global_result = cv2.bitwise_and(img, img, mask=global_mask)
+        # merge skin detection (YCbCr and hsv)
+        global_mask = cv2.bitwise_and(HSV_mask, YCrCb_mask)
+        global_mask = cv2.medianBlur(global_mask, 11)
+        global_mask = cv2.morphologyEx(
+            global_mask, cv2.MORPH_CLOSE, np.ones((4, 4), np.uint8))
 
-    cv2.imwrite(target, global_result)
+        HSV_result = cv2.bitwise_not(HSV_mask)
+        YCrCb_result = cv2.bitwise_not(YCrCb_mask)
+        global_result = cv2.bitwise_not(global_mask)
+        # 抠图
+        # global_result = cv2.bitwise_and(img, img, mask=global_mask)
+
+        cv2.imwrite(target, global_result)
+    except Exception as e:
+        print(e)
 
 
 def deeplabv3(source, target):
@@ -112,11 +115,11 @@ def segment(source, target, method):
 
 
 if __name__ == '__main__':
-    model = torch.hub.load('pytorch/vision:v0.10.0',
-                           'deeplabv3_resnet50', pretrained=True)
-    model.to(device)
-    torch.cuda.empty_cache()
-    source = '/home/djy/dataset/dataset'
+    # model = torch.hub.load('pytorch/vision:v0.10.0',
+    #                        'deeplabv3_resnet50', pretrained=True)
+    # model.to(device)
+    # torch.cuda.empty_cache()
+    source = '/home/djy/dataset/dataset2_aug'
     # target = '/home/djy/dataset/deeplabv3_dataset_aug'
-    target = '/home/djy/dataset/ycrcb_hsv_dataset_matting'
+    target = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
     segment(source, target, YCrCb_HSV)

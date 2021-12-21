@@ -102,9 +102,9 @@ def augment(source, aug_dict):
 
 if __name__ == '__main__':
     aug_dict = {
+        'r20': lambda img: rotate_image(img, 20, True),
         'r90': rotate90,
-        'r180': rotate180,
         'fv': flip_vertical,
         'fh': flip_horizontal
     }
-    augment('/home/djy/dataset/dataset_aug', aug_dict=aug_dict)
+    augment('/home/djy/dataset/dataset2_aug', aug_dict=aug_dict)

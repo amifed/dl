@@ -49,8 +49,8 @@ def reorder(folder, prefix: str = '',  checkpoint=lambda x: True):
     for file in listdir(folder):
         if not checkpoint(file):
             continue
-        _, suffix = file.split('.')
         try:
+            _, suffix = file.split('.')
             shutil.move(path.join(folder, file), path.join(
                 tmp_folder, f'{prefix}{cnt}.{suffix}'))
             cnt += 1
@@ -60,8 +60,8 @@ def reorder(folder, prefix: str = '',  checkpoint=lambda x: True):
     for file in listdir(tmp_folder):
         if not checkpoint(file):
             continue
-        _, suffix = file.split('.')
         try:
+            _, suffix = file.split('.')
             shutil.move(path.join(tmp_folder, file), path.join(
                 folder, file))
         except Exception as e:
@@ -107,17 +107,7 @@ def merge(sources: List[str], target):
 if __name__ == '__main__':
     # source = '/home/djy/dataset/dataset1'
     # target = '/home/djy/dataset/dataset_1'
-    # merge(['/home/djy/dataset/original_dataset_from_zl/alldata/dev',
-    #        '/home/djy/dataset/original_dataset_from_zl/alldata/test',
-    #        '/home/djy/dataset/original_dataset_from_zl/alldata/train',
-    #        '/home/djy/dataset/original_dataset_from_zl/data50/dev',
-    #        '/home/djy/dataset/original_dataset_from_zl/data50/test',
-    #        '/home/djy/dataset/original_dataset_from_zl/data50/train',
-    #        '/home/djy/dataset/original_dataset_from_zl/datall/dev',
-    #        '/home/djy/dataset/original_dataset_from_zl/datall/test',
-    #        '/home/djy/dataset/original_dataset_from_zl/datall/train',
-    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/dev',
-    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/test',
-    #        '/home/djy/dataset/original_dataset_from_zl/ndata100/train'],
-    #       '/home/djy/dataset/original_dataset_from_zl/dataset')
-    reset('/home/djy/dataset/dataset')
+    # merge(['/home/djy/dataset/new_dataset',
+    #        '/home/djy/dataset/new_dataset1'],
+    #       '/home/djy/dataset/dataset1')
+    reset('/home/djy/dataset/dataset1')

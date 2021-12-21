@@ -1,7 +1,8 @@
-from typing import Callable
+from typing import Callable, List
 import torch
 from torch.functional import Tensor
 import torch.nn as nn
+from PIL import Image
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import torch.optim as optim
@@ -15,11 +16,28 @@ import models.densenet as densenet
 import models.mobilenet as mobilenet
 import models.ghostnet as ghostnet
 import models.shufflenetv2 as shufflenetv2
+import models.ecanet as ecanet
+import models.eca_se_resnet as eca_se_resnet
+import models.resnet_spp as resnet_spp
+import models.cbam_resnet as cbam_resnet
+import models.cbam_spp_resnet as cbam_spp_resnet
+import models.ca_resnet as ca_resnet
+import models.ca_cbam_resnet as ca_cbam_resnet
+import models.cbam_spp_resnet_alexnet as cbam_spp_resnet_alexnet
+import models.eca_cbam_resnet as eca_cbam_resnet
+import models.ca_cbam_spp_resnet_alexnet as ca_cbam_spp_resnet_alexnet
+import models.cbam_resnet_alexnet as cbam_resnet_alexnet
 import os
 import argparse
 import time
+from sklearn import metrics
 from utils.device import device
 from utils.data import ParallelImageFolder
+
+basewidth = 320
+# wpercent = (basewidth/float(img.size[0]))
+# hsize = int((float(img.size[1])*float(wpercent)))
+# img = img.resize((320, hsize), Image.ANTIALIAS)
 
 transform = transforms.Compose([
     # transforms.RandomHorizontalFlip(),
@@ -40,7 +58,7 @@ def train(
         batch_size: int,
         save_model: bool,
         path: str,
-        **kwargs):
+        **kwargs) -> List[float]:
 
     # 1. dataset load
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
@@ -60,11 +78,15 @@ def train(
     # 3. define a loss function & optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=0.0001)
+    # scheduler = optim.lr_scheduler.MultiStepLR(
+    #     optimizer, milestones=[32], gamma=0.1)
+
     print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
     # 4. train
     max_accuracy, max_accuracy_epoch = 0.0, 0
     min_loss, min_loss_epoch = float('inf'), 0
+    valid_accuracy_list = []
 
     for epoch in range(epochs):  # loop over the dataset multiple times
         now = time.time()
@@ -90,7 +112,7 @@ def train(
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-
+            # scheduler.step()
             running_loss += loss.item()
 
         epoch_loss = running_loss / len(trainloader)
@@ -103,10 +125,7 @@ def train(
         net.eval()
         correct = 0
         total = 0
-        # count predictions for each class
-        correct_pred = {classname: 0 for classname in classes}
-        total_pred = {classname: 0 for classname in classes}
-
+        y_true, y_pred = [], []
         with torch.no_grad():
             for images, labels, parallel_images in validloader:
 
@@ -122,12 +141,11 @@ def train(
                 total += labels.size(0)
                 correct += (predictions == labels).sum().item()
 
-                for label, prediction in zip(labels, predictions):
-                    if prediction == label:
-                        correct_pred[classes[label]] += 1
-                    total_pred[classes[label]] += 1
+                y_true += labels.tolist()
+                y_pred += predictions.tolist()
 
         epoch_acc = 100 * correct / total
+        valid_accuracy_list.append(correct / total)
         print('Accuracy: %.2f%%' % (epoch_acc), end='\t')
         if epoch_acc > max_accuracy:
             max_accuracy, max_accuracy_epoch = epoch_acc, epoch
@@ -136,21 +154,41 @@ def train(
                 torch.save(net.state_dict(), save_path)
         print('Cost %ds' % (time.time() - now))
 
-        # for classname, correct_cnt in correct_pred.items():
-        #     accuracy = 100 * float(correct_cnt) / total_pred[classname]
-        #     print('Accuracy for class {:5s} is: {:.1f} %'.format(
-        #         classname, accuracy), end='\n')
+        print(metrics.classification_report(
+            y_true, y_pred, digits=4, target_names=classes))
+        print(
+            f'micro f-score: {metrics.f1_score(y_true, y_pred, average="micro")}')
 
     print('\nFinished training!!!', end='\n\n')
-    print('Min Loss = %.3f in epoch %d;\n\
-    Max Accuracy = %.2f%% in epoch %d;\n\
-    Total Cost %d minutes' % (min_loss,
-                              min_loss_epoch,
-                              max_accuracy,
-                              max_accuracy_epoch,
-                              (time.time() - start) / 60), end='\n\n')
+    print('Min Loss = %.3f in epoch %d;\nMax Accuracy = %.2f%% in epoch %d;\nTotal Cost %d minutes' %
+          (min_loss,
+           min_loss_epoch,
+           max_accuracy,
+           max_accuracy_epoch,
+           (time.time() - start) / 60), end='\n\n')
 
     print(net, end='\n\n')
+    return valid_accuracy_list
+
+
+class Plot:
+    def __init__(self, label: str, color: str, data: List[float]) -> None:
+        self.label = label
+        self.color = color
+        self.data = data
+
+
+def plot(epochs: int, title: str, path: str, *args: List[Plot]):
+    import matplotlib.pyplot as plt
+    x = range(epochs)  # epoch
+    plt.title(title)
+    for plot in args:
+        plt.plot(x, plot.data, color=plot.color, label=plot.label)
+    plt.xlabel("epoch")  # 横坐标名字
+    plt.ylabel("accuracy")  # 纵坐标名字
+    plt.legend()
+    plt.grid()
+    plt.savefig(path)
 
 
 if __name__ == '__main__':
@@ -181,9 +219,10 @@ if __name__ == '__main__':
                         dest='msg', nargs='*', type=str)
 
     args = vars(parser.parse_args())
-    pretrained, parallel, msg = args['pretrained'], args['parallel'], args['msg']
-    dataset_path = '/home/djy/dataset/dataset'
-    seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset'
+    pretrained, parallel, msg = args['pretrained'], args['parallel'], args['msg'] or [
+    ]
+    dataset_path = '/home/djy/dataset/dataset2'
+    seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
     print(f'dataset_path: {dataset_path}')
     print(f"pretrained : {pretrained} \nparallel: {parallel}\n")
     if parallel:
@@ -195,6 +234,10 @@ if __name__ == '__main__':
     train_size = int(0.8 * full_size)
     valid_size = full_size - train_size
     trainset, validset = torch.utils.data.random_split(
-        dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(2))
+        dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(1))
 
-    train(trainset, validset, resnet.resnet18, **args)
+    acc_list = train(trainset, validset,
+                     cbam_resnet.resnet18, **args)
+    print(acc_list)
+    plot(args['epochs'], " ".join(msg), os.path.join(
+        args['path'], 'accuracy.png'), Plot('cbam_resnet', 'b', acc_list))

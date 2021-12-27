@@ -219,6 +219,20 @@ class ResNet(nn.Module):
         self.bnspp = norm_layer(self.inplanes // 8)
         self.reluspp = nn.ReLU(inplace=True)
 
+        self.conv1_ = nn.Conv2d(
+            3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1_ = norm_layer(self.inplanes)
+        self.relu_ = nn.ReLU(inplace=True)
+        self.maxpool_ = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        self.layer1_ = self._make_layer(block, 64, layers[0])
+        self.layer2_ = self._make_layer(
+            block, 128, layers[1], stride=2, dilate=replace_stride_with_dilation[0])
+        self.layer3_ = self._make_layer(
+            block, 256, layers[2], stride=2, dilate=replace_stride_with_dilation[1])
+        self.layer4_ = self._make_layer(
+            block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
+        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
+
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
@@ -306,17 +320,17 @@ class ResNet(nn.Module):
             x = self.avgpool(x)
 
             # parallel input y
-            y = self.conv1(y)
-            y = self.bn1(y)
-            y = self.relu(y)
-            y = self.maxpool(y)
+            y = self.conv1_(y)
+            y = self.bn1_(y)
+            y = self.relu_(y)
+            y = self.maxpool_(y)
 
-            y = self.layer1(y)
-            y = self.layer2(y)
-            y = self.layer3(y)
-            y = self.layer4(y)
+            y = self.layer1_(y)
+            y = self.layer2_(y)
+            y = self.layer3_(y)
+            y = self.layer4_(y)
 
-            y = self.avgpool(y)
+            y = self.avgpool_(y)
 
             z = torch.cat((x, y), 1)
             z = torch.flatten(z, 1)

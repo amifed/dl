@@ -87,7 +87,7 @@ class BasicBlock(nn.Module):
         self.bn2 = norm_layer(planes)
         self.downsample = downsample
         self.stride = stride
-        self.cbam = CBAM(planes, 16)
+        self.cbam = CoordAtt1(planes, 16)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
@@ -678,20 +678,99 @@ class CoordAtt(nn.Module):
         return out
 
 
-class SPP(nn.Module):
-    def __init__(self, kernel_size_list: List[int]):
-        super(SPP, self).__init__()
-        self.pools = []
-        for kernel_size in kernel_size_list:
-            self.pools.append(nn.MaxPool2d(
-                kernel_size=kernel_size, stride=1, padding=kernel_size // 2))
-        # self.pool1 = nn.MaxPool2d(kernel_size=4, stride=1, padding=4 // 2)
-        # self.pool2 = nn.MaxPool2d(kernel_size=8, stride=1, padding=8 // 2)
-        # self.pool3 = nn.MaxPool2d(kernel_size=12, stride=1, padding=12 // 2)
+class CoordAtt1(nn.Module):
+    # 65.41, 61.62% 65.95%
+    def __init__(self, inp, oup, reduction=32):
+        super(CoordAtt1, self).__init__()
+        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
+        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
+
+        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
+        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
+
+        mip = max(8, inp // reduction)
+
+        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self.bn1 = nn.BatchNorm2d(mip)
+        self.act = h_swish()
+
+        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self.bn1_ = nn.BatchNorm2d(mip)
+        self.act_ = h_swish()
+
+        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+
+        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
 
     def forward(self, x):
-        pooled = [pool(x) for pool in self.pools]
+        identity = x
+
+        n, c, h, w = x.size()
+        x_h = self.pool_h(x)
+        x_w = self.pool_w(x).permute(0, 1, 3, 2)
+
+        y = torch.cat([x_h, x_w], dim=2)
+        y = self.conv1(y)
+        y = self.bn1(y)
+        y = self.act(y)
+
+        x_h, x_w = torch.split(y, [h, w], dim=2)
+        x_w = x_w.permute(0, 1, 3, 2)
+
+        a_h = self.conv_h(x_h).sigmoid()
+        a_w = self.conv_w(x_w).sigmoid()
+
+        # max
+        x_h_ = self.pool_h_(x)
+        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
+
+        y_ = torch.cat([x_h_, x_w_], dim=2)
+        y_ = self.conv1_(y_)
+        y_ = self.bn1_(y_)
+        y_ = self.act_(y_)
+
+        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
+        x_w_ = x_w_.permute(0, 1, 3, 2)
+
+        a_h_ = self.conv_h(x_h_).sigmoid()
+        a_w_ = self.conv_w(x_w_).sigmoid()
+
+        w = ((a_h * a_w) + (a_h_ * a_w_)).sigmoid()
+        out = identity * w
+
+        return out
+
+
+class Conv(nn.Module):
+    # Standard convolution
+    # ch_in, ch_out, kernel, stride, padding, groups
+    def __init__(self, c1, c2, k=1, s=1, dilation=1):
+        super(Conv, self).__init__()
+        self.conv = nn.Conv2d(c1, c2, k, s, dilation=dilation, bias=False)
+        self.bn = nn.BatchNorm2d(c2)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        return self.relu(self.bn(self.conv(x)))
+
+
+class SPP(nn.Module):
+    def __init__(self, kernel_size: List[int], dilation: List[int], c1_in: int = 64, c2_out: int = 64):
+        super(SPP, self).__init__()
+        c1_out = c1_in // 2
+        c2_in = c1_out * (len(kernel_size) + 1)
+        self.conv1 = Conv(c1_in, c1_out, 1, 1, dilation=1)
+        self.conv2 = Conv(c2_in, c2_out, 1, 1, dilation=1)
+        self.pools = nn.ModuleList(
+            [nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x, y in zip(kernel_size, dilation)])
+
+    def forward(self, x):
+        x = self.conv1(x)
+        pooled = [x] + [pool(x) for pool in self.pools]
         x = torch.cat(pooled, dim=1)
+        x = self.conv2(x)
         return x
 
 

@@ -67,8 +67,6 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[Callable[..., nn.Module]] = None,
-        reduction=16,
-        k_size=3
     ) -> None:
         super().__init__()
         if norm_layer is None:
@@ -88,8 +86,6 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
-        self.ca = CoordAtt(planes, planes, reduction=16)
-
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
 
@@ -99,8 +95,6 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
-
-        out = self.ca(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -212,6 +206,27 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+
+        self.spppool = SPP([1, 5, 7, 13])
+        self.convspp = nn.Conv2d(
+            64 * 4, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bnspp = norm_layer(self.inplanes // 8)
+        self.reluspp = nn.ReLU(inplace=True)
+
+        self.conv1_ = nn.Conv2d(
+            3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1_ = norm_layer(self.inplanes)
+        self.relu_ = nn.ReLU(inplace=True)
+        self.maxpool_ = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        self.layer1_ = self._make_layer(block, 64, layers[0])
+        self.layer2_ = self._make_layer(
+            block, 128, layers[1], stride=2, dilate=replace_stride_with_dilation[0])
+        self.layer3_ = self._make_layer(
+            block, 256, layers[2], stride=2, dilate=replace_stride_with_dilation[1])
+        self.layer4_ = self._make_layer(
+            block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
+        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
+
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
@@ -283,7 +298,13 @@ class ResNet(nn.Module):
             x = self.conv1(x)
             x = self.bn1(x)
             x = self.relu(x)
-            x = self.maxpool(x)
+            # x = self.maxpool(x)
+
+            # spp
+            x = self.spppool(x)
+            x = self.convspp(x)
+            x = self.bnspp(x)
+            x = self.reluspp(x)
 
             x = self.layer1(x)
             x = self.layer2(x)
@@ -292,18 +313,18 @@ class ResNet(nn.Module):
 
             x = self.avgpool(x)
 
-            # parallel input y
-            y = self.conv1(y)
-            y = self.bn1(y)
-            y = self.relu(y)
-            y = self.maxpool(y)
+            # parallel input y with different params
+            y = self.conv1_(y)
+            y = self.bn1_(y)
+            y = self.relu_(y)
+            y = self.maxpool_(y)
 
-            y = self.layer1(y)
-            y = self.layer2(y)
-            y = self.layer3(y)
-            y = self.layer4(y)
+            y = self.layer1_(y)
+            y = self.layer2_(y)
+            y = self.layer3_(y)
+            y = self.layer4_(y)
 
-            y = self.avgpool(y)
+            y = self.avgpool_(y)
 
             z = torch.cat((x, y), 1)
             z = torch.flatten(z, 1)
@@ -313,7 +334,13 @@ class ResNet(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        x = self.maxpool(x)
+        # x = self.maxpool(x)
+
+        # spp
+        x = self.spppool(x)
+        x = self.convspp(x)
+        x = self.bnspp(x)
+        x = self.reluspp(x)
 
         x = self.layer1(x)
         x = self.layer2(x)
@@ -461,312 +488,18 @@ def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: 
     return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
 
 
-class h_sigmoid(nn.Module):
-    def __init__(self, inplace=True):
-        super(h_sigmoid, self).__init__()
-        self.relu = nn.ReLU6(inplace=inplace)
+class SPP(nn.Module):
+    def __init__(self, kernel_size_list: List[int]):
+        super(SPP, self).__init__()
+        self.pools = []
+        for kernel_size in kernel_size_list:
+            self.pools.append(nn.MaxPool2d(
+                kernel_size=kernel_size, stride=1, padding=kernel_size // 2))
+        # self.pool1 = nn.MaxPool2d(kernel_size=4, stride=1, padding=4 // 2)
+        # self.pool2 = nn.MaxPool2d(kernel_size=8, stride=1, padding=8 // 2)
+        # self.pool3 = nn.MaxPool2d(kernel_size=12, stride=1, padding=12 // 2)
 
     def forward(self, x):
-        return self.relu(x + 3) / 6
-
-
-class h_swish(nn.Module):
-    def __init__(self, inplace=True):
-        super(h_swish, self).__init__()
-        self.sigmoid = h_sigmoid(inplace=inplace)
-
-    def forward(self, x):
-        return x * self.sigmoid(x)
-
-
-class CoordAtt(nn.Module):
-    # 61.62
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h).sigmoid()
-        a_w = self.conv_w(x_w).sigmoid()
-
-        out = identity * a_w * a_h
-
-        return out
-
-
-class CoordAtt1(nn.Module):
-    # 65.41, 61.62% 65.95%
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt1, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self._pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self._pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self._conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self._bn1_ = nn.BatchNorm2d(mip)
-        self._act_ = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self._conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self._conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h).sigmoid()
-        a_w = self.conv_w(x_w).sigmoid()
-
-        # max
-        _x_h_ = self._pool_h_(x)
-        _x_w_ = self._pool_w_(x).permute(0, 1, 3, 2)
-
-        _y_ = torch.cat([_x_h_, _x_w_], dim=2)
-        _y_ = self._conv1_(_y_)
-        _y_ = self._bn1_(_y_)
-        _y_ = self._act_(_y_)
-
-        _x_h_, _x_w_ = torch.split(_y_, [h, w], dim=2)
-        _x_w_ = _x_w_.permute(0, 1, 3, 2)
-
-        _a_h_ = self._conv_h_(_x_h_).sigmoid()
-        _a_w_ = self._conv_w_(_x_w_).sigmoid()
-
-        w = ((a_h * a_w) + (_a_h_ * _a_w_)).sigmoid()
-        out = identity * w
-
-        return out
-
-
-class CoordAtt2(nn.Module):
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt2, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h).sigmoid()
-        a_w = self.conv_w(x_w).sigmoid()
-
-        # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
-
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
-
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
-
-        a_h_ = self.conv_h_(x_h_).sigmoid()
-        a_w_ = self.conv_w_(x_w_).sigmoid()
-
-        out = identity * a_w * a_h * a_w_ * a_h_
-
-        return out
-
-
-class CoordAtt3(nn.Module):
-    # 64.86, 62.16 63.78%
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt3, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h)
-        a_w = self.conv_w(x_w)
-
-        # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
-
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
-
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
-
-        a_h_ = self.conv_h_(x_h_)
-        a_w_ = self.conv_w_(x_w_)
-
-        w = ((a_h + a_h_).sigmoid() * (a_w + a_w_).sigmoid())
-        out = identity * w
-
-        return out
-
-
-class CoordAtt4(nn.Module):
-    #
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt3, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h)
-        a_w = self.conv_w(x_w)
-
-        # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
-
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1(y_)
-        y_ = self.bn1(y_)
-        y_ = self.act(y_)
-
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
-
-        a_h_ = self.conv_h_(x_h_)
-        a_w_ = self.conv_w_(x_w_)
-
-        w = ((a_h + a_h_).sigmoid() * (a_w + a_w_).sigmoid())
-        out = identity * w
-
-        return out
+        pooled = [pool(x) for pool in self.pools]
+        x = torch.cat(pooled, dim=1)
+        return x

@@ -2,8 +2,6 @@ import torch
 import torch.nn as nn
 from typing import Any, List
 
-from torch.nn import parameter
-
 try:
     from torch.hub import load_state_dict_from_url
 except ImportError:
@@ -20,7 +18,7 @@ class AlexNet(nn.Module):
     def __init__(self, num_classes: int = 1000, dropout: float = 0.5) -> None:
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            nn.Conv2d(3, 64, kernel_size=5, padding=2),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),

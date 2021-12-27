@@ -211,9 +211,23 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+
+        self.conv1_ = nn.Conv2d(
+            3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
+        self.bn1_ = norm_layer(self.inplanes)
+        self.relu_ = nn.ReLU(inplace=True)
+        self.maxpool_ = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        self.layer1_ = self._make_layer(block, 64, layers[0])
+        self.layer2_ = self._make_layer(
+            block, 128, layers[1], stride=2, dilate=replace_stride_with_dilation[0])
+        self.layer3_ = self._make_layer(
+            block, 256, layers[2], stride=2, dilate=replace_stride_with_dilation[1])
+        self.layer4_ = self._make_layer(
+            block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
+        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
+
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
-
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
                 nn.init.kaiming_normal_(
@@ -291,18 +305,31 @@ class ResNet(nn.Module):
 
             x = self.avgpool(x)
 
-            # parallel input y
-            y = self.conv1(y)
-            y = self.bn1(y)
-            y = self.relu(y)
-            y = self.maxpool(y)
+            # parallel input y with same params
+            # y = self.conv1(y)
+            # y = self.bn1(y)
+            # y = self.relu(y)
+            # y = self.maxpool(y)
 
-            y = self.layer1(y)
-            y = self.layer2(y)
-            y = self.layer3(y)
-            y = self.layer4(y)
+            # y = self.layer1(y)
+            # y = self.layer2(y)
+            # y = self.layer3(y)
+            # y = self.layer4(y)
 
-            y = self.avgpool(y)
+            # y = self.avgpool(y)
+
+            # parallel input y with different params
+            y = self.conv1_(y)
+            y = self.bn1_(y)
+            y = self.relu_(y)
+            y = self.maxpool_(y)
+
+            y = self.layer1_(y)
+            y = self.layer2_(y)
+            y = self.layer3_(y)
+            y = self.layer4_(y)
+
+            y = self.avgpool_(y)
 
             z = torch.cat((x, y), 1)
             z = torch.flatten(z, 1)
@@ -321,6 +348,7 @@ class ResNet(nn.Module):
 
         x = self.avgpool(x)
         # resnet18 512*1*1
+
         x = torch.flatten(x, 1)
         x = self.fc_(x)
         return x
@@ -497,33 +525,6 @@ class ChannelGate(nn.Module):
         self.pool_types = pool_types
 
     def forward(self, x):
-        # channel_att_sum = None
-        # for pool_type in self.pool_types:
-        #     if pool_type == 'avg':
-        #         avg_pool = F.avg_pool2d(
-        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
-        #         channel_att_raw = self.mlp(avg_pool)
-        #     elif pool_type == 'max':
-        #         max_pool = F.max_pool2d(
-        #             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
-        #         channel_att_raw = self.mlp(max_pool)
-        #     elif pool_type == 'lp':
-        #         lp_pool = F.lp_pool2d(
-        #             x, 2, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
-        #         channel_att_raw = self.mlp(lp_pool)
-        #     elif pool_type == 'lse':
-        #         # LSE pool only
-        #         lse_pool = logsumexp_2d(x)
-        #         channel_att_raw = self.mlp(lse_pool)
-
-        #     if channel_att_sum is None:
-        #         channel_att_sum = channel_att_raw
-        #     else:
-        #         channel_att_sum = channel_att_sum + channel_att_raw
-
-        # scale = torch.sigmoid(channel_att_sum).unsqueeze(
-        #     2).unsqueeze(3).expand_as(x)
-        # return x * scale
 
         avgpool = F.avg_pool2d(
             x, (x.size(2), x.size(3)), stride=(x.size(2), x.size(3)))
@@ -538,13 +539,6 @@ class ChannelGate(nn.Module):
         # sigmod 激活函数，分布在 0 和 1 之间
         # unsqueeze 升维
         return x * scale
-
-
-# def logsumexp_2d(tensor):
-#     tensor_flatten = tensor.view(tensor.size(0), tensor.size(1), -1)
-#     s, _ = torch.max(tensor_flatten, dim=2, keepdim=True)
-#     outputs = s + (tensor_flatten - s).exp().sum(dim=2, keepdim=True).log()
-#     return outputs
 
 
 class ChannelPool(nn.Module):

@@ -6,6 +6,8 @@ from PIL import Image
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import torch.optim as optim
+from torchsummary import summary
+from torchstat import stat
 from models.lenet import LeNet
 from models._alexnet import _alexnet
 from models.alexnet import alexnet
@@ -18,15 +20,18 @@ import models.ghostnet as ghostnet
 import models.shufflenetv2 as shufflenetv2
 import models.ecanet as ecanet
 import models.eca_se_resnet as eca_se_resnet
-import models.resnet_spp as resnet_spp
+import models.spp_resnet as spp_resnet
+import models.sppb_resnet as sppb_resnet
 import models.cbam_resnet as cbam_resnet
 import models.cbam_spp_resnet as cbam_spp_resnet
 import models.ca_resnet as ca_resnet
+import models.ca_spp_resnet as ca_spp_resnet
 import models.ca_cbam_resnet as ca_cbam_resnet
 import models.cbam_spp_resnet_alexnet as cbam_spp_resnet_alexnet
 import models.eca_cbam_resnet as eca_cbam_resnet
 import models.ca_cbam_spp_resnet_alexnet as ca_cbam_spp_resnet_alexnet
 import models.cbam_resnet_alexnet as cbam_resnet_alexnet
+import models.ccam_spp_resnet_alexnet as ccam_spp_resnet_alexnet
 import os
 import argparse
 import time
@@ -42,6 +47,16 @@ basewidth = 320
 transform = transforms.Compose([
     # transforms.RandomHorizontalFlip(),
     # transforms.RandomRotation(degrees=(0, 180)),
+    # transforms.Grayscale(),
+    # transforms.RandomChoice(
+    #     transforms=(
+    #         transforms.ColorJitter(brightness=.5, hue=.3),
+    #         transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5)),
+    #         transforms.RandomPerspective(distortion_scale=0.6, p=1.0),
+    #         transforms.RandomRotation(degrees=(0, 180)),
+    #         transforms.RandomPosterize(bits=2)),
+    #     p=[0.1, 0.2, 0.1, 0.5, 0.1]
+    # ),
     transforms.Resize((320, 320)),
     transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
@@ -56,6 +71,7 @@ def train(
         pretrained: bool,
         epochs: int,
         batch_size: int,
+        learning_rate: float,
         save_model: bool,
         path: str,
         **kwargs) -> List[float]:
@@ -77,15 +93,16 @@ def train(
 
     # 3. define a loss function & optimizer
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(net.parameters(), lr=0.0001)
-    # scheduler = optim.lr_scheduler.MultiStepLR(
-    #     optimizer, milestones=[32], gamma=0.1)
+    optimizer = optim.Adam(net.parameters(), lr=learning_rate)
+    scheduler = optim.lr_scheduler.MultiStepLR(
+        optimizer, milestones=[60], gamma=0.1)
 
     print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
     # 4. train
     max_accuracy, max_accuracy_epoch = 0.0, 0
     min_loss, min_loss_epoch = float('inf'), 0
+    train_loss_list = []
     valid_accuracy_list = []
 
     for epoch in range(epochs):  # loop over the dataset multiple times
@@ -116,6 +133,7 @@ def train(
             running_loss += loss.item()
 
         epoch_loss = running_loss / len(trainloader)
+        train_loss_list.append(epoch_loss)
         print('Loss: %.3f' % (epoch_loss), end='\t')
 
         if epoch_loss < min_loss:
@@ -145,7 +163,7 @@ def train(
                 y_pred += predictions.tolist()
 
         epoch_acc = 100 * correct / total
-        valid_accuracy_list.append(correct / total)
+        valid_accuracy_list.append(100 * correct / total)
         print('Accuracy: %.2f%%' % (epoch_acc), end='\t')
         if epoch_acc > max_accuracy:
             max_accuracy, max_accuracy_epoch = epoch_acc, epoch
@@ -167,8 +185,10 @@ def train(
            max_accuracy_epoch,
            (time.time() - start) / 60), end='\n\n')
 
-    print(net, end='\n\n')
-    return valid_accuracy_list
+    # print(net, end='\n\n')
+    summary(net, (3, 320, 320))
+    print('\n\n')
+    return train_loss_list, valid_accuracy_list
 
 
 class Plot:
@@ -180,6 +200,7 @@ class Plot:
 
 def plot(epochs: int, title: str, path: str, *args: List[Plot]):
     import matplotlib.pyplot as plt
+    plt.clf()
     x = range(epochs)  # epoch
     plt.title(title)
     for plot in args:
@@ -208,6 +229,9 @@ if __name__ == '__main__':
     # batch size
     parser.add_argument('-bs', '--batch-size',
                         dest='batch_size', default=20, type=int)
+    # learning rate
+    parser.add_argument('-lr', '--learning-rate',
+                        dest='learning_rate', default=0.0001, type=float)
     # 保存模型路径
     parser.add_argument('-sm', '--save-model',
                         dest='save_model', action='store_true')
@@ -236,8 +260,10 @@ if __name__ == '__main__':
     trainset, validset = torch.utils.data.random_split(
         dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(1))
 
-    acc_list = train(trainset, validset,
-                     cbam_resnet.resnet18, **args)
-    print(acc_list)
-    plot(args['epochs'], " ".join(msg), os.path.join(
-        args['path'], 'accuracy.png'), Plot('cbam_resnet', 'b', acc_list))
+    loss_list, acc_list = train(trainset, validset,
+                                ca_resnet.resnet18, **args)
+
+    plot(args['epochs'], "loss for "+" ".join(msg), os.path.join(
+        args['path'], 'loss.png'), Plot('loss', 'b', loss_list))
+    plot(args['epochs'], "accuracy for "+" ".join(msg), os.path.join(
+        args['path'], 'accuracy.png'), Plot('accuracy', 'r', acc_list))

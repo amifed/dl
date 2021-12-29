@@ -1,0 +1,1370 @@
+dataset_path: /home/djy/dataset/dataset2
+pretrained : False 
+parallel: False
+
+msg: resnet34 spp cbam
+using model: ResNet, resnet34
+using device cuda:0
+batch_size = 20
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Loss: 1.843	Accuracy: 26.49%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.2368    0.5806    0.3364        31
+         cwx     0.2000    0.1364    0.1622        22
+         hdx     0.4000    0.1176    0.1818        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3478    0.1778    0.2353        45
+         zxx     0.2727    0.4615    0.3429        39
+
+    accuracy                         0.2649       185
+   macro avg     0.2082    0.2106    0.1798       185
+weighted avg     0.2423    0.2649    0.2219       185
+
+micro f-score: 0.2648648648648649
+
+========== Train Epoch 2 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.603	Accuracy: 25.95%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.0645    0.1081        31
+         cwx     0.1667    0.0455    0.0714        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.3750    0.2500    0.3000        12
+         qtx     0.3333    0.0889    0.1404        45
+         zxx     0.2484    0.9744    0.3958        39
+
+    accuracy                         0.2595       185
+   macro avg     0.2081    0.2033    0.1451       185
+weighted avg     0.2334    0.2595    0.1637       185
+
+micro f-score: 0.2594594594594595
+
+========== Train Epoch 3 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.465	Accuracy: 36.76%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.2593    0.4516    0.3294        31
+         cwx     0.2766    0.5909    0.3768        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.1429    0.0526    0.0769        19
+         nqx     0.3333    0.0833    0.1333        12
+         qtx     1.0000    0.2222    0.3636        45
+         zxx     0.4603    0.7436    0.5686        39
+
+    accuracy                         0.3676       185
+   macro avg     0.3532    0.3063    0.2641       185
+weighted avg     0.4529    0.3676    0.3249       185
+
+micro f-score: 0.3675675675675676
+
+========== Train Epoch 4 ==========
+Loss: 1.340	Accuracy: 45.95%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.3529    0.3871    0.3692        31
+         cwx     0.3333    0.1818    0.2353        22
+         hdx     0.3333    0.1765    0.2308        17
+         mtx     0.6667    0.2105    0.3200        19
+         nqx     0.2667    0.3333    0.2963        12
+         qtx     0.4211    0.7111    0.5289        45
+         zxx     0.7879    0.6667    0.7222        39
+
+    accuracy                         0.4595       185
+   macro avg     0.4517    0.3810    0.3861       185
+weighted avg     0.4837    0.4595    0.4441       185
+
+micro f-score: 0.4594594594594595
+
+========== Train Epoch 5 ==========
+Loss: 1.167	Accuracy: 43.24%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.4000    0.0645    0.1111        31
+         cwx     0.2600    0.5909    0.3611        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.2000    0.1053    0.1379        19
+         nqx     0.3571    0.4167    0.3846        12
+         qtx     0.6579    0.5556    0.6024        45
+         zxx     0.4853    0.8462    0.6168        39
+
+    accuracy                         0.4324       185
+   macro avg     0.3372    0.3684    0.3163       185
+weighted avg     0.4040    0.4324    0.3772       185
+
+micro f-score: 0.43243243243243246
+
+========== Train Epoch 6 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.025	Accuracy: 50.81%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.5833    0.2258    0.3256        31
+         cwx     0.6667    0.1818    0.2857        22
+         hdx     0.3750    0.1765    0.2400        17
+         mtx     0.7500    0.1579    0.2609        19
+         nqx     0.3684    0.5833    0.4516        12
+         qtx     0.4699    0.8667    0.6094        45
+         zxx     0.5849    0.7949    0.6739        39
+
+    accuracy                         0.5081       185
+   macro avg     0.5426    0.4267    0.4067       185
+weighted avg     0.5500    0.5081    0.4570       185
+
+micro f-score: 0.5081081081081081
+
+========== Train Epoch 7 ==========
+Loss: 0.863	Accuracy: 51.89%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.3400    0.5484    0.4198        31
+         cwx     1.0000    0.1364    0.2400        22
+         hdx     0.2727    0.1765    0.2143        17
+         mtx     1.0000    0.0526    0.1000        19
+         nqx     0.5385    0.5833    0.5600        12
+         qtx     0.6818    0.6667    0.6742        45
+         zxx     0.5556    0.8974    0.6863        39
+
+    accuracy                         0.5189       185
+   macro avg     0.6269    0.4373    0.4135       185
+weighted avg     0.6215    0.5189    0.4738       185
+
+micro f-score: 0.518918918918919
+
+========== Train Epoch 8 ==========
+Loss: 0.693	Accuracy: 46.49%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.8710    0.4821        31
+         cwx     0.5000    0.0909    0.1538        22
+         hdx     0.4000    0.1176    0.1818        17
+         mtx     0.6000    0.1579    0.2500        19
+         nqx     0.4000    0.5000    0.4444        12
+         qtx     0.8125    0.2889    0.4262        45
+         zxx     0.5593    0.8462    0.6735        39
+
+    accuracy                         0.4649       185
+   macro avg     0.5150    0.4104    0.3731       185
+weighted avg     0.5552    0.4649    0.4160       185
+
+micro f-score: 0.4648648648648649
+
+========== Train Epoch 9 ==========
+Loss: 0.536	Accuracy: 53.51%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.0645    0.1176        31
+         cwx     0.3846    0.6818    0.4918        22
+         hdx     0.3750    0.5294    0.4390        17
+         mtx     0.1944    0.3684    0.2545        19
+         nqx     0.4444    0.3333    0.3810        12
+         qtx     0.8611    0.6889    0.7654        45
+         zxx     0.8158    0.7949    0.8052        39
+
+    accuracy                         0.5351       185
+   macro avg     0.5346    0.4945    0.4649       185
+weighted avg     0.6221    0.5351    0.5253       185
+
+micro f-score: 0.5351351351351351
+
+========== Train Epoch 10 ==========
+Loss: 0.371	Accuracy: 60.00%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.6818    0.4839    0.5660        31
+         cwx     0.6667    0.4545    0.5405        22
+         hdx     0.2903    0.5294    0.3750        17
+         mtx     0.4444    0.2105    0.2857        19
+         nqx     1.0000    0.3333    0.5000        12
+         qtx     0.7857    0.7333    0.7586        45
+         zxx     0.5806    0.9231    0.7129        39
+
+    accuracy                         0.6000       185
+   macro avg     0.6357    0.5240    0.5341       185
+weighted avg     0.6442    0.6000    0.5902       185
+
+micro f-score: 0.6
+
+========== Train Epoch 11 ==========
+Loss: 0.217	Accuracy: 61.08%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.3871    0.4706        31
+         cwx     0.5600    0.6364    0.5957        22
+         hdx     1.0000    0.2353    0.3810        17
+         mtx     0.2917    0.3684    0.3256        19
+         nqx     0.6111    0.9167    0.7333        12
+         qtx     0.7500    0.6667    0.7059        45
+         zxx     0.6481    0.8974    0.7527        39
+
+    accuracy                         0.6108       185
+   macro avg     0.6373    0.5868    0.5664       185
+weighted avg     0.6477    0.6108    0.5961       185
+
+micro f-score: 0.6108108108108108
+
+========== Train Epoch 12 ==========
+Loss: 0.176	Accuracy: 44.86%	Cost 34s
+              precision    recall  f1-score   support
+
+         bzx     0.3243    0.3871    0.3529        31
+         cwx     0.6250    0.6818    0.6522        22
+         hdx     0.4000    0.1176    0.1818        17
+         mtx     0.2281    0.6842    0.3421        19
+         nqx     0.3571    0.8333    0.5000        12
+         qtx     0.9130    0.4667    0.6176        45
+         zxx     0.9091    0.2564    0.4000        39
+
+    accuracy                         0.4486       185
+   macro avg     0.5367    0.4896    0.4352       185
+weighted avg     0.6258    0.4486    0.4555       185
+
+micro f-score: 0.4486486486486486
+
+========== Train Epoch 13 ==========
+Loss: 0.125	Accuracy: 59.46%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.8125    0.4194    0.5532        31
+         cwx     0.8182    0.4091    0.5455        22
+         hdx     0.2500    0.6471    0.3607        17
+         mtx     0.5000    0.1053    0.1739        19
+         nqx     0.7000    0.5833    0.6364        12
+         qtx     0.8293    0.7556    0.7907        45
+         zxx     0.5763    0.8718    0.6939        39
+
+    accuracy                         0.5946       185
+   macro avg     0.6409    0.5416    0.5363       185
+weighted avg     0.6764    0.5946    0.5885       185
+
+micro f-score: 0.5945945945945946
+
+========== Train Epoch 14 ==========
+Loss: 0.105	Accuracy: 60.54%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.8750    0.4516    0.5957        31
+         cwx     0.7368    0.6364    0.6829        22
+         hdx     0.2553    0.7059    0.3750        17
+         mtx     0.3158    0.3158    0.3158        19
+         nqx     0.6667    0.3333    0.4444        12
+         qtx     0.8485    0.6222    0.7179        45
+         zxx     0.7556    0.8718    0.8095        39
+
+    accuracy                         0.6054       185
+   macro avg     0.6362    0.5624    0.5631       185
+weighted avg     0.6991    0.6054    0.6221       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 15 ==========
+Loss: 0.087	Accuracy: 60.54%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.9167    0.3548    0.5116        31
+         cwx     0.6190    0.5909    0.6047        22
+         hdx     0.5455    0.3529    0.4286        17
+         mtx     0.7273    0.4211    0.5333        19
+         nqx     0.2903    0.7500    0.4186        12
+         qtx     0.6250    0.7778    0.6931        45
+         zxx     0.6977    0.7692    0.7317        39
+
+    accuracy                         0.6054       185
+   macro avg     0.6316    0.5738    0.5602       185
+weighted avg     0.6700    0.6054    0.6018       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 16 ==========
+Loss: 0.103	Accuracy: 61.62%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.7500    0.2903    0.4186        31
+         cwx     0.8333    0.6818    0.7500        22
+         hdx     0.2308    0.3529    0.2791        17
+         mtx     0.4583    0.5789    0.5116        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.8500    0.7556    0.8000        45
+         zxx     0.5938    0.9744    0.7379        39
+
+    accuracy                         0.6162       185
+   macro avg     0.6737    0.5310    0.5216       185
+weighted avg     0.6898    0.6162    0.5976       185
+
+micro f-score: 0.6162162162162163
+
+========== Train Epoch 17 ==========
+Loss: 0.097	Accuracy: 30.81%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.2174    0.9677    0.3550        31
+         cwx     0.7500    0.1364    0.2308        22
+         hdx     0.2632    0.2941    0.2778        17
+         mtx     1.0000    0.0526    0.1000        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.8000    0.1778    0.2909        45
+         zxx     0.7500    0.2308    0.3529        39
+
+    accuracy                         0.3081       185
+   macro avg     0.6829    0.2775    0.2516       185
+weighted avg     0.6701    0.3081    0.2779       185
+
+micro f-score: 0.3081081081081081
+
+========== Train Epoch 18 ==========
+Loss: 0.112	Accuracy: 53.51%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.4000    0.8182    0.5373        22
+         hdx     1.0000    0.1765    0.3000        17
+         mtx     0.3171    0.6842    0.4333        19
+         nqx     0.8000    0.3333    0.4706        12
+         qtx     0.8621    0.5556    0.6757        45
+         zxx     0.5806    0.9231    0.7129        39
+
+    accuracy                         0.5351       185
+   macro avg     0.5657    0.4987    0.4471       185
+weighted avg     0.5560    0.5351    0.4811       185
+
+micro f-score: 0.5351351351351351
+
+========== Train Epoch 19 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.086	Accuracy: 47.57%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.4500    0.2903    0.3529        31
+         cwx     0.7000    0.3182    0.4375        22
+         hdx     0.1833    0.6471    0.2857        17
+         mtx     0.2857    0.1053    0.1538        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.6038    0.7111    0.6531        45
+         zxx     0.7647    0.6667    0.7123        39
+
+    accuracy                         0.4757       185
+   macro avg     0.5696    0.4031    0.3927       185
+weighted avg     0.5778    0.4757    0.4722       185
+
+micro f-score: 0.4756756756756757
+
+========== Train Epoch 20 ==========
+Loss: 0.078	Accuracy: 61.08%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.4706    0.7742    0.5854        31
+         cwx     0.8000    0.5455    0.6486        22
+         hdx     0.6000    0.3529    0.4444        17
+         mtx     0.3929    0.5789    0.4681        19
+         nqx     0.6000    0.2500    0.3529        12
+         qtx     0.7838    0.6444    0.7073        45
+         zxx     0.7179    0.7179    0.7179        39
+
+    accuracy                         0.6108       185
+   macro avg     0.6236    0.5520    0.5607       185
+weighted avg     0.6504    0.6108    0.6104       185
+
+micro f-score: 0.6108108108108108
+
+========== Train Epoch 21 ==========
+Loss: 0.059	Accuracy: 56.22%	Cost 34s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.3871    0.4898        31
+         cwx     0.4857    0.7727    0.5965        22
+         hdx     0.2000    0.4706    0.2807        17
+         mtx     0.5000    0.1053    0.1739        19
+         nqx     0.7143    0.4167    0.5263        12
+         qtx     0.7045    0.6889    0.6966        45
+         zxx     0.7838    0.7436    0.7632        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5793    0.5121    0.5039       185
+weighted avg     0.6221    0.5622    0.5611       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 22 ==========
+Loss: 0.060	Accuracy: 52.97%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.0968    0.1667        31
+         cwx     0.5294    0.8182    0.6429        22
+         hdx     0.3571    0.2941    0.3226        17
+         mtx     0.3333    0.4211    0.3721        19
+         nqx     0.5625    0.7500    0.6429        12
+         qtx     0.9500    0.4222    0.5846        45
+         zxx     0.5000    0.9231    0.6486        39
+
+    accuracy                         0.5297       185
+   macro avg     0.5475    0.5322    0.4829       185
+weighted avg     0.6035    0.5297    0.4929       185
+
+micro f-score: 0.5297297297297298
+
+========== Train Epoch 23 ==========
+Loss: 0.051	Accuracy: 62.70%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.7419    0.5974        31
+         cwx     0.5926    0.7273    0.6531        22
+         hdx     0.4286    0.3529    0.3871        17
+         mtx     0.6000    0.3158    0.4138        19
+         nqx     1.0000    0.3333    0.5000        12
+         qtx     0.7436    0.6444    0.6905        45
+         zxx     0.7111    0.8205    0.7619        39
+
+    accuracy                         0.6270       185
+   macro avg     0.6537    0.5623    0.5720       185
+weighted avg     0.6509    0.6270    0.6168       185
+
+micro f-score: 0.6270270270270271
+
+========== Train Epoch 24 ==========
+Loss: 0.054	Accuracy: 52.97%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.7368    0.4516    0.5600        31
+         cwx     1.0000    0.2727    0.4286        22
+         hdx     0.3043    0.4118    0.3500        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.2667    1.0000    0.4211        12
+         qtx     0.9524    0.4444    0.6061        45
+         zxx     0.5625    0.9231    0.6990        39
+
+    accuracy                         0.5297       185
+   macro avg     0.6073    0.5231    0.4708       185
+weighted avg     0.6819    0.5297    0.5228       185
+
+micro f-score: 0.5297297297297298
+
+========== Train Epoch 25 ==========
+Loss: 0.060	Accuracy: 36.76%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.3103    0.2903    0.3000        31
+         cwx     0.8750    0.3182    0.4667        22
+         hdx     0.6000    0.1765    0.2727        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.5000    0.1667    0.2500        12
+         qtx     0.8333    0.2222    0.3509        45
+         zxx     0.2937    0.9487    0.4485        39
+
+    accuracy                         0.3676       185
+   macro avg     0.4875    0.3032    0.2984       185
+weighted avg     0.5082    0.3676    0.3269       185
+
+micro f-score: 0.3675675675675676
+
+========== Train Epoch 26 ==========
+Loss: 0.063	Accuracy: 50.27%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.1935    0.3000        31
+         cwx     0.8000    0.1818    0.2963        22
+         hdx     0.2308    0.1765    0.2000        17
+         mtx     0.3333    0.6316    0.4364        19
+         nqx     0.8333    0.4167    0.5556        12
+         qtx     0.9259    0.5556    0.6944        45
+         zxx     0.4270    0.9744    0.5938        39
+
+    accuracy                         0.5027       185
+   macro avg     0.6024    0.4471    0.4395       185
+weighted avg     0.6316    0.5027    0.4788       185
+
+micro f-score: 0.5027027027027027
+
+========== Train Epoch 27 ==========
+Loss: 0.042	Accuracy: 63.78%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.7778    0.2258    0.3500        31
+         cwx     0.7895    0.6818    0.7317        22
+         hdx     0.4286    0.3529    0.3871        17
+         mtx     0.5000    0.4211    0.4571        19
+         nqx     0.4444    0.6667    0.5333        12
+         qtx     0.6441    0.8444    0.7308        45
+         zxx     0.7200    0.9231    0.8090        39
+
+    accuracy                         0.6378       185
+   macro avg     0.6149    0.5880    0.5713       185
+weighted avg     0.6522    0.6378    0.6111       185
+
+micro f-score: 0.6378378378378379
+
+========== Train Epoch 28 ==========
+Loss: 0.038	Accuracy: 58.38%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5333    0.5161    0.5246        31
+         cwx     0.4750    0.8636    0.6129        22
+         hdx     0.5714    0.2353    0.3333        17
+         mtx     0.6667    0.2105    0.3200        19
+         nqx     0.3448    0.8333    0.4878        12
+         qtx     0.7179    0.6222    0.6667        45
+         zxx     0.7941    0.6923    0.7397        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5862    0.5676    0.5264       185
+weighted avg     0.6312    0.5838    0.5740       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 29 ==========
+Loss: 0.057	Accuracy: 55.14%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.3860    0.7097    0.5000        31
+         cwx     0.5185    0.6364    0.5714        22
+         hdx     0.4444    0.2353    0.3077        17
+         mtx     0.4167    0.2632    0.3226        19
+         nqx     0.7500    0.5000    0.6000        12
+         qtx     0.9500    0.4222    0.5846        45
+         zxx     0.6154    0.8205    0.7033        39
+
+    accuracy                         0.5514       185
+   macro avg     0.5830    0.5125    0.5128       185
+weighted avg     0.6194    0.5514    0.5425       185
+
+micro f-score: 0.5513513513513514
+
+========== Train Epoch 30 ==========
+Loss: 0.052	Accuracy: 57.30%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.4098    0.8065    0.5435        31
+         cwx     0.8333    0.2273    0.3571        22
+         hdx     0.4286    0.3529    0.3871        17
+         mtx     0.3810    0.4211    0.4000        19
+         nqx     0.5833    0.5833    0.5833        12
+         qtx     0.7442    0.7111    0.7273        45
+         zxx     0.8214    0.5897    0.6866        39
+
+    accuracy                         0.5730       185
+   macro avg     0.6002    0.5274    0.5264       185
+weighted avg     0.6383    0.5730    0.5697       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 31 ==========
+Loss: 0.058	Accuracy: 61.62%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.7500    0.4839    0.5882        31
+         cwx     0.6471    0.5000    0.5641        22
+         hdx     0.2778    0.5882    0.3774        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.3750    0.5000    0.4286        12
+         qtx     0.7857    0.7333    0.7586        45
+         zxx     0.7556    0.8718    0.8095        39
+
+    accuracy                         0.6162       185
+   macro avg     0.5924    0.5629    0.5548       185
+weighted avg     0.6599    0.6162    0.6200       185
+
+micro f-score: 0.6162162162162163
+
+========== Train Epoch 32 ==========
+Loss: 0.039	Accuracy: 62.70%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5714    0.5161    0.5424        31
+         cwx     0.6538    0.7727    0.7083        22
+         hdx     0.4286    0.3529    0.3871        17
+         mtx     0.6250    0.2632    0.3704        19
+         nqx     0.4000    0.8333    0.5405        12
+         qtx     0.8750    0.6222    0.7273        45
+         zxx     0.6538    0.8718    0.7473        39
+
+    accuracy                         0.6270       185
+   macro avg     0.6011    0.6046    0.5747       185
+weighted avg     0.6537    0.6270    0.6182       185
+
+micro f-score: 0.6270270270270271
+
+========== Train Epoch 33 ==========
+Loss: 0.037	Accuracy: 61.08%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.4516    0.5385        31
+         cwx     0.6522    0.6818    0.6667        22
+         hdx     0.4667    0.4118    0.4375        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.3077    0.6667    0.4211        12
+         qtx     0.8049    0.7333    0.7674        45
+         zxx     0.6346    0.8462    0.7253        39
+
+    accuracy                         0.6108       185
+   macro avg     0.5659    0.5642    0.5410       185
+weighted avg     0.6257    0.6108    0.6003       185
+
+micro f-score: 0.6108108108108108
+
+========== Train Epoch 34 ==========
+Loss: 0.042	Accuracy: 51.35%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     1.0000    0.0645    0.1212        31
+         cwx     0.8571    0.2727    0.4138        22
+         hdx     0.2500    0.3529    0.2927        17
+         mtx     0.2558    0.5789    0.3548        19
+         nqx     0.4118    0.5833    0.4828        12
+         qtx     0.6458    0.6889    0.6667        45
+         zxx     0.7273    0.8205    0.7711        39
+
+    accuracy                         0.5135       185
+   macro avg     0.5925    0.4803    0.4433       185
+weighted avg     0.6559    0.5135    0.4889       185
+
+micro f-score: 0.5135135135135135
+
+========== Train Epoch 35 ==========
+Loss: 0.094	Accuracy: 40.00%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.3864    0.5484    0.4533        31
+         cwx     0.6667    0.4545    0.5405        22
+         hdx     0.3846    0.2941    0.3333        17
+         mtx     0.2647    0.4737    0.3396        19
+         nqx     0.1600    0.6667    0.2581        12
+         qtx     0.9375    0.3333    0.4918        45
+         zxx     0.7692    0.2564    0.3846        39
+
+    accuracy                         0.4000       185
+   macro avg     0.5099    0.4324    0.4002       185
+weighted avg     0.6071    0.4000    0.4232       185
+
+micro f-score: 0.4000000000000001
+
+========== Train Epoch 36 ==========
+Loss: 0.078	Accuracy: 60.54%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.5600    0.4516    0.5000        31
+         cwx     0.6190    0.5909    0.6047        22
+         hdx     0.4211    0.4706    0.4444        17
+         mtx     0.3243    0.6316    0.4286        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.9286    0.5778    0.7123        45
+         zxx     0.7381    0.7949    0.7654        39
+
+    accuracy                         0.6054       185
+   macro avg     0.6009    0.5977    0.5851       185
+weighted avg     0.6608    0.6054    0.6167       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 37 ==========
+Loss: 0.110	Accuracy: 45.95%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.2824    0.7742    0.4138        31
+         cwx     0.5000    0.0909    0.1538        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.5714    0.2105    0.3077        19
+         nqx     0.5000    0.5000    0.5000        12
+         qtx     0.8750    0.4667    0.6087        45
+         zxx     0.5283    0.7179    0.6087        39
+
+    accuracy                         0.4595       185
+   macro avg     0.4653    0.3943    0.3704       185
+weighted avg     0.5221    0.4595    0.4280       185
+
+micro f-score: 0.4594594594594595
+
+========== Train Epoch 38 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.094	Accuracy: 45.41%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5263    0.3226    0.4000        31
+         cwx     0.2568    0.8636    0.3958        22
+         hdx     0.2414    0.4118    0.3043        17
+         mtx     0.5455    0.3158    0.4000        19
+         nqx     0.5000    0.6667    0.5714        12
+         qtx     0.9474    0.4000    0.5625        45
+         zxx     0.9412    0.4103    0.5714        39
+
+    accuracy                         0.4541       185
+   macro avg     0.5655    0.4844    0.4579       185
+weighted avg     0.6582    0.4541    0.4775       185
+
+micro f-score: 0.4540540540540541
+
+========== Train Epoch 39 ==========
+Loss: 0.087	Accuracy: 57.84%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.5366    0.7097    0.6111        31
+         cwx     0.3571    0.4545    0.4000        22
+         hdx     0.5714    0.2353    0.3333        17
+         mtx     0.2667    0.2105    0.2353        19
+         nqx     0.7778    0.5833    0.6667        12
+         qtx     0.8485    0.6222    0.7179        45
+         zxx     0.6154    0.8205    0.7033        39
+
+    accuracy                         0.5784       185
+   macro avg     0.5676    0.5194    0.5240       185
+weighted avg     0.5989    0.5784    0.5709       185
+
+micro f-score: 0.5783783783783784
+
+========== Train Epoch 40 ==========
+Loss: 0.079	Accuracy: 54.05%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.4118    0.6774    0.5122        31
+         cwx     0.8000    0.3636    0.5000        22
+         hdx     0.2564    0.5882    0.3571        17
+         mtx     0.3077    0.2105    0.2500        19
+         nqx     0.5000    0.6667    0.5714        12
+         qtx     0.9500    0.4222    0.5846        45
+         zxx     0.8333    0.7692    0.8000        39
+
+    accuracy                         0.5405       185
+   macro avg     0.5799    0.5283    0.5108       185
+weighted avg     0.6585    0.5405    0.5517       185
+
+micro f-score: 0.5405405405405406
+
+========== Train Epoch 41 ==========
+Loss: 0.068	Accuracy: 52.43%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.6250    0.1613    0.2564        31
+         cwx     0.5714    0.5455    0.5581        22
+         hdx     0.3077    0.2353    0.2667        17
+         mtx     0.2857    0.3158    0.3000        19
+         nqx     0.4211    0.6667    0.5161        12
+         qtx     0.7647    0.5778    0.6582        45
+         zxx     0.5217    0.9231    0.6667        39
+
+    accuracy                         0.5243       185
+   macro avg     0.4996    0.4893    0.4603       185
+weighted avg     0.5536    0.5243    0.4988       185
+
+micro f-score: 0.5243243243243243
+
+========== Train Epoch 42 ==========
+Loss: 0.069	Accuracy: 52.43%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.5625    0.2903    0.3830        31
+         cwx     0.8750    0.3182    0.4667        22
+         hdx     0.2222    0.4706    0.3019        17
+         mtx     0.3333    0.0526    0.0909        19
+         nqx     0.3529    0.5000    0.4138        12
+         qtx     0.6000    0.7333    0.6600        45
+         zxx     0.6600    0.8462    0.7416        39
+
+    accuracy                         0.5243       185
+   macro avg     0.5151    0.4587    0.4368       185
+weighted avg     0.5609    0.5243    0.5005       185
+
+micro f-score: 0.5243243243243243
+
+========== Train Epoch 43 ==========
+Loss: 0.042	Accuracy: 57.84%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.6500    0.4194    0.5098        31
+         cwx     0.4848    0.7273    0.5818        22
+         hdx     0.3125    0.2941    0.3030        17
+         mtx     0.2778    0.2632    0.2703        19
+         nqx     0.4211    0.6667    0.5161        12
+         qtx     0.9286    0.5778    0.7123        45
+         zxx     0.6667    0.8718    0.7556        39
+
+    accuracy                         0.5784       185
+   macro avg     0.5345    0.5457    0.5213       185
+weighted avg     0.6175    0.5784    0.5762       185
+
+micro f-score: 0.5783783783783784
+
+========== Train Epoch 44 ==========
+Loss: 0.040	Accuracy: 57.84%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5161    0.5161    0.5161        31
+         cwx     0.7500    0.4091    0.5294        22
+         hdx     0.3077    0.4706    0.3721        17
+         mtx     0.2857    0.2105    0.2424        19
+         nqx     0.5000    0.6667    0.5714        12
+         qtx     0.8286    0.6444    0.7250        45
+         zxx     0.6471    0.8462    0.7333        39
+
+    accuracy                         0.5784       185
+   macro avg     0.5479    0.5377    0.5271       185
+weighted avg     0.6037    0.5784    0.5765       185
+
+micro f-score: 0.5783783783783784
+
+========== Train Epoch 45 ==========
+Loss: 0.022	Accuracy: 60.00%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5789    0.3548    0.4400        31
+         cwx     0.6500    0.5909    0.6190        22
+         hdx     0.3125    0.2941    0.3030        17
+         mtx     0.3333    0.2632    0.2941        19
+         nqx     0.5294    0.7500    0.6207        12
+         qtx     0.7907    0.7556    0.7727        45
+         zxx     0.6182    0.8718    0.7234        39
+
+    accuracy                         0.6000       185
+   macro avg     0.5447    0.5543    0.5390       185
+weighted avg     0.5943    0.6000    0.5861       185
+
+micro f-score: 0.6
+
+========== Train Epoch 46 ==========
+Loss: 0.030	Accuracy: 57.30%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.5556    0.3226    0.4082        31
+         cwx     0.9091    0.4545    0.6061        22
+         hdx     0.2667    0.2353    0.2500        17
+         mtx     0.5000    0.2105    0.2963        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.5932    0.7778    0.6731        45
+         zxx     0.5738    0.8974    0.7000        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5734    0.5093    0.5105       185
+weighted avg     0.5822    0.5730    0.5467       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 47 ==========
+Loss: 0.035	Accuracy: 56.22%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5385    0.4516    0.4912        31
+         cwx     0.7333    0.5000    0.5946        22
+         hdx     0.2353    0.4706    0.3137        17
+         mtx     0.2941    0.2632    0.2778        19
+         nqx     0.5714    0.6667    0.6154        12
+         qtx     0.7805    0.7111    0.7442        45
+         zxx     0.6842    0.6667    0.6753        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5482    0.5328    0.5303       185
+weighted avg     0.6004    0.5622    0.5737       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 48 ==========
+Loss: 0.034	Accuracy: 55.14%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.3226    0.4348        31
+         cwx     0.3750    0.8182    0.5143        22
+         hdx     0.2000    0.1176    0.1481        17
+         mtx     0.3333    0.2632    0.2941        19
+         nqx     0.5833    0.5833    0.5833        12
+         qtx     0.9310    0.6000    0.7297        45
+         zxx     0.5893    0.8462    0.6947        39
+
+    accuracy                         0.5514       185
+   macro avg     0.5255    0.5073    0.4856       185
+weighted avg     0.5975    0.5514    0.5396       185
+
+micro f-score: 0.5513513513513514
+
+========== Train Epoch 49 ==========
+Loss: 0.021	Accuracy: 58.92%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.4783    0.3548    0.4074        31
+         cwx     0.6316    0.5455    0.5854        22
+         hdx     0.3333    0.2353    0.2759        17
+         mtx     0.3333    0.4737    0.3913        19
+         nqx     0.5714    0.6667    0.6154        12
+         qtx     0.7556    0.7556    0.7556        45
+         zxx     0.6889    0.7949    0.7381        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5418    0.5466    0.5384       185
+weighted avg     0.5862    0.5892    0.5827       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 50 ==========
+Loss: 0.021	Accuracy: 58.92%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.3871    0.4706        31
+         cwx     0.4444    0.7273    0.5517        22
+         hdx     0.3125    0.2941    0.3030        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.4545    0.8333    0.5882        12
+         qtx     0.8049    0.7333    0.7674        45
+         zxx     0.6977    0.7692    0.7317        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5347    0.5575    0.5205       185
+weighted avg     0.5985    0.5892    0.5751       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 51 ==========
+Loss: 0.021	Accuracy: 58.38%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5161    0.5161    0.5161        31
+         cwx     0.5217    0.5455    0.5333        22
+         hdx     0.2143    0.1765    0.1935        17
+         mtx     0.2857    0.3158    0.3000        19
+         nqx     0.4615    0.5000    0.4800        12
+         qtx     0.8857    0.6889    0.7750        45
+         zxx     0.7083    0.8718    0.7816        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5134    0.5164    0.5114       185
+weighted avg     0.5923    0.5838    0.5829       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 52 ==========
+Loss: 0.014	Accuracy: 61.08%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.6538    0.5484    0.5965        31
+         cwx     0.4688    0.6818    0.5556        22
+         hdx     0.2632    0.2941    0.2778        17
+         mtx     0.3077    0.2105    0.2500        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.8205    0.7111    0.7619        45
+         zxx     0.7442    0.8205    0.7805        39
+
+    accuracy                         0.6108       185
+   macro avg     0.5534    0.5619    0.5517       185
+weighted avg     0.6175    0.6108    0.6086       185
+
+micro f-score: 0.6108108108108108
+
+========== Train Epoch 53 ==========
+Loss: 0.020	Accuracy: 56.22%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.7857    0.3548    0.4889        31
+         cwx     0.5333    0.7273    0.6154        22
+         hdx     0.2632    0.2941    0.2778        17
+         mtx     0.4000    0.3158    0.3529        19
+         nqx     0.6667    0.5000    0.5714        12
+         qtx     0.8929    0.5556    0.6849        45
+         zxx     0.5000    0.8974    0.6422        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5774    0.5207    0.5191       185
+weighted avg     0.6262    0.5622    0.5559       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 54 ==========
+Loss: 0.024	Accuracy: 59.46%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.6875    0.3548    0.4681        31
+         cwx     0.6667    0.6364    0.6512        22
+         hdx     0.3333    0.2941    0.3125        17
+         mtx     0.3333    0.3158    0.3243        19
+         nqx     0.3684    0.5833    0.4516        12
+         qtx     0.6923    0.8000    0.7423        45
+         zxx     0.7045    0.7949    0.7470        39
+
+    accuracy                         0.5946       185
+   macro avg     0.5409    0.5399    0.5281       185
+weighted avg     0.6002    0.5946    0.5852       185
+
+micro f-score: 0.5945945945945946
+
+========== Train Epoch 55 ==========
+Loss: 0.016	Accuracy: 59.46%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5600    0.4516    0.5000        31
+         cwx     0.5714    0.7273    0.6400        22
+         hdx     0.2778    0.2941    0.2857        17
+         mtx     0.3125    0.2632    0.2857        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.8529    0.6444    0.7342        45
+         zxx     0.6471    0.8462    0.7333        39
+
+    accuracy                         0.5946       185
+   macro avg     0.5482    0.5562    0.5456       185
+weighted avg     0.6032    0.5946    0.5902       185
+
+micro f-score: 0.5945945945945946
+
+========== Train Epoch 56 ==========
+Loss: 0.014	Accuracy: 60.54%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.6316    0.3871    0.4800        31
+         cwx     0.7143    0.6818    0.6977        22
+         hdx     0.2778    0.2941    0.2857        17
+         mtx     0.3478    0.4211    0.3810        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.8529    0.6444    0.7342        45
+         zxx     0.6140    0.8974    0.7292        39
+
+    accuracy                         0.6054       185
+   macro avg     0.5791    0.5704    0.5640       185
+weighted avg     0.6289    0.6054    0.6026       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 57 ==========
+Loss: 0.013	Accuracy: 58.92%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.3636    0.7742    0.4948        31
+         cwx     0.8235    0.6364    0.7179        22
+         hdx     0.4167    0.2941    0.3448        17
+         mtx     0.3333    0.0526    0.0909        19
+         nqx     0.6429    0.7500    0.6923        12
+         qtx     0.9231    0.5333    0.6761        45
+         zxx     0.6809    0.8205    0.7442        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5977    0.5516    0.5373       185
+weighted avg     0.6412    0.5892    0.5756       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 58 ==========
+Loss: 0.013	Accuracy: 60.00%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.5714    0.3871    0.4615        31
+         cwx     0.7368    0.6364    0.6829        22
+         hdx     0.3529    0.3529    0.3529        17
+         mtx     0.2727    0.3158    0.2927        19
+         nqx     0.4706    0.6667    0.5517        12
+         qtx     0.7949    0.6889    0.7381        45
+         zxx     0.6800    0.8718    0.7640        39
+
+    accuracy                         0.6000       185
+   macro avg     0.5542    0.5599    0.5491       185
+weighted avg     0.6110    0.6000    0.5974       185
+
+micro f-score: 0.6
+
+========== Train Epoch 59 ==========
+Loss: 0.011	Accuracy: 60.54%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.4815    0.4194    0.4483        31
+         cwx     0.8125    0.5909    0.6842        22
+         hdx     0.3529    0.3529    0.3529        17
+         mtx     0.3333    0.3684    0.3500        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.8333    0.6667    0.7407        45
+         zxx     0.6364    0.8974    0.7447        39
+
+    accuracy                         0.6054       185
+   macro avg     0.5808    0.5661    0.5658       185
+weighted avg     0.6207    0.6054    0.6035       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 60 ==========
+Loss: 0.012	Accuracy: 62.70%	Cost 30s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.4839    0.5357        31
+         cwx     0.8333    0.6818    0.7500        22
+         hdx     0.3529    0.3529    0.3529        17
+         mtx     0.4118    0.3684    0.3889        19
+         nqx     0.6154    0.6667    0.6400        12
+         qtx     0.8108    0.6667    0.7317        45
+         zxx     0.6034    0.8974    0.7216        39
+
+    accuracy                         0.6270       185
+   macro avg     0.6040    0.5883    0.5887       185
+weighted avg     0.6387    0.6270    0.6230       185
+
+micro f-score: 0.6270270270270271
+
+========== Train Epoch 61 ==========
+Loss: 0.014	Accuracy: 60.54%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.5500    0.3548    0.4314        31
+         cwx     0.7143    0.6818    0.6977        22
+         hdx     0.4000    0.3529    0.3750        17
+         mtx     0.3000    0.3158    0.3077        19
+         nqx     0.4706    0.6667    0.5517        12
+         qtx     0.8000    0.7111    0.7529        45
+         zxx     0.6538    0.8718    0.7473        39
+
+    accuracy                         0.6054       185
+   macro avg     0.5555    0.5650    0.5520       185
+weighted avg     0.6076    0.6054    0.5978       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 62 ==========
+Loss: 0.011	Accuracy: 61.62%	Cost 31s
+              precision    recall  f1-score   support
+
+         bzx     0.5833    0.4516    0.5091        31
+         cwx     0.6818    0.6818    0.6818        22
+         hdx     0.3529    0.3529    0.3529        17
+         mtx     0.3000    0.3158    0.3077        19
+         nqx     0.5333    0.6667    0.5926        12
+         qtx     0.8857    0.6889    0.7750        45
+         zxx     0.6538    0.8718    0.7473        39
+
+    accuracy                         0.6162       185
+   macro avg     0.5701    0.5756    0.5666       185
+weighted avg     0.6299    0.6162    0.6149       185
+
+micro f-score: 0.6162162162162163
+
+========== Train Epoch 63 ==========
+Loss: 0.012	Accuracy: 62.70%	Cost 32s
+              precision    recall  f1-score   support
+
+         bzx     0.5600    0.4516    0.5000        31
+         cwx     0.6818    0.6818    0.6818        22
+         hdx     0.3158    0.3529    0.3333        17
+         mtx     0.4000    0.3158    0.3529        19
+         nqx     0.6000    0.7500    0.6667        12
+         qtx     0.9118    0.6889    0.7848        45
+         zxx     0.6364    0.8974    0.7447        39
+
+    accuracy                         0.6270       185
+   macro avg     0.5865    0.5912    0.5806       185
+weighted avg     0.6399    0.6270    0.6229       185
+
+micro f-score: 0.6270270270270271
+
+========== Train Epoch 64 ==========
+Loss: 0.010	Accuracy: 62.70%	Cost 33s
+              precision    recall  f1-score   support
+
+         bzx     0.5758    0.6129    0.5938        31
+         cwx     0.6087    0.6364    0.6222        22
+         hdx     0.2941    0.2941    0.2941        17
+         mtx     0.3889    0.3684    0.3784        19
+         nqx     0.4737    0.7500    0.5806        12
+         qtx     0.9091    0.6667    0.7692        45
+         zxx     0.7619    0.8205    0.7901        39
+
+    accuracy                         0.6270       185
+   macro avg     0.5732    0.5927    0.5755       185
+weighted avg     0.6483    0.6270    0.6307       185
+
+micro f-score: 0.6270270270270271
+
+Finished training!!!
+
+Min Loss = 0.010 in epoch 63;
+Max Accuracy = 63.78% in epoch 26;
+Total Cost 34 minutes
+
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+├─Conv2d: 1-1                            [-1, 64, 160, 160]        9,408
+├─BatchNorm2d: 1-2                       [-1, 64, 160, 160]        128
+├─ReLU: 1-3                              [-1, 64, 160, 160]        --
+├─SPP: 1-4                               [-1, 256, 160, 160]       --
+|    └─MaxPool2d: 2-1                    [-1, 64, 160, 160]        --
+|    └─MaxPool2d: 2-2                    [-1, 64, 160, 160]        --
+|    └─MaxPool2d: 2-3                    [-1, 64, 160, 160]        --
+├─Conv2d: 1-5                            [-1, 64, 80, 80]          802,816
+├─BatchNorm2d: 1-6                       [-1, 64, 80, 80]          128
+├─ReLU: 1-7                              [-1, 64, 80, 80]          --
+├─Sequential: 1-8                        [-1, 64, 80, 80]          --
+|    └─BasicBlock: 2-4                   [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-1                  [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-2             [-1, 64, 80, 80]          128
+|    |    └─ReLU: 3-3                    [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-4                  [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-5             [-1, 64, 80, 80]          128
+|    |    └─CBAM: 3-6                    [-1, 64, 80, 80]          680
+|    |    └─ReLU: 3-7                    [-1, 64, 80, 80]          --
+|    └─BasicBlock: 2-5                   [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-8                  [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-9             [-1, 64, 80, 80]          128
+|    |    └─ReLU: 3-10                   [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-11                 [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-12            [-1, 64, 80, 80]          128
+|    |    └─CBAM: 3-13                   [-1, 64, 80, 80]          680
+|    |    └─ReLU: 3-14                   [-1, 64, 80, 80]          --
+|    └─BasicBlock: 2-6                   [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-15                 [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-16            [-1, 64, 80, 80]          128
+|    |    └─ReLU: 3-17                   [-1, 64, 80, 80]          --
+|    |    └─Conv2d: 3-18                 [-1, 64, 80, 80]          36,864
+|    |    └─BatchNorm2d: 3-19            [-1, 64, 80, 80]          128
+|    |    └─CBAM: 3-20                   [-1, 64, 80, 80]          680
+|    |    └─ReLU: 3-21                   [-1, 64, 80, 80]          --
+├─Sequential: 1-9                        [-1, 128, 40, 40]         --
+|    └─BasicBlock: 2-7                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-22                 [-1, 128, 40, 40]         73,728
+|    |    └─BatchNorm2d: 3-23            [-1, 128, 40, 40]         256
+|    |    └─ReLU: 3-24                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-25                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-26            [-1, 128, 40, 40]         256
+|    |    └─CBAM: 3-27                   [-1, 128, 40, 40]         2,284
+|    |    └─Sequential: 3-28             [-1, 128, 40, 40]         8,448
+|    |    └─ReLU: 3-29                   [-1, 128, 40, 40]         --
+|    └─BasicBlock: 2-8                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-30                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-31            [-1, 128, 40, 40]         256
+|    |    └─ReLU: 3-32                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-33                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-34            [-1, 128, 40, 40]         256
+|    |    └─CBAM: 3-35                   [-1, 128, 40, 40]         2,284
+|    |    └─ReLU: 3-36                   [-1, 128, 40, 40]         --
+|    └─BasicBlock: 2-9                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-37                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-38            [-1, 128, 40, 40]         256
+|    |    └─ReLU: 3-39                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-40                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-41            [-1, 128, 40, 40]         256
+|    |    └─CBAM: 3-42                   [-1, 128, 40, 40]         2,284
+|    |    └─ReLU: 3-43                   [-1, 128, 40, 40]         --
+|    └─BasicBlock: 2-10                  [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-44                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-45            [-1, 128, 40, 40]         256
+|    |    └─ReLU: 3-46                   [-1, 128, 40, 40]         --
+|    |    └─Conv2d: 3-47                 [-1, 128, 40, 40]         147,456
+|    |    └─BatchNorm2d: 3-48            [-1, 128, 40, 40]         256
+|    |    └─CBAM: 3-49                   [-1, 128, 40, 40]         2,284
+|    |    └─ReLU: 3-50                   [-1, 128, 40, 40]         --
+├─Sequential: 1-10                       [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-11                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-51                 [-1, 256, 20, 20]         294,912
+|    |    └─BatchNorm2d: 3-52            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-53                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-54                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-55            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-56                   [-1, 256, 20, 20]         8,564
+|    |    └─Sequential: 3-57             [-1, 256, 20, 20]         33,280
+|    |    └─ReLU: 3-58                   [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-12                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-59                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-60            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-61                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-62                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-63            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-64                   [-1, 256, 20, 20]         8,564
+|    |    └─ReLU: 3-65                   [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-13                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-66                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-67            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-68                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-69                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-70            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-71                   [-1, 256, 20, 20]         8,564
+|    |    └─ReLU: 3-72                   [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-14                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-73                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-74            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-75                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-76                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-77            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-78                   [-1, 256, 20, 20]         8,564
+|    |    └─ReLU: 3-79                   [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-15                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-80                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-81            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-82                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-83                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-84            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-85                   [-1, 256, 20, 20]         8,564
+|    |    └─ReLU: 3-86                   [-1, 256, 20, 20]         --
+|    └─BasicBlock: 2-16                  [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-87                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-88            [-1, 256, 20, 20]         512
+|    |    └─ReLU: 3-89                   [-1, 256, 20, 20]         --
+|    |    └─Conv2d: 3-90                 [-1, 256, 20, 20]         589,824
+|    |    └─BatchNorm2d: 3-91            [-1, 256, 20, 20]         512
+|    |    └─CBAM: 3-92                   [-1, 256, 20, 20]         8,564
+|    |    └─ReLU: 3-93                   [-1, 256, 20, 20]         --
+├─Sequential: 1-11                       [-1, 512, 10, 10]         --
+|    └─BasicBlock: 2-17                  [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-94                 [-1, 512, 10, 10]         1,179,648
+|    |    └─BatchNorm2d: 3-95            [-1, 512, 10, 10]         1,024
+|    |    └─ReLU: 3-96                   [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-97                 [-1, 512, 10, 10]         2,359,296
+|    |    └─BatchNorm2d: 3-98            [-1, 512, 10, 10]         1,024
+|    |    └─CBAM: 3-99                   [-1, 512, 10, 10]         33,412
+|    |    └─Sequential: 3-100            [-1, 512, 10, 10]         132,096
+|    |    └─ReLU: 3-101                  [-1, 512, 10, 10]         --
+|    └─BasicBlock: 2-18                  [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-102                [-1, 512, 10, 10]         2,359,296
+|    |    └─BatchNorm2d: 3-103           [-1, 512, 10, 10]         1,024
+|    |    └─ReLU: 3-104                  [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-105                [-1, 512, 10, 10]         2,359,296
+|    |    └─BatchNorm2d: 3-106           [-1, 512, 10, 10]         1,024
+|    |    └─CBAM: 3-107                  [-1, 512, 10, 10]         33,412
+|    |    └─ReLU: 3-108                  [-1, 512, 10, 10]         --
+|    └─BasicBlock: 2-19                  [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-109                [-1, 512, 10, 10]         2,359,296
+|    |    └─BatchNorm2d: 3-110           [-1, 512, 10, 10]         1,024
+|    |    └─ReLU: 3-111                  [-1, 512, 10, 10]         --
+|    |    └─Conv2d: 3-112                [-1, 512, 10, 10]         2,359,296
+|    |    └─BatchNorm2d: 3-113           [-1, 512, 10, 10]         1,024
+|    |    └─CBAM: 3-114                  [-1, 512, 10, 10]         33,412
+|    |    └─ReLU: 3-115                  [-1, 512, 10, 10]         --
+├─AdaptiveAvgPool2d: 1-12                [-1, 512, 1, 1]           --
+├─Linear: 1-13                           [-1, 7]                   3,591
+==========================================================================================
+Total params: 22,254,003
+Trainable params: 22,254,003
+Non-trainable params: 0
+Total mult-adds (G): 12.66
+==========================================================================================
+Input size (MB): 1.17
+Forward/backward pass size (MB): 122.66
+Params size (MB): 84.89
+Estimated Total Size (MB): 208.72
+==========================================================================================
+[0.2648648648648649, 0.2594594594594595, 0.3675675675675676, 0.4594594594594595, 0.43243243243243246, 0.5081081081081081, 0.518918918918919, 0.4648648648648649, 0.5351351351351351, 0.6, 0.6108108108108108, 0.4486486486486487, 0.5945945945945946, 0.6054054054054054, 0.6054054054054054, 0.6162162162162163, 0.3081081081081081, 0.5351351351351351, 0.4756756756756757, 0.6108108108108108, 0.5621621621621622, 0.5297297297297298, 0.6270270270270271, 0.5297297297297298, 0.3675675675675676, 0.5027027027027027, 0.6378378378378379, 0.5837837837837838, 0.5513513513513514, 0.572972972972973, 0.6162162162162163, 0.6270270270270271, 0.6108108108108108, 0.5135135135135135, 0.4, 0.6054054054054054, 0.4594594594594595, 0.4540540540540541, 0.5783783783783784, 0.5405405405405406, 0.5243243243243243, 0.5243243243243243, 0.5783783783783784, 0.5783783783783784, 0.6, 0.572972972972973, 0.5621621621621622, 0.5513513513513514, 0.5891891891891892, 0.5891891891891892, 0.5837837837837838, 0.6108108108108108, 0.5621621621621622, 0.5945945945945946, 0.5945945945945946, 0.6054054054054054, 0.5891891891891892, 0.6, 0.6054054054054054, 0.6270270270270271, 0.6054054054054054, 0.6162162162162163, 0.6270270270270271, 0.6270270270270271]

@@ -1,0 +1,2055 @@
+dataset_path: /home/djy/dataset/dataset2
+pretrained : False 
+parallel: True
+
+parallel segmentent dataset : /home/djy/dataset/ycrcb_hsv_dataset2
+msg: cbam resnet34
+using model: ResNet, resnet34
+using device cuda:0
+batch_size = 18
+epochs = 64
+loss_function = CrossEntropyLoss()
+optimizer = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+)
+
+
+========== Train Epoch 1 ==========
+Loss: 1.817	Accuracy: 31.35%	Cost 34s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.2115    0.5000    0.2973        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.4000    0.1667    0.2353        12
+         qtx     0.3175    0.4444    0.3704        45
+         zxx     0.3846    0.6410    0.4808        39
+
+    accuracy                         0.3135       185
+   macro avg     0.1877    0.2503    0.1977       185
+weighted avg     0.2094    0.3135    0.2421       185
+
+micro f-score: 0.31351351351351353
+
+========== Train Epoch 2 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.572	Accuracy: 34.05%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.2500    0.0323    0.0571        31
+         cwx     0.2500    0.0455    0.0769        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.5000    0.0526    0.0952        19
+         nqx     0.7500    0.2500    0.3750        12
+         qtx     0.7692    0.4444    0.5634        45
+         zxx     0.2569    0.9487    0.4044        39
+
+    accuracy                         0.3405       185
+   macro avg     0.3966    0.2534    0.2246       185
+weighted avg     0.4129    0.3405    0.2751       185
+
+micro f-score: 0.34054054054054056
+
+========== Train Epoch 3 ==========
+Loss: 1.372	Accuracy: 40.00%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.3036    0.5484    0.3908        31
+         cwx     0.3333    0.0909    0.1429        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.5000    0.0833    0.1429        12
+         qtx     0.5000    0.6000    0.5455        45
+         zxx     0.4286    0.6923    0.5294        39
+
+    accuracy                         0.4000       185
+   macro avg     0.2951    0.2878    0.2502       185
+weighted avg     0.3349    0.4000    0.3360       185
+
+micro f-score: 0.4000000000000001
+
+========== Train Epoch 4 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 1.130	Accuracy: 28.11%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.4444    0.1290    0.2000        31
+         cwx     0.1667    0.2727    0.2069        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.8000    0.0889    0.1600        45
+         zxx     0.2761    0.9487    0.4277        39
+
+    accuracy                         0.2811       185
+   macro avg     0.3839    0.2175    0.1641       185
+weighted avg     0.4120    0.2811    0.1972       185
+
+micro f-score: 0.2810810810810811
+
+========== Train Epoch 5 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.806	Accuracy: 53.51%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.4314    0.7097    0.5366        31
+         cwx     0.5000    0.7273    0.5926        22
+         hdx     0.1667    0.0588    0.0870        17
+         mtx     0.4545    0.2632    0.3333        19
+         nqx     0.4118    0.5833    0.4828        12
+         qtx     0.8696    0.4444    0.5882        45
+         zxx     0.6222    0.7179    0.6667        39
+
+    accuracy                         0.5351       185
+   macro avg     0.4937    0.5007    0.4696       185
+weighted avg     0.5631    0.5351    0.5175       185
+
+micro f-score: 0.5351351351351351
+
+========== Train Epoch 6 ==========
+Loss: 0.528	Accuracy: 44.32%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.3548    0.4151        31
+         cwx     0.6667    0.2727    0.3871        22
+         hdx     0.3333    0.2941    0.3125        17
+         mtx     0.5000    0.1579    0.2400        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.8077    0.4667    0.5915        45
+         zxx     0.3364    0.9231    0.4932        39
+
+    accuracy                         0.4432       185
+   macro avg     0.4492    0.3528    0.3485       185
+weighted avg     0.5124    0.4432    0.4168       185
+
+micro f-score: 0.44324324324324327
+
+========== Train Epoch 7 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.295	Accuracy: 53.51%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5714    0.1290    0.2105        31
+         cwx     0.3750    0.6818    0.4839        22
+         hdx     0.3333    0.0588    0.1000        17
+         mtx     1.0000    0.0526    0.1000        19
+         nqx     0.4545    0.8333    0.5882        12
+         qtx     0.7561    0.6889    0.7209        45
+         zxx     0.5211    0.9487    0.6727        39
+
+    accuracy                         0.5351       185
+   macro avg     0.5731    0.4847    0.4109       185
+weighted avg     0.5969    0.5351    0.4676       185
+
+micro f-score: 0.5351351351351351
+
+========== Train Epoch 8 ==========
+Loss: 0.165	Accuracy: 55.68%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5217    0.3871    0.4444        31
+         cwx     0.3333    0.8636    0.4810        22
+         hdx     0.4444    0.2353    0.3077        17
+         mtx     0.5714    0.2105    0.3077        19
+         nqx     1.0000    0.1667    0.2857        12
+         qtx     0.9333    0.6222    0.7467        45
+         zxx     0.5965    0.8718    0.7083        39
+
+    accuracy                         0.5568       185
+   macro avg     0.6287    0.4796    0.4688       185
+weighted avg     0.6442    0.5568    0.5410       185
+
+micro f-score: 0.5567567567567567
+
+========== Train Epoch 9 ==========
+Loss: 0.124	Accuracy: 51.35%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.7500    0.0968    0.1714        31
+         cwx     0.7500    0.2727    0.4000        22
+         hdx     0.5000    0.0588    0.1053        17
+         mtx     0.2727    0.4737    0.3462        19
+         nqx     0.4706    0.6667    0.5517        12
+         qtx     0.4886    0.9556    0.6466        45
+         zxx     0.7576    0.6410    0.6944        39
+
+    accuracy                         0.5135       185
+   macro avg     0.5699    0.4522    0.4165       185
+weighted avg     0.5979    0.5135    0.4610       185
+
+micro f-score: 0.5135135135135135
+
+========== Train Epoch 10 ==========
+Loss: 0.114	Accuracy: 49.73%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     1.0000    0.0645    0.1212        31
+         cwx     0.3333    0.6364    0.4375        22
+         hdx     0.4286    0.1765    0.2500        17
+         mtx     0.4375    0.3684    0.4000        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.8286    0.6444    0.7250        45
+         zxx     0.4390    0.9231    0.5950        39
+
+    accuracy                         0.4973       185
+   macro avg     0.6381    0.4138    0.3832       185
+weighted avg     0.6505    0.4973    0.4482       185
+
+micro f-score: 0.4972972972972973
+
+========== Train Epoch 11 ==========
+Loss: 0.120	Accuracy: 42.70%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0968    0.1622        31
+         cwx     0.6000    0.1364    0.2222        22
+         hdx     0.5000    0.1176    0.1905        17
+         mtx     0.7500    0.1579    0.2609        19
+         nqx     0.6923    0.7500    0.7200        12
+         qtx     0.3188    0.9778    0.4809        45
+         zxx     1.0000    0.3846    0.5556        39
+
+    accuracy                         0.4270       185
+   macro avg     0.6230    0.3744    0.3703       185
+weighted avg     0.6114    0.4270    0.3787       185
+
+micro f-score: 0.427027027027027
+
+========== Train Epoch 12 ==========
+Loss: 0.094	Accuracy: 42.70%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.6667    0.4545    0.5405        22
+         hdx     0.1806    0.7647    0.2921        17
+         mtx     0.2222    0.3158    0.2609        19
+         nqx     1.0000    0.3333    0.5000        12
+         qtx     0.8636    0.4222    0.5672        45
+         zxx     0.6136    0.6923    0.6506        39
+
+    accuracy                         0.4270       185
+   macro avg     0.5067    0.4261    0.4016       185
+weighted avg     0.5230    0.4270    0.4255       185
+
+micro f-score: 0.427027027027027
+
+========== Train Epoch 13 ==========
+Loss: 0.069	Accuracy: 39.46%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.6000    0.2903    0.3913        31
+         cwx     1.0000    0.1818    0.3077        22
+         hdx     0.1468    0.9412    0.2540        17
+         mtx     0.3333    0.0526    0.0909        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.7037    0.4222    0.5278        45
+         zxx     0.8846    0.5897    0.7077        39
+
+    accuracy                         0.3946       185
+   macro avg     0.6669    0.3659    0.3476       185
+weighted avg     0.6897    0.3946    0.4224       185
+
+micro f-score: 0.3945945945945946
+
+========== Train Epoch 14 ==========
+Loss: 0.059	Accuracy: 52.43%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4167    0.6452    0.5063        31
+         cwx     0.4783    0.5000    0.4889        22
+         hdx     1.0000    0.1176    0.2105        17
+         mtx     1.0000    0.0526    0.1000        19
+         nqx     1.0000    0.0833    0.1538        12
+         qtx     0.5500    0.7333    0.6286        45
+         zxx     0.5800    0.7436    0.6517        39
+
+    accuracy                         0.5243       185
+   macro avg     0.7178    0.4108    0.3914       185
+weighted avg     0.6422    0.5243    0.4729       185
+
+micro f-score: 0.5243243243243243
+
+========== Train Epoch 15 ==========
+Loss: 0.066	Accuracy: 57.84%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.7059    0.3871    0.5000        31
+         cwx     0.7333    0.5000    0.5946        22
+         hdx     0.2432    0.5294    0.3333        17
+         mtx     0.6000    0.1579    0.2500        19
+         nqx     0.4583    0.9167    0.6111        12
+         qtx     0.8333    0.6667    0.7407        45
+         zxx     0.6078    0.7949    0.6889        39
+
+    accuracy                         0.5784       185
+   macro avg     0.5974    0.5647    0.5312       185
+weighted avg     0.6500    0.5784    0.5758       185
+
+micro f-score: 0.5783783783783784
+
+========== Train Epoch 16 ==========
+Loss: 0.049	Accuracy: 51.35%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4500    0.2903    0.3529        31
+         cwx     0.4167    0.4545    0.4348        22
+         hdx     0.6667    0.1176    0.2000        17
+         mtx     0.4000    0.1053    0.1667        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.8333    0.6667    0.7407        45
+         zxx     0.4000    0.8205    0.5378        39
+
+    accuracy                         0.5135       185
+   macro avg     0.5364    0.4698    0.4461       185
+weighted avg     0.5525    0.5135    0.4846       185
+
+micro f-score: 0.5135135135135135
+
+========== Train Epoch 17 ==========
+Loss: 0.046	Accuracy: 51.35%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.3770    0.7419    0.5000        31
+         cwx     0.7500    0.1364    0.2308        22
+         hdx     0.2000    0.2941    0.2381        17
+         mtx     0.3333    0.1053    0.1600        19
+         nqx     0.4783    0.9167    0.6286        12
+         qtx     0.8667    0.5778    0.6933        45
+         zxx     0.6944    0.6410    0.6667        39
+
+    accuracy                         0.5135       185
+   macro avg     0.5285    0.4876    0.4453       185
+weighted avg     0.5932    0.5135    0.4995       185
+
+micro f-score: 0.5135135135135135
+
+========== Train Epoch 18 ==========
+Loss: 0.055	Accuracy: 55.14%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.3871    0.7742    0.5161        31
+         cwx     0.5000    0.2727    0.3529        22
+         hdx     0.3750    0.1765    0.2400        17
+         mtx     0.3636    0.2105    0.2667        19
+         nqx     1.0000    0.3333    0.5000        12
+         qtx     0.6102    0.8000    0.6923        45
+         zxx     0.8621    0.6410    0.7353        39
+
+    accuracy                         0.5514       185
+   macro avg     0.5854    0.4583    0.4719       185
+weighted avg     0.5911    0.5514    0.5337       185
+
+micro f-score: 0.5513513513513514
+
+========== Train Epoch 19 ==========
+Loss: 0.051	Accuracy: 55.14%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.6111    0.3548    0.4490        31
+         cwx     0.3333    0.4545    0.3846        22
+         hdx     0.2941    0.2941    0.2941        17
+         mtx     0.7500    0.1579    0.2609        19
+         nqx     0.6667    0.6667    0.6667        12
+         qtx     0.5970    0.8889    0.7143        45
+         zxx     0.6757    0.6410    0.6579        39
+
+    accuracy                         0.5514       185
+   macro avg     0.5611    0.4940    0.4896       185
+weighted avg     0.5770    0.5514    0.5305       185
+
+micro f-score: 0.5513513513513514
+
+========== Train Epoch 20 ==========
+Loss: 0.030	Accuracy: 56.22%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4600    0.7419    0.5679        31
+         cwx     0.6000    0.2727    0.3750        22
+         hdx     0.2857    0.2353    0.2581        17
+         mtx     0.3333    0.2632    0.2941        19
+         nqx     0.5556    0.8333    0.6667        12
+         qtx     0.9259    0.5556    0.6944        45
+         zxx     0.6078    0.7949    0.6889        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5383    0.5281    0.5064       185
+weighted avg     0.5983    0.5622    0.5511       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 21 ==========
+Loss: 0.028	Accuracy: 54.05%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.7143    0.1613    0.2632        31
+         cwx     0.4000    0.6364    0.4912        22
+         hdx     0.3571    0.2941    0.3226        17
+         mtx     0.6000    0.1579    0.2500        19
+         nqx     0.5789    0.9167    0.7097        12
+         qtx     0.7941    0.6000    0.6835        45
+         zxx     0.4930    0.8974    0.6364        39
+
+    accuracy                         0.5405       185
+   macro avg     0.5625    0.5234    0.4795       185
+weighted avg     0.5963    0.5405    0.5043       185
+
+micro f-score: 0.5405405405405406
+
+========== Train Epoch 22 ==========
+Loss: 0.025	Accuracy: 55.68%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.6842    0.4194    0.5200        31
+         cwx     0.6667    0.2727    0.3871        22
+         hdx     0.5000    0.0588    0.1053        17
+         mtx     0.7143    0.2632    0.3846        19
+         nqx     0.6000    0.7500    0.6667        12
+         qtx     0.5789    0.7333    0.6471        45
+         zxx     0.4737    0.9231    0.6261        39
+
+    accuracy                         0.5568       185
+   macro avg     0.6025    0.4886    0.4767       185
+weighted avg     0.5928    0.5568    0.5150       185
+
+micro f-score: 0.5567567567567567
+
+========== Train Epoch 23 ==========
+Loss: 0.023	Accuracy: 60.54%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.6452    0.5634        31
+         cwx     0.5882    0.4545    0.5128        22
+         hdx     0.3571    0.2941    0.3226        17
+         mtx     0.4444    0.2105    0.2857        19
+         nqx     0.5000    0.8333    0.6250        12
+         qtx     0.8333    0.6667    0.7407        45
+         zxx     0.6735    0.8462    0.7500        39
+
+    accuracy                         0.6054       185
+   macro avg     0.5567    0.5644    0.5429       185
+weighted avg     0.6093    0.6054    0.5932       185
+
+micro f-score: 0.6054054054054054
+
+========== Train Epoch 24 ==========
+Loss: 0.020	Accuracy: 56.76%	Cost 34s
+              precision    recall  f1-score   support
+
+         bzx     0.4595    0.5484    0.5000        31
+         cwx     0.7500    0.5455    0.6316        22
+         hdx     0.3333    0.4118    0.3684        17
+         mtx     0.2667    0.2105    0.2353        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.9200    0.5111    0.6571        45
+         zxx     0.5926    0.8205    0.6882        39
+
+    accuracy                         0.5676       185
+   macro avg     0.5586    0.5544    0.5386       185
+weighted avg     0.6111    0.5676    0.5666       185
+
+micro f-score: 0.5675675675675675
+
+========== Train Epoch 25 ==========
+Loss: 0.024	Accuracy: 56.22%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4800    0.3871    0.4286        31
+         cwx     0.6667    0.4545    0.5405        22
+         hdx     1.0000    0.0588    0.1111        17
+         mtx     0.4000    0.1053    0.1667        19
+         nqx     0.7143    0.8333    0.7692        12
+         qtx     0.5132    0.8667    0.6446        45
+         zxx     0.6122    0.7692    0.6818        39
+
+    accuracy                         0.5622       185
+   macro avg     0.6266    0.4964    0.4775       185
+weighted avg     0.5929    0.5622    0.5139       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 26 ==========
+Loss: 0.019	Accuracy: 58.92%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5385    0.4516    0.4912        31
+         cwx     0.5556    0.6818    0.6122        22
+         hdx     0.3462    0.5294    0.4186        17
+         mtx     0.6000    0.1579    0.2500        19
+         nqx     0.5789    0.9167    0.7097        12
+         qtx     0.9231    0.5333    0.6761        45
+         zxx     0.5893    0.8462    0.6947        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5902    0.5881    0.5504       185
+weighted avg     0.6360    0.5892    0.5762       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 27 ==========
+Loss: 0.018	Accuracy: 54.05%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4762    0.3226    0.3846        31
+         cwx     0.5882    0.4545    0.5128        22
+         hdx     0.3077    0.2353    0.2667        17
+         mtx     0.2857    0.1053    0.1538        19
+         nqx     0.6111    0.9167    0.7333        12
+         qtx     0.7250    0.6444    0.6824        45
+         zxx     0.4928    0.8718    0.6296        39
+
+    accuracy                         0.5405       185
+   macro avg     0.4981    0.5072    0.4805       185
+weighted avg     0.5272    0.5405    0.5120       185
+
+micro f-score: 0.5405405405405406
+
+========== Train Epoch 28 ==========
+Loss: 0.020	Accuracy: 54.59%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.3333    0.0645    0.1081        31
+         cwx     0.4762    0.4545    0.4651        22
+         hdx     0.7500    0.1765    0.2857        17
+         mtx     0.5000    0.1579    0.2400        19
+         nqx     0.6471    0.9167    0.7586        12
+         qtx     0.6731    0.7778    0.7216        45
+         zxx     0.4684    0.9487    0.6271        39
+
+    accuracy                         0.5459       185
+   macro avg     0.5497    0.4995    0.4580       185
+weighted avg     0.5372    0.5459    0.4813       185
+
+micro f-score: 0.5459459459459459
+
+========== Train Epoch 29 ==========
+Loss: 0.018	Accuracy: 56.22%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4324    0.5161    0.4706        31
+         cwx     0.5517    0.7273    0.6275        22
+         hdx     0.3214    0.5294    0.4000        17
+         mtx     0.2222    0.1053    0.1429        19
+         nqx     0.6875    0.9167    0.7857        12
+         qtx     0.9500    0.4222    0.5846        45
+         zxx     0.6739    0.7949    0.7294        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5485    0.5731    0.5344       185
+weighted avg     0.6082    0.5622    0.5518       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 30 ==========
+Loss: 0.017	Accuracy: 47.57%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.0323    0.0606        31
+         cwx     0.7500    0.1364    0.2308        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.1940    0.6842    0.3023        19
+         nqx     1.0000    0.6667    0.8000        12
+         qtx     0.7143    0.6667    0.6897        45
+         zxx     0.5323    0.8462    0.6535        39
+
+    accuracy                         0.4757       185
+   macro avg     0.5272    0.4332    0.3910       185
+weighted avg     0.5437    0.4757    0.4261       185
+
+micro f-score: 0.4756756756756757
+
+========== Train Epoch 31 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.016	Accuracy: 54.05%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.5263    0.3226    0.4000        31
+         cwx     0.5417    0.5909    0.5652        22
+         hdx     0.2333    0.4118    0.2979        17
+         mtx     0.5000    0.1053    0.1739        19
+         nqx     0.5789    0.9167    0.7097        12
+         qtx     0.9231    0.5333    0.6761        45
+         zxx     0.5238    0.8462    0.6471        39
+
+    accuracy                         0.5405       185
+   macro avg     0.5467    0.5324    0.4957       185
+weighted avg     0.5979    0.5405    0.5264       185
+
+micro f-score: 0.5405405405405406
+
+========== Train Epoch 32 ==========
+Loss: 0.012	Accuracy: 54.05%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.5238    0.3548    0.4231        31
+         cwx     0.4706    0.3636    0.4103        22
+         hdx     0.3333    0.2941    0.3125        17
+         mtx     0.2500    0.1053    0.1481        19
+         nqx     0.5556    0.8333    0.6667        12
+         qtx     0.7750    0.6889    0.7294        45
+         zxx     0.5000    0.8462    0.6286        39
+
+    accuracy                         0.5405       185
+   macro avg     0.4869    0.4980    0.4741       185
+weighted avg     0.5300    0.5405    0.5168       185
+
+micro f-score: 0.5405405405405406
+
+========== Train Epoch 33 ==========
+Loss: 0.011	Accuracy: 56.22%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5161    0.5161    0.5161        31
+         cwx     0.6000    0.4091    0.4865        22
+         hdx     0.3333    0.2353    0.2759        17
+         mtx     0.3333    0.1053    0.1600        19
+         nqx     0.6667    0.8333    0.7407        12
+         qtx     0.7111    0.7111    0.7111        45
+         zxx     0.5082    0.7949    0.6200        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5241    0.5150    0.5015       185
+weighted avg     0.5461    0.5622    0.5378       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 34 ==========
+Loss: 0.011	Accuracy: 58.38%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.5758    0.6129    0.5938        31
+         cwx     0.6000    0.4091    0.4865        22
+         hdx     0.3333    0.1765    0.2308        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.6429    0.7500    0.6923        12
+         qtx     0.7021    0.7333    0.7174        45
+         zxx     0.5333    0.8205    0.6465        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5451    0.5229    0.5140       185
+weighted avg     0.5674    0.5838    0.5579       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 35 ==========
+Loss: 0.014	Accuracy: 55.68%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5556    0.4839    0.5172        31
+         cwx     0.6471    0.5000    0.5641        22
+         hdx     0.2222    0.3529    0.2727        17
+         mtx     0.3750    0.1579    0.2222        19
+         nqx     0.5000    0.8333    0.6250        12
+         qtx     0.9259    0.5556    0.6944        45
+         zxx     0.5593    0.8462    0.6735        39
+
+    accuracy                         0.5568       185
+   macro avg     0.5407    0.5328    0.5099       185
+weighted avg     0.6045    0.5568    0.5531       185
+
+micro f-score: 0.5567567567567567
+
+========== Train Epoch 36 ==========
+Loss: 0.011	Accuracy: 57.30%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.6774    0.5753        31
+         cwx     0.5625    0.4091    0.4737        22
+         hdx     0.2727    0.1765    0.2143        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.5500    0.9167    0.6875        12
+         qtx     0.7568    0.6222    0.6829        45
+         zxx     0.5962    0.7949    0.6813        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5238    0.5364    0.5065       185
+weighted avg     0.5652    0.5730    0.5505       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 37 ==========
+Loss: 0.012	Accuracy: 57.30%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5556    0.4839    0.5172        31
+         cwx     0.5500    0.5000    0.5238        22
+         hdx     0.4286    0.1765    0.2500        17
+         mtx     0.4000    0.1053    0.1667        19
+         nqx     0.6471    0.9167    0.7586        12
+         qtx     0.7381    0.6889    0.7126        45
+         zxx     0.4925    0.8462    0.6226        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5445    0.5310    0.5074       185
+weighted avg     0.5643    0.5730    0.5429       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 38 ==========
+Loss: 0.016	Accuracy: 58.38%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5250    0.6774    0.5915        31
+         cwx     0.5000    0.5455    0.5217        22
+         hdx     0.3333    0.1765    0.2308        17
+         mtx     0.2000    0.1053    0.1379        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.8108    0.6667    0.7317        45
+         zxx     0.6250    0.7692    0.6897        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5118    0.5391    0.5133       185
+weighted avg     0.5657    0.5838    0.5646       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 39 ==========
+Loss: 0.013	Accuracy: 56.22%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5806    0.5806    0.5806        31
+         cwx     0.5294    0.4091    0.4615        22
+         hdx     0.2143    0.1765    0.1935        17
+         mtx     0.3000    0.1579    0.2069        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.8000    0.6222    0.7000        45
+         zxx     0.5410    0.8462    0.6600        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5077    0.5180    0.4989       185
+weighted avg     0.5576    0.5622    0.5454       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 40 ==========
+Loss: 0.012	Accuracy: 57.84%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.6071    0.5484    0.5763        31
+         cwx     0.5882    0.4545    0.5128        22
+         hdx     0.2857    0.1176    0.1667        17
+         mtx     0.2857    0.1053    0.1538        19
+         nqx     0.7143    0.8333    0.7692        12
+         qtx     0.5806    0.8000    0.6729        45
+         zxx     0.6000    0.7692    0.6742        39
+
+    accuracy                         0.5784       185
+   macro avg     0.5231    0.5183    0.5037       185
+weighted avg     0.5413    0.5784    0.5444       185
+
+micro f-score: 0.5783783783783784
+
+========== Train Epoch 41 ==========
+Loss: 0.013	Accuracy: 58.38%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5667    0.5484    0.5574        31
+         cwx     0.5833    0.6364    0.6087        22
+         hdx     0.3077    0.2353    0.2667        17
+         mtx     0.2857    0.2105    0.2424        19
+         nqx     0.5556    0.8333    0.6667        12
+         qtx     0.9310    0.6000    0.7297        45
+         zxx     0.5614    0.8205    0.6667        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5416    0.5549    0.5340       185
+weighted avg     0.6028    0.5838    0.5765       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 42 ==========
+Loss: 0.010	Accuracy: 58.38%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.5526    0.6774    0.6087        31
+         cwx     0.5200    0.5909    0.5532        22
+         hdx     0.2000    0.1176    0.1481        17
+         mtx     0.2000    0.0526    0.0833        19
+         nqx     0.5263    0.8333    0.6452        12
+         qtx     0.8056    0.6444    0.7160        45
+         zxx     0.6154    0.8205    0.7033        39
+
+    accuracy                         0.5838       185
+   macro avg     0.4886    0.5338    0.4940       185
+weighted avg     0.5532    0.5838    0.5542       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 43 ==========
+Loss: 0.011	Accuracy: 57.30%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5200    0.4194    0.4643        31
+         cwx     0.6111    0.5000    0.5500        22
+         hdx     1.0000    0.1176    0.2105        17
+         mtx     0.4286    0.1579    0.2308        19
+         nqx     0.5238    0.9167    0.6667        12
+         qtx     0.7273    0.7111    0.7191        45
+         zxx     0.5000    0.8718    0.6355        39
+
+    accuracy                         0.5730       185
+   macro avg     0.6158    0.5278    0.4967       185
+weighted avg     0.6120    0.5730    0.5384       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 44 ==========
+Loss: 0.014	Accuracy: 56.22%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.6111    0.3548    0.4490        31
+         cwx     0.4348    0.4545    0.4444        22
+         hdx     0.5000    0.2941    0.3704        17
+         mtx     0.6667    0.1053    0.1818        19
+         nqx     0.5500    0.9167    0.6875        12
+         qtx     0.7500    0.6667    0.7059        45
+         zxx     0.4930    0.8974    0.6364        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5722    0.5271    0.4965       185
+weighted avg     0.5905    0.5622    0.5312       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 45 ==========
+Loss: 0.016	Accuracy: 56.22%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.6667    0.1935    0.3000        31
+         cwx     0.6154    0.3636    0.4571        22
+         hdx     0.4444    0.2353    0.3077        17
+         mtx     0.5714    0.2105    0.3077        19
+         nqx     0.5625    0.7500    0.6429        12
+         qtx     0.5128    0.8889    0.6504        45
+         zxx     0.6226    0.8462    0.7174        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5708    0.4983    0.4833       185
+weighted avg     0.5769    0.5622    0.5156       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 46 ==========
+Loss: 0.060	Accuracy: 29.19%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.2464    0.5484    0.3400        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0000    0.0000    0.0000        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.3246    0.8222    0.4654        45
+         zxx     0.0000    0.0000    0.0000        39
+
+    accuracy                         0.2919       185
+   macro avg     0.0816    0.1958    0.1151       185
+weighted avg     0.1202    0.2919    0.1702       185
+
+micro f-score: 0.2918918918918919
+
+========== Train Epoch 47 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.466	Accuracy: 15.14%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.3871    0.4364        31
+         cwx     0.0000    0.0000    0.0000        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.0994    0.8421    0.1778        19
+         nqx     0.0000    0.0000    0.0000        12
+         qtx     0.0000    0.0000    0.0000        45
+         zxx     0.0000    0.0000    0.0000        39
+
+    accuracy                         0.1514       185
+   macro avg     0.0856    0.1756    0.0877       185
+weighted avg     0.0940    0.1514    0.0914       185
+
+micro f-score: 0.15135135135135136
+
+========== Train Epoch 48 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.477	Accuracy: 43.78%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.0000    0.0000    0.0000        31
+         cwx     0.2586    0.6818    0.3750        22
+         hdx     0.0000    0.0000    0.0000        17
+         mtx     0.4118    0.3684    0.3889        19
+         nqx     0.8000    0.3333    0.4706        12
+         qtx     0.6154    0.5333    0.5714        45
+         zxx     0.4921    0.7949    0.6078        39
+
+    accuracy                         0.4378       185
+   macro avg     0.3683    0.3874    0.3448       185
+weighted avg     0.3784    0.4378    0.3822       185
+
+micro f-score: 0.43783783783783786
+
+========== Train Epoch 49 ==========
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/djy/anaconda3/envs/pytorch/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1308: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Loss: 0.235	Accuracy: 47.57%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.8571    0.1935    0.3158        31
+         cwx     0.2679    0.6818    0.3846        22
+         hdx     0.1111    0.0588    0.0769        17
+         mtx     0.5000    0.2105    0.2963        19
+         nqx     0.2500    0.5000    0.3333        12
+         qtx     0.6591    0.6444    0.6517        45
+         zxx     0.7297    0.6923    0.7105        39
+
+    accuracy                         0.4757       185
+   macro avg     0.4821    0.4259    0.3956       185
+weighted avg     0.5674    0.4757    0.4661       185
+
+micro f-score: 0.4756756756756757
+
+========== Train Epoch 50 ==========
+Loss: 0.082	Accuracy: 50.81%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.3438    0.7097    0.4632        31
+         cwx     0.5000    0.4545    0.4762        22
+         hdx     0.2400    0.3529    0.2857        17
+         mtx     0.5000    0.3158    0.3871        19
+         nqx     0.6923    0.7500    0.7200        12
+         qtx     0.8889    0.3556    0.5079        45
+         zxx     0.7576    0.6410    0.6944        39
+
+    accuracy                         0.5081       185
+   macro avg     0.5604    0.5114    0.5049       185
+weighted avg     0.6113    0.5081    0.5169       185
+
+micro f-score: 0.5081081081081081
+
+========== Train Epoch 51 ==========
+Loss: 0.049	Accuracy: 61.62%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.6190    0.4194    0.5000        31
+         cwx     0.6364    0.6364    0.6364        22
+         hdx     0.3333    0.0588    0.1000        17
+         mtx     0.5000    0.2632    0.3448        19
+         nqx     0.6471    0.9167    0.7586        12
+         qtx     0.6129    0.8444    0.7103        45
+         zxx     0.6400    0.8205    0.7191        39
+
+    accuracy                         0.6162       185
+   macro avg     0.5698    0.5656    0.5385       185
+weighted avg     0.5874    0.6162    0.5776       185
+
+micro f-score: 0.6162162162162163
+
+========== Train Epoch 52 ==========
+Loss: 0.033	Accuracy: 60.00%	Cost 34s
+              precision    recall  f1-score   support
+
+         bzx     0.5000    0.5484    0.5231        31
+         cwx     0.5217    0.5455    0.5333        22
+         hdx     0.3500    0.4118    0.3784        17
+         mtx     0.6250    0.2632    0.3704        19
+         nqx     0.6000    0.7500    0.6667        12
+         qtx     0.7879    0.5778    0.6667        45
+         zxx     0.6731    0.8974    0.7692        39
+
+    accuracy                         0.6000       185
+   macro avg     0.5797    0.5706    0.5582       185
+weighted avg     0.6146    0.6000    0.5914       185
+
+micro f-score: 0.6
+
+========== Train Epoch 53 ==========
+Loss: 0.024	Accuracy: 56.76%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.6250    0.4839    0.5455        31
+         cwx     0.6000    0.5455    0.5714        22
+         hdx     0.2500    0.4118    0.3111        17
+         mtx     0.4545    0.2632    0.3333        19
+         nqx     0.6667    0.8333    0.7407        12
+         qtx     0.7586    0.4889    0.5946        45
+         zxx     0.5862    0.8718    0.7010        39
+
+    accuracy                         0.5676       185
+   macro avg     0.5630    0.5569    0.5425       185
+weighted avg     0.5971    0.5676    0.5626       185
+
+micro f-score: 0.5675675675675675
+
+========== Train Epoch 54 ==========
+Loss: 0.020	Accuracy: 54.59%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.4857    0.5484    0.5152        31
+         cwx     0.5000    0.5909    0.5417        22
+         hdx     0.1667    0.0588    0.0870        17
+         mtx     0.6000    0.1579    0.2500        19
+         nqx     0.6923    0.7500    0.7200        12
+         qtx     0.5909    0.5778    0.5843        45
+         zxx     0.5714    0.8205    0.6737        39
+
+    accuracy                         0.5459       185
+   macro avg     0.5153    0.5006    0.4817       185
+weighted avg     0.5269    0.5459    0.5152       185
+
+micro f-score: 0.5459459459459459
+
+========== Train Epoch 55 ==========
+Loss: 0.019	Accuracy: 57.30%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.7000    0.4516    0.5490        31
+         cwx     0.4062    0.5909    0.4815        22
+         hdx     0.4667    0.4118    0.4375        17
+         mtx     0.6667    0.2105    0.3200        19
+         nqx     0.3333    0.9167    0.4889        12
+         qtx     0.8065    0.5556    0.6579        45
+         zxx     0.6667    0.8205    0.7356        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5780    0.5654    0.5243       185
+weighted avg     0.6353    0.5730    0.5691       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 56 ==========
+Loss: 0.017	Accuracy: 56.22%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5600    0.4516    0.5000        31
+         cwx     0.5455    0.5455    0.5455        22
+         hdx     0.3333    0.1176    0.1739        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.5625    0.7500    0.6429        12
+         qtx     0.7250    0.6444    0.6824        45
+         zxx     0.4925    0.8462    0.6226        39
+
+    accuracy                         0.5622       185
+   macro avg     0.5392    0.5169    0.5035       185
+weighted avg     0.5631    0.5622    0.5402       185
+
+micro f-score: 0.5621621621621622
+
+========== Train Epoch 57 ==========
+Loss: 0.019	Accuracy: 58.92%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5312    0.5484    0.5397        31
+         cwx     0.5556    0.4545    0.5000        22
+         hdx     0.3684    0.4118    0.3889        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.8065    0.5556    0.6579        45
+         zxx     0.5932    0.8974    0.7143        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5712    0.5663    0.5496       185
+weighted avg     0.6054    0.5892    0.5777       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 58 ==========
+Loss: 0.015	Accuracy: 58.92%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5161    0.5161    0.5161        31
+         cwx     0.5238    0.5000    0.5116        22
+         hdx     0.4545    0.2941    0.3571        17
+         mtx     0.8000    0.2105    0.3333        19
+         nqx     0.6111    0.9167    0.7333        12
+         qtx     0.6977    0.6667    0.6818        45
+         zxx     0.5714    0.8205    0.6737        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5964    0.5607    0.5439       185
+weighted avg     0.6025    0.5892    0.5698       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 59 ==========
+Loss: 0.019	Accuracy: 57.30%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.4737    0.5806    0.5217        31
+         cwx     0.4800    0.5455    0.5106        22
+         hdx     0.3846    0.2941    0.3333        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.6000    0.7500    0.6667        12
+         qtx     0.6923    0.6000    0.6429        45
+         zxx     0.6522    0.7692    0.7059        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5483    0.5432    0.5340       185
+weighted avg     0.5737    0.5730    0.5639       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 60 ==========
+Loss: 0.011	Accuracy: 57.30%	Cost 36s
+              precision    recall  f1-score   support
+
+         bzx     0.5357    0.4839    0.5085        31
+         cwx     0.5714    0.5455    0.5581        22
+         hdx     0.3333    0.2353    0.2759        17
+         mtx     0.8333    0.2632    0.4000        19
+         nqx     0.5556    0.8333    0.6667        12
+         qtx     0.7500    0.6000    0.6667        45
+         zxx     0.5156    0.8462    0.6408        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5850    0.5439    0.5309       185
+weighted avg     0.6011    0.5730    0.5585       185
+
+micro f-score: 0.572972972972973
+
+========== Train Epoch 61 ==========
+Loss: 0.010	Accuracy: 58.38%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.4865    0.5806    0.5294        31
+         cwx     0.5556    0.4545    0.5000        22
+         hdx     0.4167    0.2941    0.3448        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.5625    0.7500    0.6429        12
+         qtx     0.7778    0.6222    0.6914        45
+         zxx     0.5789    0.8462    0.6875        39
+
+    accuracy                         0.5838       185
+   macro avg     0.5619    0.5444    0.5362       185
+weighted avg     0.5907    0.5838    0.5713       185
+
+micro f-score: 0.5837837837837838
+
+========== Train Epoch 62 ==========
+Loss: 0.013	Accuracy: 58.92%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.4595    0.5484    0.5000        31
+         cwx     0.6471    0.5000    0.5641        22
+         hdx     0.4000    0.1176    0.1818        17
+         mtx     0.5556    0.2632    0.3571        19
+         nqx     0.5882    0.8333    0.6897        12
+         qtx     0.6735    0.7333    0.7021        45
+         zxx     0.6078    0.7949    0.6889        39
+
+    accuracy                         0.5892       185
+   macro avg     0.5617    0.5415    0.5262       185
+weighted avg     0.5779    0.5892    0.5650       185
+
+micro f-score: 0.5891891891891892
+
+========== Train Epoch 63 ==========
+Loss: 0.013	Accuracy: 55.68%	Cost 37s
+              precision    recall  f1-score   support
+
+         bzx     0.4583    0.3548    0.4000        31
+         cwx     0.5789    0.5000    0.5366        22
+         hdx     0.4000    0.2353    0.2963        17
+         mtx     0.8000    0.2105    0.3333        19
+         nqx     0.6667    0.8333    0.7407        12
+         qtx     0.7714    0.6000    0.6750        45
+         zxx     0.4675    0.9231    0.6207        39
+
+    accuracy                         0.5568       185
+   macro avg     0.5918    0.5224    0.5147       185
+weighted avg     0.5940    0.5568    0.5354       185
+
+micro f-score: 0.5567567567567567
+
+========== Train Epoch 64 ==========
+Loss: 0.011	Accuracy: 57.30%	Cost 35s
+              precision    recall  f1-score   support
+
+         bzx     0.4186    0.5806    0.4865        31
+         cwx     0.5238    0.5000    0.5116        22
+         hdx     0.3571    0.2941    0.3226        17
+         mtx     0.5714    0.2105    0.3077        19
+         nqx     0.5500    0.9167    0.6875        12
+         qtx     0.7250    0.6444    0.6824        45
+         zxx     0.7000    0.7179    0.7089        39
+
+    accuracy                         0.5730       185
+   macro avg     0.5494    0.5520    0.5296       185
+weighted avg     0.5835    0.5730    0.5636       185
+
+micro f-score: 0.572972972972973
+
+Finished training!!!
+
+Min Loss = 0.010 in epoch 60;
+Max Accuracy = 61.62% in epoch 50;
+Total Cost 38 minutes
+
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (3): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (3): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (4): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (5): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (conv1_): Conv2d(3, 512, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1_): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu_): ReLU(inplace=True)
+  (maxpool_): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(512, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=64, out_features=4, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=4, out_features=64, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer2_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (3): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=128, out_features=8, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=8, out_features=128, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer3_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (3): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (4): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (5): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=256, out_features=16, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=16, out_features=256, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (layer4_): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (2): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (cbam): CBAM(
+        (ChannelGate): ChannelGate(
+          (mlp): Sequential(
+            (0): Flatten()
+            (1): Linear(in_features=512, out_features=32, bias=True)
+            (2): ReLU()
+            (3): Linear(in_features=32, out_features=512, bias=True)
+          )
+        )
+        (SpatialGate): SpatialGate(
+          (compress): ChannelPool()
+          (spatial): BasicConv(
+            (conv): Conv2d(2, 1, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+            (bn): BatchNorm2d(1, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+  )
+  (avgpool_): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc_): Linear(in_features=512, out_features=7, bias=True)
+  (__fc__): Linear(in_features=1024, out_features=7, bias=True)
+)
+
+[0.31351351351351353, 0.34054054054054056, 0.4, 0.2810810810810811, 0.5351351351351351, 0.44324324324324327, 0.5351351351351351, 0.5567567567567567, 0.5135135135135135, 0.4972972972972973, 0.42702702702702705, 0.42702702702702705, 0.3945945945945946, 0.5243243243243243, 0.5783783783783784, 0.5135135135135135, 0.5135135135135135, 0.5513513513513514, 0.5513513513513514, 0.5621621621621622, 0.5405405405405406, 0.5567567567567567, 0.6054054054054054, 0.5675675675675675, 0.5621621621621622, 0.5891891891891892, 0.5405405405405406, 0.5459459459459459, 0.5621621621621622, 0.4756756756756757, 0.5405405405405406, 0.5405405405405406, 0.5621621621621622, 0.5837837837837838, 0.5567567567567567, 0.572972972972973, 0.572972972972973, 0.5837837837837838, 0.5621621621621622, 0.5783783783783784, 0.5837837837837838, 0.5837837837837838, 0.572972972972973, 0.5621621621621622, 0.5621621621621622, 0.2918918918918919, 0.15135135135135136, 0.43783783783783786, 0.4756756756756757, 0.5081081081081081, 0.6162162162162163, 0.6, 0.5675675675675675, 0.5459459459459459, 0.572972972972973, 0.5621621621621622, 0.5891891891891892, 0.5891891891891892, 0.572972972972973, 0.572972972972973, 0.5837837837837838, 0.5891891891891892, 0.5567567567567567, 0.572972972972973]

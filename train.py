@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import Callable, List, Tuple
 import torch
 from torch.functional import Tensor
 import torch.nn as nn
@@ -25,16 +25,18 @@ import models.sppb_resnet as sppb_resnet
 import models.cbam_resnet as cbam_resnet
 import models.cbam_spp_resnet as cbam_spp_resnet
 import models.ca_resnet as ca_resnet
-import models.ca_spp_resnet as ca_spp_resnet
+import models.hcam_sppd_resnet as hcam_sppd_resnet
 import models.ca_cbam_resnet as ca_cbam_resnet
 import models.cbam_spp_resnet_alexnet as cbam_spp_resnet_alexnet
 import models.eca_cbam_resnet as eca_cbam_resnet
 import models.ca_cbam_spp_resnet_alexnet as ca_cbam_spp_resnet_alexnet
 import models.cbam_resnet_alexnet as cbam_resnet_alexnet
 import models.ccam_spp_resnet_alexnet as ccam_spp_resnet_alexnet
+import models
 import os
 import argparse
 import time
+import json
 from sklearn import metrics
 from utils.device import device
 from utils.data import ParallelImageFolder
@@ -45,28 +47,27 @@ basewidth = 320
 # img = img.resize((320, hsize), Image.ANTIALIAS)
 
 transform = transforms.Compose([
-    # transforms.RandomHorizontalFlip(),
-    # transforms.RandomRotation(degrees=(0, 180)),
-    # transforms.Grayscale(),
-    # transforms.RandomChoice(
-    #     transforms=(
-    #         transforms.ColorJitter(brightness=.5, hue=.3),
-    #         transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5)),
-    #         transforms.RandomPerspective(distortion_scale=0.6, p=1.0),
-    #         transforms.RandomRotation(degrees=(0, 180)),
-    #         transforms.RandomPosterize(bits=2)),
-    #     p=[0.1, 0.2, 0.1, 0.5, 0.1]
-    # ),
+    transforms.RandomChoice(
+        transforms=(
+            transforms.ColorJitter(brightness=.5, hue=.3),
+            # transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5)),
+            transforms.RandomRotation(degrees=(0, 180)),
+            transforms.RandomPerspective(distortion_scale=0.6, p=1.0),
+            transforms.RandomPosterize(bits=2)),
+        p=[0.1, 0.1, 0.1, 0.1]
+    ),
     transforms.Resize((320, 320)),
     transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
 ])
 
+classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
+
 
 def train(
         trainset: Dataset,
         validset: Dataset,
-        network: Callable[..., nn.Module],
+        network: nn.Module,
         parallel: bool,
         pretrained: bool,
         epochs: int,
@@ -74,17 +75,18 @@ def train(
         learning_rate: float,
         save_model: bool,
         path: str,
-        **kwargs) -> List[float]:
+        title: str,
+        **kwargs) -> Tuple[List[float]]:
 
     # 1. dataset load
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                               shuffle=True, num_workers=8)
     validloader = torch.utils.data.DataLoader(validset, batch_size=batch_size,
                                               shuffle=False, num_workers=8)
-    classes = ('bzx', 'cwx', 'hdx', 'mtx', 'nqx', 'qtx', 'zxx')
 
     # 2. define a CNN
-    net: nn.Module = network(num_classes=len(classes), pretrained=pretrained)
+    net = network(num_classes=len(classes),
+                  pretrained=pretrained, **kwargs)
     net.to(device)
     print(f'using model: {net.__class__.__name__}, {network.__name__}')
     print(f'using device {device}')
@@ -95,7 +97,7 @@ def train(
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=learning_rate)
     scheduler = optim.lr_scheduler.MultiStepLR(
-        optimizer, milestones=[60], gamma=0.1)
+        optimizer, milestones=[64], gamma=0.1)
 
     print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
@@ -109,7 +111,7 @@ def train(
         now = time.time()
 
         print(f'\n========== Train Epoch {epoch + 1} ==========', end='\n')
-
+        print(f'Learning Rate: {scheduler.get_last_lr()}')
         """train"""
         net.train()
         running_loss = 0.0
@@ -177,6 +179,11 @@ def train(
         print(
             f'micro f-score: {metrics.f1_score(y_true, y_pred, average="micro")}')
 
+        plot(epoch + 1, "loss for " + title, os.path.join(
+            path, 'loss.png'), Plot('loss', 'b', train_loss_list))
+        plot(epoch + 1, "accuracy for " + title, os.path.join(
+            path, 'accuracy.png'), Plot('accuracy', 'r', valid_accuracy_list))
+
     print('\nFinished training!!!', end='\n\n')
     print('Min Loss = %.3f in epoch %d;\nMax Accuracy = %.2f%% in epoch %d;\nTotal Cost %d minutes' %
           (min_loss,
@@ -238,20 +245,29 @@ if __name__ == '__main__':
     # 文件保存路径
     parser.add_argument('-p', '--path',
                         dest='path')
+    # net
+    parser.add_argument('-n', '--net',
+                        dest='network', type=str, default='')
     # message
     parser.add_argument('-m', '--msg',
-                        dest='msg', nargs='*', type=str)
-
+                        dest='msg', nargs='*', type=str, default='')
     args = vars(parser.parse_args())
-    pretrained, parallel, msg = args['pretrained'], args['parallel'], args['msg'] or [
-    ]
-    dataset_path = '/home/djy/dataset/dataset2'
-    seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
+
+    pretrained, parallel = args['pretrained'], args['parallel']
+    args['msg'] = " ".join(args['msg'])
+
+    dataset_path = '/home/djy/dataset/dataset2_aug'
+    dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
+    seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
     print(f'dataset_path: {dataset_path}')
     print(f"pretrained : {pretrained} \nparallel: {parallel}\n")
     if parallel:
-        print(f'parallel segmentent dataset : {seg_dataset_path}')
-    print(f'msg: {" ".join(msg)}')
+        print(f'parallel segment dataset : {seg_dataset_path}')
+    print(f'net: {args["network"]}')
+    print(f'msg: {args["msg"]}')
+    args['title'] = args['network']
+
+    # dataset split
     dataset = ParallelImageFolder(
         root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
     full_size = len(dataset)
@@ -260,10 +276,10 @@ if __name__ == '__main__':
     trainset, validset = torch.utils.data.random_split(
         dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(1))
 
-    loss_list, acc_list = train(trainset, validset,
-                                ca_resnet.resnet18, **args)
+    # network
+    network = args['network']
+    pkg, f = network.split('.')
+    args['network'] = eval(f'models.{pkg}.{f}')
 
-    plot(args['epochs'], "loss for "+" ".join(msg), os.path.join(
-        args['path'], 'loss.png'), Plot('loss', 'b', loss_list))
-    plot(args['epochs'], "accuracy for "+" ".join(msg), os.path.join(
-        args['path'], 'accuracy.png'), Plot('accuracy', 'r', acc_list))
+    # train
+    train(trainset, validset, **args)

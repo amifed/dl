@@ -12,13 +12,6 @@ __all__ = [
     "ResNet",
     "resnet18",
     "resnet34",
-    "resnet50",
-    "resnet101",
-    "resnet152",
-    "resnext50_32x4d",
-    "resnext101_32x8d",
-    "wide_resnet50_2",
-    "wide_resnet101_2",
 ]
 
 
@@ -67,8 +60,7 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[Callable[..., nn.Module]] = None,
-        reduction=16,
-        k_size=3
+        reduction=32,
     ) -> None:
         super().__init__()
         if norm_layer is None:
@@ -88,7 +80,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
-        self.ca = CoordAtt(planes, planes)
+        self.hcam = HCAM(planes, planes, reduction)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
@@ -100,7 +92,7 @@ class BasicBlock(nn.Module):
         out = self.conv2(out)
         out = self.bn2(out)
 
-        out = self.ca(out)
+        out = self.hcam(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -205,8 +197,8 @@ class ResNet(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
 
-        self.sppb = SPP([5, 9, 13])
-        self.sppb_ = SPP([5, 9, 13])
+        self.sppb = SPPB([5, 9, 13])
+        self.sppb_ = SPPB([5, 9, 13])
 
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(
@@ -387,99 +379,6 @@ def resnet34(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> 
     return _resnet("resnet34", BasicBlock, [3, 4, 6, 3], pretrained, progress, **kwargs)
 
 
-def resnet50(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""ResNet-50 model from
-    `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    return _resnet("resnet50", Bottleneck, [3, 4, 6, 3], pretrained, progress, **kwargs)
-
-
-def resnet101(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""ResNet-101 model from
-    `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    return _resnet("resnet101", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
-
-
-def resnet152(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""ResNet-152 model from
-    `"Deep Residual Learning for Image Recognition" <https://arxiv.org/pdf/1512.03385.pdf>`_.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    return _resnet("resnet152", Bottleneck, [3, 8, 36, 3], pretrained, progress, **kwargs)
-
-
-def resnext50_32x4d(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""ResNeXt-50 32x4d model from
-    `"Aggregated Residual Transformation for Deep Neural Networks" <https://arxiv.org/pdf/1611.05431.pdf>`_.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    kwargs["groups"] = 32
-    kwargs["width_per_group"] = 4
-    return _resnet("resnext50_32x4d", Bottleneck, [3, 4, 6, 3], pretrained, progress, **kwargs)
-
-
-def resnext101_32x8d(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""ResNeXt-101 32x8d model from
-    `"Aggregated Residual Transformation for Deep Neural Networks" <https://arxiv.org/pdf/1611.05431.pdf>`_.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    kwargs["groups"] = 32
-    kwargs["width_per_group"] = 8
-    return _resnet("resnext101_32x8d", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
-
-
-def wide_resnet50_2(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""Wide ResNet-50-2 model from
-    `"Wide Residual Networks" <https://arxiv.org/pdf/1605.07146.pdf>`_.
-
-    The model is the same as ResNet except for the bottleneck number of channels
-    which is twice larger in every block. The number of channels in outer 1x1
-    convolutions is the same, e.g. last block in ResNet-50 has 2048-512-2048
-    channels, and in Wide ResNet-50-2 has 2048-1024-2048.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    kwargs["width_per_group"] = 64 * 2
-    return _resnet("wide_resnet50_2", Bottleneck, [3, 4, 6, 3], pretrained, progress, **kwargs)
-
-
-def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> ResNet:
-    r"""Wide ResNet-101-2 model from
-    `"Wide Residual Networks" <https://arxiv.org/pdf/1605.07146.pdf>`_.
-
-    The model is the same as ResNet except for the bottleneck number of channels
-    which is twice larger in every block. The number of channels in outer 1x1
-    convolutions is the same, e.g. last block in ResNet-50 has 2048-512-2048
-    channels, and in Wide ResNet-50-2 has 2048-1024-2048.
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    kwargs["width_per_group"] = 64 * 2
-    return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
-
-
 class h_sigmoid(nn.Module):
     def __init__(self, inplace=True):
         super(h_sigmoid, self).__init__()
@@ -498,12 +397,14 @@ class h_swish(nn.Module):
         return x * self.sigmoid(x)
 
 
-class CoordAtt(nn.Module):
-    # 61.62
+class HCAM(nn.Module):
     def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt, self).__init__()
+        super(HCAM, self).__init__()
         self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
         self.pool_w = nn.AdaptiveAvgPool2d((1, None))
+
+        self._pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
+        self._pool_w_ = nn.AdaptiveMaxPool2d((1, None))
 
         mip = max(8, inp // reduction)
 
@@ -511,57 +412,15 @@ class CoordAtt(nn.Module):
         self.bn1 = nn.BatchNorm2d(mip)
         self.act = h_swish()
 
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h).sigmoid()
-        a_w = self.conv_w(x_w).sigmoid()
-
-        out = identity * a_w * a_h
-
-        return out
-
-
-class CoordAtt1(nn.Module):
-    # 65.41, 61.62% 65.95%
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt1, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
+        self._conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self._bn1_ = nn.BatchNorm2d(mip)
+        self._act_ = h_swish()
 
         self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
         self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
 
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self._conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self._conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
 
     def forward(self, x):
         identity = x
@@ -582,86 +441,21 @@ class CoordAtt1(nn.Module):
         a_w = self.conv_w(x_w).sigmoid()
 
         # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
+        _x_h_ = self._pool_h_(x)
+        _x_w_ = self._pool_w_(x).permute(0, 1, 3, 2)
 
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
+        _y_ = torch.cat([_x_h_, _x_w_], dim=2)
+        _y_ = self._conv1_(_y_)
+        _y_ = self._bn1_(_y_)
+        _y_ = self._act_(_y_)
 
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
+        _x_h_, _x_w_ = torch.split(_y_, [h, w], dim=2)
+        _x_w_ = _x_w_.permute(0, 1, 3, 2)
 
-        a_h_ = self.conv_h(x_h_).sigmoid()
-        a_w_ = self.conv_w(x_w_).sigmoid()
+        _a_h_ = self._conv_h_(_x_h_).sigmoid()
+        _a_w_ = self._conv_w_(_x_w_).sigmoid()
 
-        w = ((a_h * a_w) + (a_h_ * a_w_)).sigmoid()
-        out = identity * w
-
-        return out
-
-
-class CoordAtt3(nn.Module):
-    # 64.86, 62.16 63.78%
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt3, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h)
-        a_w = self.conv_w(x_w)
-
-        # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
-
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
-
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
-
-        a_h_ = self.conv_h(x_h_)
-        a_w_ = self.conv_w(x_w_)
-
-        w = ((a_h + a_h_).sigmoid() * (a_w + a_w_).sigmoid())
+        w = ((a_h * a_w) + (_a_h_ * _a_w_)).sigmoid()
         out = identity * w
 
         return out
@@ -680,9 +474,9 @@ class Conv(nn.Module):
         return self.relu(self.bn(self.conv(x)))
 
 
-class SPP(nn.Module):
+class SPPB(nn.Module):
     def __init__(self, kernel_size: List[int], c1_in: int = 64, c2_out: int = 64):
-        super(SPP, self).__init__()
+        super(SPPB, self).__init__()
         c1_out = c1_in // 2
         c2_in = c1_out * (len(kernel_size) + 1)
         self.conv1 = Conv(c1_in, c1_out, 1, 1, dilation=1)

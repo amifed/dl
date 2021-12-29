@@ -207,7 +207,7 @@ class ResNet(nn.Module):
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
 
-        self.spppool = SPP([5, 9, 13], [5, 9, 13])
+        self.spppool = SPPB([5, 9, 13])
 
         self.conv1_ = nn.Conv2d(
             3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
@@ -494,15 +494,15 @@ class Conv(nn.Module):
         return self.relu(self.bn(self.conv(x)))
 
 
-class SPP(nn.Module):
-    def __init__(self, kernel_size: List[int], dilation: List[int], c1_in: int = 64, c2_out: int = 64):
-        super(SPP, self).__init__()
+class SPPB(nn.Module):
+    def __init__(self, kernel_size: List[int], c1_in: int = 64, c2_out: int = 64):
+        super(SPPB, self).__init__()
         c1_out = c1_in // 2
         c2_in = c1_out * (len(kernel_size) + 1)
         self.conv1 = Conv(c1_in, c1_out, 1, 1, dilation=1)
         self.conv2 = Conv(c2_in, c2_out, 1, 1, dilation=1)
         self.pools = nn.ModuleList(
-            [nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x, y in zip(kernel_size, dilation)])
+            [nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x in kernel_size])
 
     def forward(self, x):
         x = self.conv1(x)

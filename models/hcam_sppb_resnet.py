@@ -86,7 +86,7 @@ class BasicBlock(nn.Module):
         self.bn2 = norm_layer(planes)
         self.downsample = downsample
         self.stride = stride
-        self.ccam = CoordAtt1(planes, planes)
+        self.hcam = HCAM1(planes, planes)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
@@ -98,7 +98,7 @@ class BasicBlock(nn.Module):
         out = self.conv2(out)
         out = self.bn2(out)
 
-        out = self.ccam(out)
+        out = self.hcam(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -237,24 +237,6 @@ class ResNet(nn.Module):
                     # type: ignore[arg-type]
                     nn.init.constant_(m.bn2.weight, 0)
 
-        # parallel alexnet
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-            nn.Conv2d(64, 192, kernel_size=5, padding=2),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-            nn.Conv2d(192, 384, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(384, 256, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(256, 512, kernel_size=3, padding=1),
-            nn.ReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=3, stride=2),
-        )
-        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
-
     def _make_layer(
         self,
         block: Type[Union[BasicBlock, Bottleneck]],
@@ -297,36 +279,6 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def _forward_impl(self, x: Tensor, y: Tensor = None) -> Tensor:
-        if y is not None:
-
-            # See note [TorchScript super()]
-            x = self.conv1(x)
-            x = self.bn1(x)
-            x = self.relu(x)
-            # x = self.maxpool(x)
-
-            # spp
-            x = self.sppb(x)
-
-            x = self.layer1(x)
-            x = self.layer2(x)
-            x = self.layer3(x)
-            x = self.layer4(x)
-            # x (batch_size, 512, 10, 10)
-            x = self.avgpool(x)
-
-            # parallel input y
-            y = self.features(y)
-            # (batch_size, 512, 9, 9)
-            y = self.avgpool_(y)
-
-            z = torch.cat((x, y), 1)
-            # z = x + y
-            z = torch.flatten(z, 1)
-            z = self.__fc__(z)
-            # z = self.fc_(z)
-            return z
-
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
@@ -538,15 +490,15 @@ class CoordAtt(nn.Module):
         return out
 
 
-class CoordAtt1(nn.Module):
+class HCAM1(nn.Module):
     # 65.41, 61.62% 65.95%
     def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt1, self).__init__()
+        super(HCAM1, self).__init__()
         self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
         self.pool_w = nn.AdaptiveAvgPool2d((1, None))
 
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
+        self._pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
+        self._pool_w_ = nn.AdaptiveMaxPool2d((1, None))
 
         mip = max(8, inp // reduction)
 
@@ -554,15 +506,15 @@ class CoordAtt1(nn.Module):
         self.bn1 = nn.BatchNorm2d(mip)
         self.act = h_swish()
 
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
+        self._conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self._bn1_ = nn.BatchNorm2d(mip)
+        self._act_ = h_swish()
 
         self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
         self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
 
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self._conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self._conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
 
     def forward(self, x):
         identity = x
@@ -583,86 +535,21 @@ class CoordAtt1(nn.Module):
         a_w = self.conv_w(x_w).sigmoid()
 
         # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
+        _x_h_ = self._pool_h_(x)
+        _x_w_ = self._pool_w_(x).permute(0, 1, 3, 2)
 
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
+        _y_ = torch.cat([_x_h_, _x_w_], dim=2)
+        _y_ = self._conv1_(_y_)
+        _y_ = self._bn1_(_y_)
+        _y_ = self._act_(_y_)
 
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
+        _x_h_, _x_w_ = torch.split(_y_, [h, w], dim=2)
+        _x_w_ = _x_w_.permute(0, 1, 3, 2)
 
-        a_h_ = self.conv_h(x_h_).sigmoid()
-        a_w_ = self.conv_w(x_w_).sigmoid()
+        _a_h_ = self._conv_h_(_x_h_).sigmoid()
+        _a_w_ = self._conv_w_(_x_w_).sigmoid()
 
-        w = ((a_h * a_w) + (a_h_ * a_w_)).sigmoid()
-        out = identity * w
-
-        return out
-
-
-class CoordAtt3(nn.Module):
-    # 64.86, 62.16 63.78%
-    def __init__(self, inp, oup, reduction=32):
-        super(CoordAtt3, self).__init__()
-        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
-        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
-
-        self.pool_h_ = nn.AdaptiveMaxPool2d((None, 1))
-        self.pool_w_ = nn.AdaptiveMaxPool2d((1, None))
-
-        mip = max(8, inp // reduction)
-
-        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1 = nn.BatchNorm2d(mip)
-        self.act = h_swish()
-
-        self.conv1_ = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
-        self.bn1_ = nn.BatchNorm2d(mip)
-        self.act_ = h_swish()
-
-        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-        self.conv_h_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-        self.conv_w_ = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
-
-    def forward(self, x):
-        identity = x
-
-        n, c, h, w = x.size()
-        x_h = self.pool_h(x)
-        x_w = self.pool_w(x).permute(0, 1, 3, 2)
-
-        y = torch.cat([x_h, x_w], dim=2)
-        y = self.conv1(y)
-        y = self.bn1(y)
-        y = self.act(y)
-
-        x_h, x_w = torch.split(y, [h, w], dim=2)
-        x_w = x_w.permute(0, 1, 3, 2)
-
-        a_h = self.conv_h(x_h)
-        a_w = self.conv_w(x_w)
-
-        # max
-        x_h_ = self.pool_h_(x)
-        x_w_ = self.pool_w_(x).permute(0, 1, 3, 2)
-
-        y_ = torch.cat([x_h_, x_w_], dim=2)
-        y_ = self.conv1_(y_)
-        y_ = self.bn1_(y_)
-        y_ = self.act_(y_)
-
-        x_h_, x_w_ = torch.split(y_, [h, w], dim=2)
-        x_w_ = x_w_.permute(0, 1, 3, 2)
-
-        a_h_ = self.conv_h(x_h_)
-        a_w_ = self.conv_w(x_w_)
-
-        w = ((a_h + a_h_).sigmoid() * (a_w + a_w_).sigmoid())
+        w = ((a_h * a_w) + (_a_h_ * _a_w_)).sigmoid()
         out = identity * w
 
         return out

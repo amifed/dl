@@ -80,7 +80,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
-        self.hcam = CoordAtt(planes, planes, reduction)
+        self.hcam = HCAM1(planes, planes, reduction)
 
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x

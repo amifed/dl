@@ -25,13 +25,13 @@ import models.sppb_resnet as sppb_resnet
 import models.cbam_resnet as cbam_resnet
 import models.cbam_spp_resnet as cbam_spp_resnet
 import models.ca_resnet as ca_resnet
-import models.hcam_sppd_resnet as hcam_sppd_resnet
+import models.hcam_sppb_resnet as hcam_sppb_resnet
 import models.ca_cbam_resnet as ca_cbam_resnet
 import models.cbam_spp_resnet_alexnet as cbam_spp_resnet_alexnet
 import models.eca_cbam_resnet as eca_cbam_resnet
 import models.ca_cbam_spp_resnet_alexnet as ca_cbam_spp_resnet_alexnet
 import models.cbam_resnet_alexnet as cbam_resnet_alexnet
-import models.ccam_spp_resnet_alexnet as ccam_spp_resnet_alexnet
+import models.hcam_sppb_resnet_alexnet as hcam_sppb_resnet_alexnet
 import models
 import os
 import argparse
@@ -76,6 +76,7 @@ def train(
         save_model: bool,
         path: str,
         title: str,
+        msg: str,
         **kwargs) -> Tuple[List[float]]:
 
     # 1. dataset load
@@ -97,7 +98,7 @@ def train(
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=learning_rate)
     scheduler = optim.lr_scheduler.MultiStepLR(
-        optimizer, milestones=[64], gamma=0.1)
+        optimizer, milestones=[128], gamma=0.1)
 
     print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
@@ -131,7 +132,8 @@ def train(
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            # scheduler.step()
+            if epoch == 128:
+                scheduler.step()
             running_loss += loss.item()
 
         epoch_loss = running_loss / len(trainloader)
@@ -230,6 +232,8 @@ if __name__ == '__main__':
     # 预训练参数
     parser.add_argument('-pt', '--pretrained',
                         dest='pretrained', action='store_true')
+    # 预训练参数模型地址
+    parser.add_argument('-pth', dest='pth', type=str, default=None)
     # epoch
     parser.add_argument('-e', '--epochs',
                         dest='epochs', default=64, type=int)
@@ -257,7 +261,7 @@ if __name__ == '__main__':
     args['msg'] = " ".join(args['msg'])
 
     dataset_path = '/home/djy/dataset/dataset2_aug'
-    dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
+    # dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
     seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
     print(f'dataset_path: {dataset_path}')
     print(f"pretrained : {pretrained} \nparallel: {parallel}\n")

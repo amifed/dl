@@ -39,11 +39,24 @@ def run(command: Callable):
     os.system(command)
 
 
-args = ['-n sppb_resnet.resnet18 -e 128 -lr 0.001',
-        '-n hcam_resnet.resnet18 -e 128 -lr 0.001', ]
+# args = ['-n sppb_resnet.resnet18 -e 128 -lr 0.001',
+#         '-n hcam_resnet.resnet18 -e 128 -lr 0.001', ]
 
-# args = ['-n resnet.resnet18 -e 128 -lr 0.001',
-#         '-n resnet.resnet18 -e 128 -lr 0.001', ]
+# args = [
+#     '-n hcam_resnet.resnet18 -e 150 -lr 0.001 -sm',
+#     '-n hcam_sppb_resnet.resnet18 -e 150 -lr 0.001 -sm',
+#     '-n hcam_sppb_resnet_alexnet.resnet18 -e 256 -lr 0.001 -pl -sm',
+#     '-n alexnet.alexnet -e 150 -lr 0.001 -sm',
+#     '-n resnet.resnet34 -e 150 -lr 0.001 -sm',
+#     '-n ca_resnet.resnet18 -e 150 -lr 0.001 -sm',
+#     '-n resnet.resnet18 -e 150 -lr 0.001 -sm',
+# ]
+
+# 迁移学习
+args = [
+    '-e 150 -n hcam_sppb_resnet.resnet18 -pt -lr 0.001 -sm -pth /home/djy/dl/result/2021-12-31/08:13:19/model.pth -m continue to train from /home/djy/dl/result/2021-12-31/08:13:19/model.pth'
+    '-n sppb_resnet.resnet18 -e 64 -bs 40 -lr 0.001 -pt -sm',
+]
 
 commands = list(map(lambda arg: (lambda argv_str, result_dir,
                                  log_path: f'nohup python3 train.py {argv_str} {arg} -p {result_dir} > {log_path} &'), args))

@@ -336,13 +336,17 @@ def _resnet(
     layers: List[int],
     pretrained: bool,
     progress: bool,
+    pth: str = None,
     **kwargs: Any,
 ) -> ResNet:
     model = ResNet(block, layers, **kwargs)
     if pretrained:
-        state_dict = load_state_dict_from_url(model_urls[arch],
-                                              progress=progress)
-        model.load_state_dict(state_dict, strict=False)
+        if pth is None or pth == '':
+            state_dict = load_state_dict_from_url(
+                model_urls[arch], progress=progress)
+            model.load_state_dict(state_dict, strict=False)
+        else:
+            model.load_state_dict(torch.load(pth))
     return model
 
 

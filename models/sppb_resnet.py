@@ -360,7 +360,6 @@ def _resnet(
     **kwargs: Any,
 ) -> ResNet:
     model = ResNet(block, layers, **kwargs)
-    print(pth)
     if pretrained:
         if pth is None or pth == '':
             state_dict = load_state_dict_from_url(model_urls[arch],

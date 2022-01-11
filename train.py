@@ -20,7 +20,6 @@ import models.ghostnet as ghostnet
 import models.shufflenetv2 as shufflenetv2
 import models.ecanet as ecanet
 import models.eca_se_resnet as eca_se_resnet
-import models.spp_resnet as spp_resnet
 import models.sppb_resnet as sppb_resnet
 import models.cbam_resnet as cbam_resnet
 import models.cbam_spp_resnet as cbam_spp_resnet
@@ -45,8 +44,14 @@ basewidth = 320
 # wpercent = (basewidth/float(img.size[0]))
 # hsize = int((float(img.size[1])*float(wpercent)))
 # img = img.resize((320, hsize), Image.ANTIALIAS)
-
 transform = transforms.Compose([
+    transforms.Resize((320, 320)),
+    transforms.ToTensor(),
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))
+])
+
+
+transform_aug = transforms.Compose([
     transforms.RandomChoice(
         transforms=(
             transforms.ColorJitter(brightness=.5, hue=.3),
@@ -97,9 +102,10 @@ def train(
     # 3. define a loss function & optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=learning_rate)
-    scheduler = optim.lr_scheduler.MultiStepLR(
-        optimizer, milestones=[128], gamma=0.1)
-
+    # scheduler = optim.lr_scheduler.MultiStepLR(
+    #     optimizer, milestones=[100], gamma=0.1)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, 'min', patience=15, verbose=True)
     print(f'loss_function = {criterion}\noptimizer = {optimizer}\n')
 
     # 4. train
@@ -112,7 +118,7 @@ def train(
         now = time.time()
 
         print(f'\n========== Train Epoch {epoch + 1} ==========', end='\n')
-        print(f'Learning Rate: {scheduler.get_last_lr()}')
+        # print(f'Learning Rate: {scheduler.get_lr()}')
         """train"""
         net.train()
         running_loss = 0.0
@@ -132,11 +138,12 @@ def train(
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            if epoch == 128:
-                scheduler.step()
             running_loss += loss.item()
 
         epoch_loss = running_loss / len(trainloader)
+
+        scheduler.step(epoch_loss)
+
         train_loss_list.append(epoch_loss)
         print('Loss: %.3f' % (epoch_loss), end='\t')
 
@@ -255,14 +262,21 @@ if __name__ == '__main__':
     # message
     parser.add_argument('-m', '--msg',
                         dest='msg', nargs='*', type=str, default='')
+    # data augment
+    parser.add_argument('-a', '--augment', dest='augment', action='store_true')
     args = vars(parser.parse_args())
 
     pretrained, parallel = args['pretrained'], args['parallel']
     args['msg'] = " ".join(args['msg'])
 
-    dataset_path = '/home/djy/dataset/dataset2_aug'
-    # dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
-    seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
+    if args['augment']:
+        dataset_path = '/home/djy/dataset/dataset2_aug'
+        # dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
+        seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
+    else:
+        dataset_path = '/home/djy/dataset/dataset2'
+        # dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
+        seg_dataset_path = '/home/djy/dataset/ycrcb_hsv_dataset2'
     print(f'dataset_path: {dataset_path}')
     print(f"pretrained : {pretrained} \nparallel: {parallel}\n")
     if parallel:
@@ -273,17 +287,18 @@ if __name__ == '__main__':
 
     # dataset split
     dataset = ParallelImageFolder(
-        root=dataset_path, parallel_root=seg_dataset_path, transform=transform)
+        root=dataset_path, parallel_root=seg_dataset_path, transform=transform_aug if args['augment'] else transform)
     full_size = len(dataset)
     train_size = int(0.8 * full_size)
     valid_size = full_size - train_size
     trainset, validset = torch.utils.data.random_split(
-        dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(1))
+        dataset, [train_size, valid_size], generator=torch.Generator().manual_seed(24))
 
     # network
     network = args['network']
     pkg, f = network.split('.')
     args['network'] = eval(f'models.{pkg}.{f}')
 
+    del args['augment']
     # train
     train(trainset, validset, **args)

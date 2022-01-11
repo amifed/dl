@@ -24,6 +24,7 @@ __all__ = [
 
 
 model_urls = {
+    "alexnet": 'https://download.pytorch.org/models/alexnet-owt-7be5be79.pth',
     "resnet18": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
     "resnet34": "https://download.pytorch.org/models/resnet34-b627a593.pth",
     "resnet50": "https://download.pytorch.org/models/resnet50-0676ba61.pth",
@@ -215,7 +216,7 @@ class ResNet(nn.Module):
         self.sppb = SPP([5, 9, 13])
 
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
-        self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
+        self.__fc__ = nn.Linear((256 + 512) * block.expansion, num_classes)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -240,16 +241,21 @@ class ResNet(nn.Module):
         # parallel alexnet
         self.features = nn.Sequential(
             nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Conv2d(64, 192, kernel_size=5, padding=2),
+            nn.BatchNorm2d(192),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Conv2d(192, 384, kernel_size=3, padding=1),
+            nn.BatchNorm2d(384),
             nn.ReLU(inplace=True),
             nn.Conv2d(384, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
-            nn.Conv2d(256, 512, kernel_size=3, padding=1),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
         )
@@ -350,6 +356,33 @@ class ResNet(nn.Module):
         return self._forward_impl(x, y)
 
 
+def alexnet_load_state_dict_trans(state_dict):
+    features_map = {
+        '0': 0,
+        '3': 4,
+        '6': 8,
+        '8': 11,
+        '10': 14,
+    }
+    alexnet_state_dict = {}
+    for k in state_dict:
+        module, idx, block = str(k).split('.')
+        if module == 'features':
+            alexnet_state_dict[f'features.{features_map[idx]}.{block}'] = state_dict[f'features.{idx}.{block}']
+            alexnet_state_dict[f'features_.{features_map[idx]}.{block}'] = state_dict[f'features.{idx}.{block}']
+    return alexnet_state_dict
+
+
+def merge_state_dict(state_dict, *archs):
+    for arch in archs:
+        tmp_dict = load_state_dict_from_url(
+            model_urls[arch], progress=True)
+        if arch == 'alexnet':
+            tmp_dict = alexnet_load_state_dict_trans(tmp_dict)
+        state_dict.update(tmp_dict)
+    return state_dict
+
+
 def _resnet(
     arch: str,
     block: Type[Union[BasicBlock, Bottleneck]],
@@ -364,6 +397,7 @@ def _resnet(
         if pth is None or pth == '':
             state_dict = load_state_dict_from_url(
                 model_urls[arch], progress=progress)
+            state_dict = merge_state_dict(state_dict, 'alexnet')
             model.load_state_dict(state_dict, strict=False)
         else:
             model.load_state_dict(torch.load(pth), strict=False)
@@ -544,7 +578,7 @@ class CoordAtt(nn.Module):
 
 class HCAM1(nn.Module):
     # 65.41, 61.62% 65.95%
-    def __init__(self, inp, oup, reduction=32):
+    def __init__(self, inp, oup, reduction=8):
         super(HCAM1, self).__init__()
         self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
         self.pool_w = nn.AdaptiveAvgPool2d((1, None))

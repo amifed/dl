@@ -207,7 +207,8 @@ class ResNet(nn.Module):
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
 
-        self.spppool = SPPB([5, 9, 13])
+        self.sppb = SPPB([5, 9, 13])
+        self.sppb_ = SPPB([5, 9, 13])
 
         self.conv1_ = nn.Conv2d(
             3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
@@ -295,12 +296,8 @@ class ResNet(nn.Module):
             x = self.bn1(x)
             x = self.relu(x)
             # x = self.maxpool(x)
-
             # spp
-            x = self.spppool(x)
-            x = self.convspp(x)
-            x = self.bnspp(x)
-            x = self.reluspp(x)
+            x = self.sppb(x)
 
             x = self.layer1(x)
             x = self.layer2(x)
@@ -313,8 +310,7 @@ class ResNet(nn.Module):
             y = self.conv1_(y)
             y = self.bn1_(y)
             y = self.relu_(y)
-            y = self.maxpool_(y)
-
+            y = self.sppb_(y)
             y = self.layer1_(y)
             y = self.layer2_(y)
             y = self.layer3_(y)
@@ -331,9 +327,8 @@ class ResNet(nn.Module):
         x = self.bn1(x)
         x = self.relu(x)
         # x = self.maxpool(x)
-
         # spp
-        x = self.spppool(x)
+        x = self.sppb(x)
 
         x = self.layer1(x)
         x = self.layer2(x)

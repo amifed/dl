@@ -363,6 +363,7 @@ def _resnet(
     layers: List[int],
     pretrained: bool,
     progress: bool,
+    pth: str = None,
     **kwargs: Any,
 ) -> ResNet:
     model = ResNet(block, layers, **kwargs)

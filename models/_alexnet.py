@@ -18,7 +18,28 @@ class AlexNet(nn.Module):
     def __init__(self, num_classes: int = 1000, dropout: float = 0.5) -> None:
         super().__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=5, padding=2),
+            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(64, 192, kernel_size=5, padding=2),
+            nn.BatchNorm2d(192),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(192, 384, kernel_size=3, padding=1),
+            nn.BatchNorm2d(384),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(384, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+        )
+
+        self.features_ = nn.Sequential(
+            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
@@ -50,10 +71,11 @@ class AlexNet(nn.Module):
         self.conv5 = nn.Conv2d(256, 256, kernel_size=3, padding=1)
         self.relu5 = nn.ReLU(inplace=True)
         self.pool2 = nn.MaxPool2d(kernel_size=3, stride=2)
-        self.avgpool = nn.AdaptiveAvgPool2d((3, 3))
+        self.avgpool = nn.AdaptiveAvgPool2d((6, 6))
+        self.avgpool_ = nn.AdaptiveAvgPool2d((6, 6))
         self.classifier_ = nn.Sequential(
             nn.Dropout(p=dropout),
-            nn.Linear(256 * 3 * 3, 4096),
+            nn.Linear(256 * 6 * 6, 4096),
             nn.ReLU(inplace=True),
             nn.Dropout(p=dropout),
             nn.Linear(4096, 4096),
@@ -62,7 +84,7 @@ class AlexNet(nn.Module):
         )
         self.__classifier__ = nn.Sequential(
             nn.Dropout(p=dropout),
-            nn.Linear(2 * 256 * 3 * 3, 4096),
+            nn.Linear(2 * 256 * 6 * 6, 4096),
             nn.ReLU(inplace=True),
             nn.Dropout(p=dropout),
             nn.Linear(4096, 4096),
@@ -72,8 +94,8 @@ class AlexNet(nn.Module):
 
     def forward(self, x: torch.Tensor, y: torch.Tensor = None) -> torch.Tensor:
         if y is not None:
-            x, y = self.features(x), self.features(y)
-            x, y = self.avgpool(x), self.avgpool(y)
+            x, y = self.features(x), self.features_(y)
+            x, y = self.avgpool(x), self.avgpool_(y)
             z = torch.cat((x, y), 1)
             z = torch.flatten(z, 1)
             z = self.__classifier__(z)
@@ -111,7 +133,24 @@ class AlexNet(nn.Module):
         return x
 
 
-def _alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> AlexNet:
+def alexnet_load_state_dict_trans(state_dict):
+    features_map = {
+        '0': 0,
+        '3': 4,
+        '6': 8,
+        '8': 11,
+        '10': 14,
+    }
+    alexnet_state_dict = {}
+    for k in state_dict:
+        module, idx, block = str(k).split('.')
+        if module == 'features':
+            alexnet_state_dict[f'features.{features_map[idx]}.{block}'] = state_dict[f'features.{idx}.{block}']
+            alexnet_state_dict[f'features_.{features_map[idx]}.{block}'] = state_dict[f'features.{idx}.{block}']
+    return alexnet_state_dict
+
+
+def _alexnet(pretrained: bool = False, progress: bool = True, pth: str = None, **kwargs: Any) -> AlexNet:
     r"""AlexNet model architecture from the
     `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
     The required minimum input size of the model is 63x63.
@@ -124,5 +163,6 @@ def _alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> 
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls['alexnet'],
                                               progress=progress)
+        state_dict = alexnet_load_state_dict_trans(state_dict)
         model.load_state_dict(state_dict, strict=False)
     return model

@@ -52,7 +52,7 @@ class AlexNet(nn.Module):
         return x
 
 
-def alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> AlexNet:
+def alexnet(pretrained: bool = False, progress: bool = True, pth: str = None, **kwargs: Any) -> AlexNet:
     r"""AlexNet model architecture from the
     `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
     The required minimum input size of the model is 63x63.
@@ -65,5 +65,5 @@ def alexnet(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> A
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls['alexnet'],
                                               progress=progress)
-        model.load_state_dict(state_dict)
+        model.load_state_dict(state_dict, strict=False)
     return model

@@ -67,6 +67,8 @@ class BasicBlock(nn.Module):
         base_width: int = 64,
         dilation: int = 1,
         norm_layer: Optional[Callable[..., nn.Module]] = None,
+        reduction=16,
+        k_size=3
     ) -> None:
         super().__init__()
         if norm_layer is None:
@@ -86,6 +88,8 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
         self.stride = stride
 
+        self.ca = CoordAtt(planes, planes)
+
     def forward(self, x: Tensor, y: Tensor = None) -> Tensor:
         identity = x
 
@@ -95,6 +99,8 @@ class BasicBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
+
+        out = self.ca(out)
 
         if self.downsample is not None:
             identity = self.downsample(x)
@@ -197,7 +203,11 @@ class ResNet(nn.Module):
             3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
         self.bn1 = norm_layer(self.inplanes)
         self.relu = nn.ReLU(inplace=True)
+
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+
+        self.sppb = SPPB([5, 9, 13])
+
         self.layer1 = self._make_layer(block, 64, layers[0])
         self.layer2 = self._make_layer(
             block, 128, layers[1], stride=2, dilate=replace_stride_with_dilation[0])
@@ -206,27 +216,6 @@ class ResNet(nn.Module):
         self.layer4 = self._make_layer(
             block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-
-        self.spppool = SPP([1, 5, 7, 13])
-        self.convspp = nn.Conv2d(
-            64 * 4, 64, kernel_size=7, stride=2, padding=3, bias=False)
-        self.bnspp = norm_layer(self.inplanes // 8)
-        self.reluspp = nn.ReLU(inplace=True)
-
-        self.conv1_ = nn.Conv2d(
-            3, self.inplanes, kernel_size=7, stride=2, padding=3, bias=False)
-        self.bn1_ = norm_layer(self.inplanes)
-        self.relu_ = nn.ReLU(inplace=True)
-        self.maxpool_ = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
-        self.layer1_ = self._make_layer(block, 64, layers[0])
-        self.layer2_ = self._make_layer(
-            block, 128, layers[1], stride=2, dilate=replace_stride_with_dilation[0])
-        self.layer3_ = self._make_layer(
-            block, 256, layers[2], stride=2, dilate=replace_stride_with_dilation[1])
-        self.layer4_ = self._make_layer(
-            block, 512, layers[3], stride=2, dilate=replace_stride_with_dilation[2])
-        self.avgpool_ = nn.AdaptiveAvgPool2d((1, 1))
-
         self.fc_ = nn.Linear(512 * block.expansion, num_classes)
         self.__fc__ = nn.Linear(2 * 512 * block.expansion, num_classes)
 
@@ -292,55 +281,12 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def _forward_impl(self, x: Tensor, y: Tensor = None) -> Tensor:
-        if y is not None:
-
-            # See note [TorchScript super()]
-            x = self.conv1(x)
-            x = self.bn1(x)
-            x = self.relu(x)
-            # x = self.maxpool(x)
-
-            # spp
-            x = self.spppool(x)
-            x = self.convspp(x)
-            x = self.bnspp(x)
-            x = self.reluspp(x)
-
-            x = self.layer1(x)
-            x = self.layer2(x)
-            x = self.layer3(x)
-            x = self.layer4(x)
-
-            x = self.avgpool(x)
-
-            # parallel input y with different params
-            y = self.conv1_(y)
-            y = self.bn1_(y)
-            y = self.relu_(y)
-            y = self.maxpool_(y)
-
-            y = self.layer1_(y)
-            y = self.layer2_(y)
-            y = self.layer3_(y)
-            y = self.layer4_(y)
-
-            y = self.avgpool_(y)
-
-            z = torch.cat((x, y), 1)
-            z = torch.flatten(z, 1)
-            z = self.__fc__(z)
-            return z
-
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
         # x = self.maxpool(x)
-
-        # spp
-        x = self.spppool(x)
-        x = self.convspp(x)
-        x = self.bnspp(x)
-        x = self.reluspp(x)
+        # sppb
+        x = self.sppb(x)
 
         x = self.layer1(x)
         x = self.layer2(x)
@@ -363,13 +309,17 @@ def _resnet(
     layers: List[int],
     pretrained: bool,
     progress: bool,
+    pth: str = None,
     **kwargs: Any,
 ) -> ResNet:
     model = ResNet(block, layers, **kwargs)
     if pretrained:
-        state_dict = load_state_dict_from_url(model_urls[arch],
-                                              progress=progress)
-        model.load_state_dict(state_dict, strict=False)
+        if pth is None or pth == '':
+            state_dict = load_state_dict_from_url(
+                model_urls[arch], progress=progress)
+            model.load_state_dict(state_dict, strict=False)
+        else:
+            model.load_state_dict(torch.load(pth))
     return model
 
 
@@ -488,18 +438,89 @@ def wide_resnet101_2(pretrained: bool = False, progress: bool = True, **kwargs: 
     return _resnet("wide_resnet101_2", Bottleneck, [3, 4, 23, 3], pretrained, progress, **kwargs)
 
 
-class SPP(nn.Module):
-    def __init__(self, kernel_size_list: List[int]):
-        super(SPP, self).__init__()
-        self.pools = []
-        for kernel_size in kernel_size_list:
-            self.pools.append(nn.MaxPool2d(
-                kernel_size=kernel_size, stride=1, padding=kernel_size // 2))
-        # self.pool1 = nn.MaxPool2d(kernel_size=4, stride=1, padding=4 // 2)
-        # self.pool2 = nn.MaxPool2d(kernel_size=8, stride=1, padding=8 // 2)
-        # self.pool3 = nn.MaxPool2d(kernel_size=12, stride=1, padding=12 // 2)
+class h_sigmoid(nn.Module):
+    def __init__(self, inplace=True):
+        super(h_sigmoid, self).__init__()
+        self.relu = nn.ReLU6(inplace=inplace)
 
     def forward(self, x):
-        pooled = [pool(x) for pool in self.pools]
+        return self.relu(x + 3) / 6
+
+
+class h_swish(nn.Module):
+    def __init__(self, inplace=True):
+        super(h_swish, self).__init__()
+        self.sigmoid = h_sigmoid(inplace=inplace)
+
+    def forward(self, x):
+        return x * self.sigmoid(x)
+
+
+class CoordAtt(nn.Module):
+    # 61.62
+    def __init__(self, inp, oup, reduction=32):
+        super(CoordAtt, self).__init__()
+        self.pool_h = nn.AdaptiveAvgPool2d((None, 1))
+        self.pool_w = nn.AdaptiveAvgPool2d((1, None))
+
+        mip = max(8, inp // reduction)
+
+        self.conv1 = nn.Conv2d(inp, mip, kernel_size=1, stride=1, padding=0)
+        self.bn1 = nn.BatchNorm2d(mip)
+        self.act = h_swish()
+
+        self.conv_h = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+        self.conv_w = nn.Conv2d(mip, oup, kernel_size=1, stride=1, padding=0)
+
+    def forward(self, x):
+        identity = x
+
+        n, c, h, w = x.size()
+        x_h = self.pool_h(x)
+        x_w = self.pool_w(x).permute(0, 1, 3, 2)
+
+        y = torch.cat([x_h, x_w], dim=2)
+        y = self.conv1(y)
+        y = self.bn1(y)
+        y = self.act(y)
+
+        x_h, x_w = torch.split(y, [h, w], dim=2)
+        x_w = x_w.permute(0, 1, 3, 2)
+
+        a_h = self.conv_h(x_h).sigmoid()
+        a_w = self.conv_w(x_w).sigmoid()
+
+        out = identity * a_w * a_h
+
+        return out
+
+
+class Conv(nn.Module):
+    # Standard convolution
+    # ch_in, ch_out, kernel, stride, padding, groups
+    def __init__(self, c1, c2, k=1, s=1, dilation=1):
+        super(Conv, self).__init__()
+        self.conv = nn.Conv2d(c1, c2, k, s, dilation=dilation, bias=False)
+        self.bn = nn.BatchNorm2d(c2)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        return self.relu(self.bn(self.conv(x)))
+
+
+class SPPB(nn.Module):
+    def __init__(self, kernel_size: List[int], c1_in: int = 64, c2_out: int = 64):
+        super(SPPB, self).__init__()
+        c1_out = c1_in // 2
+        c2_in = c1_out * (len(kernel_size) + 1)
+        self.conv1 = Conv(c1_in, c1_out, 1, 1, dilation=1)
+        self.conv2 = Conv(c2_in, c2_out, 1, 1, dilation=1)
+        self.pools = nn.ModuleList(
+            [nn.MaxPool2d(kernel_size=x, stride=1, padding=x // 2) for x in kernel_size])
+
+    def forward(self, x):
+        x = self.conv1(x)
+        pooled = [x] + [pool(x) for pool in self.pools]
         x = torch.cat(pooled, dim=1)
+        x = self.conv2(x)
         return x

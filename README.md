@@ -14,7 +14,9 @@ $$
 N = (W - F + 2P) / S + 1
 $$
 
-> 输入图片大小 $W \times W$
-> $\text{Filter}$ 大小 $F \times F$
-> 步长 $S$
-> $\text{padding}$ 的像素数 $P$
+> 输入图片大小 $W \times W$ > $\text{Filter}$ 大小 $F \times F$
+> 步长 $S$ > $\text{padding}$ 的像素数 $P$
+
+### 参考文章
+
+- [动态调整学习率](!https://blog.csdn.net/qq_42079689/article/details/102806940)

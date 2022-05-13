@@ -16,6 +16,55 @@ torch.cuda.empty_cache()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+def YCrCb(source, target):
+    try:
+        img = cv2.imread(source)
+
+        # converting from gbr to YCbCr color space
+        img_YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+
+        # skin color range for hsv YCbCr space
+        YCrCb_mask = cv2.inRange(img_YCrCb, (0, 135, 85), (255, 180, 135))
+        # YCrCb_mask = cv2.inRange(img_YCrCb, (0, 0, 20), (234, 23, 10))
+        YCrCb_mask = cv2.medianBlur(YCrCb_mask, 7)
+        YCrCb_mask = cv2.morphologyEx(
+            YCrCb_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        YCrCb_mask = cv2.morphologyEx(
+            YCrCb_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+
+        YCrCb_result = cv2.bitwise_not(YCrCb_mask)
+        # 抠图
+        # global_result = cv2.bitwise_and(img, img, mask=global_mask)
+
+        cv2.imwrite(target, YCrCb_result)
+    except Exception as e:
+        print(e)
+
+
+def HSV(source, target):
+    try:
+        img = cv2.imread(source)
+
+        # converting from gbr to hsv color space
+        img_HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        # skin color range for hsv color space
+        HSV_mask = cv2.inRange(img_HSV, (0, 15, 0), (17, 170, 255))
+        HSV_mask = cv2.medianBlur(HSV_mask, 7)
+        # 先开后闭
+        HSV_mask = cv2.morphologyEx(
+            HSV_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        HSV_mask = cv2.morphologyEx(
+            HSV_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
+
+        HSV_result = cv2.bitwise_not(HSV_mask)
+        # 抠图
+        # global_result = cv2.bitwise_and(img, img, mask=global_mask)
+
+        cv2.imwrite(target, HSV_result)
+    except Exception as e:
+        print(e)
+
+
 def YCrCb_HSV(source, target):
     try:
         img = cv2.imread(source)
@@ -25,6 +74,9 @@ def YCrCb_HSV(source, target):
         # skin color range for hsv color space
         HSV_mask = cv2.inRange(img_HSV, (0, 15, 0), (17, 170, 255))
         HSV_mask = cv2.medianBlur(HSV_mask, 7)
+        # 先开后闭
+        HSV_mask = cv2.morphologyEx(
+            HSV_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
         HSV_mask = cv2.morphologyEx(
             HSV_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
 
@@ -36,11 +88,15 @@ def YCrCb_HSV(source, target):
         # YCrCb_mask = cv2.inRange(img_YCrCb, (0, 0, 20), (234, 23, 10))
         YCrCb_mask = cv2.medianBlur(YCrCb_mask, 7)
         YCrCb_mask = cv2.morphologyEx(
+            YCrCb_mask, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+        YCrCb_mask = cv2.morphologyEx(
             YCrCb_mask, cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8))
 
         # merge skin detection (YCbCr and hsv)
         global_mask = cv2.bitwise_and(HSV_mask, YCrCb_mask)
         global_mask = cv2.medianBlur(global_mask, 11)
+        global_mask = cv2.morphologyEx(
+            global_mask, cv2.MORPH_OPEN, np.ones((4, 4), np.uint8))
         global_mask = cv2.morphologyEx(
             global_mask, cv2.MORPH_CLOSE, np.ones((4, 4), np.uint8))
 
@@ -102,8 +158,11 @@ def segment(source, target, method):
     for classname in tqdm(os.listdir(source)):
         origin, dist = os.path.join(
             source, classname), os.path.join(target, classname)
+        print(classname)
         if not os.path.exists(dist):
             os.mkdir(dist)
+        if (not os.path.isdir(origin)) or (classname != 'bzx'):
+            continue
         for filename in os.listdir(origin):
             if not filename.endswith('.jpg') and not filename.endswith('.jpeg') and not filename.endswith('.png'):
                 continue
@@ -119,7 +178,7 @@ if __name__ == '__main__':
     #                        'deeplabv3_resnet50', pretrained=True)
     # model.to(device)
     # torch.cuda.empty_cache()
-    source = '/home/djy/dataset/dataset2_aug'
+    source = '/Users/jinyang/File/dataset'
     # target = '/home/djy/dataset/deeplabv3_dataset_aug'
-    target = '/home/djy/dataset/ycrcb_hsv_dataset2_aug'
+    target = '/Users/jinyang/File/ycbcr_hsv_dataset'
     segment(source, target, YCrCb_HSV)
